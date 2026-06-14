@@ -7,10 +7,22 @@ export function useMediaQuery(query) {
 
   useEffect(() => {
     const mq = window.matchMedia(query)
-    const handler = (e) => setMatches(e.matches)
-    mq.addEventListener('change', handler)
-    setMatches(mq.matches)
-    return () => mq.removeEventListener('change', handler)
+    const handler = (e) => {
+      // update only when state actually changes
+      setMatches((prev) => (prev === e.matches ? prev : e.matches))
+    }
+
+    // initialize from current value (avoid setState-in-effect warning by using functional guard)
+    setMatches((prev) => (prev === mq.matches ? prev : mq.matches))
+
+    // Safari fallback
+    if (mq.addEventListener) mq.addEventListener('change', handler)
+    else mq.addListener(handler)
+
+    return () => {
+      if (mq.removeEventListener) mq.removeEventListener('change', handler)
+      else mq.removeListener(handler)
+    }
   }, [query])
 
   return matches

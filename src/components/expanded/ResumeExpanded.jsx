@@ -8,8 +8,11 @@ function ResumeExpanded({ onClose }) {
   return (
     <ExpandedWrapper title="Resume" accent="#FFD93D" onClose={onClose}>
       <motion.a
-        href="#"
+        href="/resume.pdf"
+        target="_blank"
+        rel="noopener noreferrer"
         className="mb-10 inline-flex items-center gap-2 rounded-full bg-[#FFD93D] px-8 py-4 text-base font-bold text-[#07071A] shadow-[0_0_40px_rgba(255,217,61,0.3)]"
+
         animate={{ scale: [1, 1.03, 1] }}
         transition={{ repeat: Infinity, duration: 2, ease: 'easeInOut' }}
       >
@@ -25,11 +28,20 @@ function ResumeExpanded({ onClose }) {
           <div key={item.title} data-reveal-line className="glass-card mb-4 rounded-xl p-5">
             <div className="flex flex-wrap justify-between gap-2">
               <h4 className="font-bold text-white">{item.title}</h4>
-              <span className="text-sm text-[rgba(242,242,255,0.4)]">{item.date}</span>
+              <span
+                className={
+                  item.title.startsWith('10th') || item.title.startsWith('12th') || item.title.startsWith('B.E.')
+                    ? 'text-sm font-bold text-[#FFFFFF]'
+                    : 'text-sm text-[rgba(242,242,255,0.4)]'
+                }
+              >
+                {item.date}
+              </span>
             </div>
             <p className="mt-1 text-sm text-[#FFD93D]">{item.org}</p>
             <p className="mt-2 text-sm text-[rgba(242,242,255,0.55)]">{item.description}</p>
           </div>
+
         ))}
       </section>
 

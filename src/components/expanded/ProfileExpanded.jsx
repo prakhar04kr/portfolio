@@ -9,16 +9,18 @@ const PLATFORMS = [
     key: 'github',
     Icon: IconBrandGithub,
     label: 'GitHub',
-    handle: '@alexrivera',
+    handle: 'prakhar04kr',
     url: DEVELOPER.social.github,
-    stats: '142 repos · 2.4K followers',
+
+    stats: 'Project · Portfolio Highlights',
     color: '#A855F7',
   },
   {
     key: 'linkedin',
     Icon: IconBrandLinkedin,
     label: 'LinkedIn',
-    handle: '/in/alexrivera',
+    handle: '/in/prakhar-kumar-7512aa311',
+
     url: DEVELOPER.social.linkedin,
     stats: '500+ connections · Open to work',
     color: '#0A66C2',
@@ -27,7 +29,8 @@ const PLATFORMS = [
     key: 'leetcode',
     Icon: IconBrandLeetcode,
     label: 'LeetCode',
-    handle: '@alexrivera',
+    handle: 'prakhar04kr',
+
     url: DEVELOPER.social.leetcode,
     stats: '1,024 solved · Top 5%',
     color: '#FFA116',

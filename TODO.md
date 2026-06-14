@@ -1,0 +1,3 @@
+- [x] Inspect failing render path for desktop globe cards
+- [x] Implement fix in `src/App.jsx` to ensure `cardsVisible` becomes `true` reliably after loader completion
+- [x] Run dev server and manually verify top header card visibility + orbit works

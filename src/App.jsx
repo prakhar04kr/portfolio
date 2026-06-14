@@ -29,6 +29,13 @@ function AppContent() {
   const [loaderDone, setLoaderDone] = useState(reducedMotion)
   const [cardsVisible, setCardsVisible] = useState(reducedMotion)
   const [starfieldVisible, setStarfieldVisible] = useState(reducedMotion)
+
+  // Keep globe cards visible after loader completes.
+  // Avoids breakpoint/resize races leaving Html overlays hidden.
+  useEffect(() => {
+    if (loaderDone) setCardsVisible(true)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [loaderDone])
   const [hoverId, setHoverId] = useState(null)
   const [activeId, setActiveId] = useState(null)
   const [activeSection, setActiveSection] = useState('about')
@@ -42,9 +49,19 @@ function AppContent() {
   useLenis(!reducedMotion && !isMobile)
 
   useEffect(() => {
-    if (!loaderDone || reducedMotion) return
+    if (!loaderDone) return
 
-    const timer = setTimeout(() => setCardsVisible(true), 1700)
+    // Ensure globe card HTML overlays are never stuck invisible.
+    // Avoid direct setState synchronously in render; schedule it.
+    const timer = setTimeout(() => setCardsVisible(true), reducedMotion ? 0 : 1700)
+
+    if (reducedMotion) {
+      setStarfieldVisible(true)
+      // starfieldVisible can be toggled without affecting globe HTML visibility
+      // (we keep cards visible immediately via the scheduled timer).
+      return () => clearTimeout(timer)
+    }
+
     const starTimer = setTimeout(() => setStarfieldVisible(true), 2200)
     return () => {
       clearTimeout(timer)
@@ -112,12 +129,11 @@ function AppContent() {
       const index = CARDS.findIndex((c) => c.id === id || c.navId === id)
       if (index >= 0) {
         rotateToCardIndex(index)
-        if (isMobile || isTablet) {
-          handleClick(CARDS[index].id)
-        }
+        // Desktop must also open the expanded overlay.
+        handleClick(CARDS[index].id)
       }
     },
-    [rotateToCardIndex, isMobile, isTablet, handleClick],
+    [rotateToCardIndex, handleClick],
   )
 
   const handleIndexClick = useCallback(

@@ -1,77 +1,77 @@
 export const DEVELOPER = {
-  name: 'Alex Rivera',
-  monogram: 'AR',
-  title: 'Full-Stack Developer & Designer',
-  location: 'San Francisco, CA',
-  email: 'alex.rivera@email.com',
-  bio: 'I craft immersive digital experiences at the intersection of design and engineering. With 6+ years building products for startups and enterprises, I specialize in React ecosystems, real-time systems, and motion-rich interfaces that feel alive.',
+  name: 'Prakhar Kumar',
+  monogram: 'PK',
+  title: 'Full-Stack Developer',
+  location: 'Chennai, India',
+  email: 'kumar04prakhar@gmail.com',
+
+  bio: 'I craft immersive digital experiences at the intersection of design and engineering.Building products for startups and enterprises, I specialize in React ecosystems, real-time systems, and motion-rich interfaces that feel alive.',
   shortBio: 'Building products at the intersection of design & engineering. 6+ years shipping for startups & enterprise.',
   status: 'Open to Work',
+
   social: {
-    github: 'https://github.com/alexrivera',
-    linkedin: 'https://linkedin.com/in/alexrivera',
-    leetcode: 'https://leetcode.com/alexrivera',
-    twitter: 'https://twitter.com/alexrivera',
+    github: 'https://github.com/prakhar04kr',
+    linkedin: 'https://linkedin.com/in/prakhar-kumar-7512aa311',
+    leetcode: 'https://leetcode.com/',
+    twitter: 'https://twitter.com/',
   },
-  photo: 'https://picsum.photos/seed/alexrivera/400/500',
+  photo: 'https://picsum.photos/seed/prakharkumar/400/500',
 }
+
 
 export const PROJECTS = [
   {
     id: 1,
-    title: 'AI SaaS Dashboard',
-    description: 'Enterprise analytics platform with GPT-powered insights, real-time data pipelines, and customizable reporting widgets.',
-    tech: ['React', 'Python', 'OpenAI'],
+    title: 'Dynamic Web-Based Expense Tracker',
+    description:
+      'Java, JSP, Servlet full-stack web application for real-time tracking of financial input data. Implemented a graph analysis module to visualize expenditure trends, included a savings plan generator, and added a real-time alert system for budget thresholds to improve financial discipline.',
+    tech: ['Java', 'JSP', 'Servlet'],
     live: '#',
     github: '#',
-    image: 'https://picsum.photos/seed/aisaas/600/400',
+    image: 'https://picsum.photos/seed/expense-tracker/600/400',
   },
   {
     id: 2,
-    title: 'Design System Library',
-    description: 'Comprehensive component library with Storybook documentation, Figma tokens sync, and accessibility-first patterns.',
-    tech: ['Storybook', 'Figma', 'TypeScript'],
+    title: 'Sales Data Dashboard',
+    description:
+      'Python-based analytics for large sales datasets using Pandas and visualization with Matplotlib. Built an interactive dashboard in a Jupyter Notebook to visualize KPIs like revenue growth and overall business performance.',
+    tech: ['Python', 'Pandas', 'Matplotlib'],
     live: '#',
     github: '#',
-    image: 'https://picsum.photos/seed/designsys/600/400',
+    image: 'https://picsum.photos/seed/sales-dashboard/600/400',
   },
   {
     id: 3,
-    title: 'Mobile Banking App',
-    description: 'Secure fintech application with biometric auth, instant transfers, and spending analytics for 50K+ users.',
-    tech: ['React Native', 'Node', 'Stripe'],
+    title: 'YojnaConnect – Government Scheme Discovery Platform',
+    description:
+      'Full-stack platform built with React, Node.js, Express.js, and MySQL to help users discover relevant government welfare schemes. Features include scheme search, eligibility filtering, category-based recommendations, and detailed scheme pages via RESTful APIs with database integration.',
+    tech: ['React', 'Node.js', 'Express.js', 'MySQL'],
     live: '#',
     github: '#',
-    image: 'https://picsum.photos/seed/banking/600/400',
+    image: 'https://picsum.photos/seed/yojna-connect/600/400',
   },
   {
     id: 4,
-    title: 'Real-time Collab Tool',
-    description: 'Multiplayer whiteboard with WebRTC video, cursor presence, and conflict-free replicated data structures.',
-    tech: ['Socket.io', 'WebRTC', 'Next.js'],
+    title: 'Chess Engine Web App – Interactive Browser-Based Chess Platform',
+    description:
+      'Browser-based chess platform built with React + TypeScript and TanStack. Includes a custom AI engine powered by Negamax search, Alpha-Beta pruning, Zobrist hashing, and transposition tables. Features a responsive 3D user interface, board customization, hint generation, and game analytics.',
+    tech: ['React', 'TypeScript', 'TanStack'],
     live: '#',
     github: '#',
-    image: 'https://picsum.photos/seed/collab/600/400',
+    image: 'https://picsum.photos/seed/chess-engine/600/400',
   },
   {
     id: 5,
-    title: 'Portfolio Generator',
-    description: 'CLI + web tool that scaffolds animated portfolio sites with Three.js scenes and GSAP scroll sequences.',
-    tech: ['Vite', 'GSAP', 'Three.js'],
+    title: 'TypeRacer – Full-Stack Real-Time Web Application',
+    description:
+      'Multiplayer typing game built with React, Node.js, Socket.IO, and MySQL. Enables real-time race synchronization and live leaderboard updates. Includes secure authentication, WPM/accuracy tracking, RESTful APIs, and database-driven score management with a responsive UX.',
+    tech: ['React', 'Node.js', 'Socket.IO', 'MySQL'],
     live: '#',
     github: '#',
-    image: 'https://picsum.photos/seed/portfolio/600/400',
-  },
-  {
-    id: 6,
-    title: 'Open Source CLI Tool',
-    description: 'Developer productivity CLI with plugin architecture, GitHub Actions integration, and 2K+ weekly downloads.',
-    tech: ['Rust', 'GitHub Actions'],
-    live: '#',
-    github: '#',
-    image: 'https://picsum.photos/seed/cli/600/400',
+    image: 'https://picsum.photos/seed/typeracer/600/400',
   },
 ]
+
 
 export const SKILLS = {
   Frontend: [
@@ -99,37 +99,71 @@ export const SKILLS = {
 export const RESUME = {
   education: [
     {
-      title: 'B.S. Computer Science',
-      org: 'UC Berkeley',
-      date: '2016 — 2020',
-      description: 'Focus on Human-Computer Interaction and Distributed Systems. Dean\'s List, 3.8 GPA.',
+      title: 'B.E., Computer Science and Engineering',
+      org: 'Sathyabama Institute of Science and Technology, Chennai',
+      date: 'CGPA: 8.52/10.00 (2023 — 2027)',
+      description: '',
+    },
+    {
+      title: '10th (Railway High School)',
+      org: 'Patna',
+      date: '59.4% (2023)',
+      description: '',
+    },
+    {
+      title: '12th (Don Bosco Academy)',
+      org: 'Patna',
+      date: '87% (2021)',
+      description: '',
     },
   ],
   experience: [
     {
-      title: 'Senior Full-Stack Engineer',
-      org: 'NovaTech Labs',
-      date: '2022 — Present',
-      description: 'Lead frontend architecture for AI products. Built design system used by 40+ engineers.',
-    },
-    {
-      title: 'Full-Stack Developer',
-      org: 'PixelForge Studio',
-      date: '2020 — 2022',
-      description: 'Shipped 12 client products. Introduced React Native and automated testing pipelines.',
-    },
-    {
-      title: 'Frontend Intern',
-      org: 'Streamline Inc.',
-      date: '2019 — 2020',
-      description: 'Built dashboard components and contributed to open-source React libraries.',
+      title: 'Software Development Intern',
+      org: 'https://cloudspital.in/',
+      date: '',
+      description: '',
     },
   ],
   certifications: [
-    { title: 'AWS Solutions Architect', org: 'Amazon Web Services', date: '2023' },
-    { title: 'Meta Frontend Professional', org: 'Meta', date: '2022' },
+    {
+      title: 'Google AI Essentials',
+      org: 'Google',
+      date: '',
+    },
+    {
+      title: 'Google Prompting Essentials',
+      org: 'Google',
+      date: '',
+    },
+    {
+      title: 'Google Cybersecurity Professional Certificate',
+      org: 'Google',
+      date: '',
+    },
+    {
+      title: 'Google Student Ambassador',
+      org: 'Google',
+      date: '',
+    },
+    {
+      title: 'Data Analysis with Python',
+      org: 'IBM',
+      date: '',
+    },
+    {
+      title: 'Python 101 for Data Science',
+      org: 'IBM',
+      date: '',
+    },
+    {
+      title: 'Full Stack Development (MERN)',
+      org: 'Algoxfusion',
+      date: '',
+    },
   ],
 }
+
 
 export const ACHIEVEMENTS = [
   {
@@ -192,7 +226,7 @@ export const CARDS = [
     id: 'projects',
     navId: 'work',
     title: 'Projects',
-    subtitle: '6 shipped products',
+    subtitle: '5 highlighted builds',
     accent: '#00D9FF',
     icon: 'layout-grid',
     preview: {
@@ -253,7 +287,7 @@ export const CARDS = [
     id: 'featured',
     navId: 'featured',
     title: 'Featured Work',
-    subtitle: 'Latest launches & highlights',
+    subtitle: 'Selected portfolio highlights',
     accent: '#14B8A6',
     icon: 'rocket',
     preview: {

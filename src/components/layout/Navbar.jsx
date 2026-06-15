@@ -1,6 +1,7 @@
-import { memo, useEffect, useState } from 'react'
+import { memo, useState } from 'react'
 import { motion } from 'framer-motion'
-import { DEVELOPER, CARDS } from '../../data/cards'
+import { DEVELOPER } from '../../data/cards'
+
 
 const NAV_ITEMS = [
   { label: 'About', id: 'about' },

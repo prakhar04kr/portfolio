@@ -39,3 +39,4 @@ function SkillsExpanded({ onClose }) {
 }
 
 export default memo(SkillsExpanded)
+

@@ -7,8 +7,8 @@ function MobileCarousel({ onClick, cardsVisible }) {
   const [featured, setFeatured] = useState(0)
   const [hoverId, setHoverId] = useState(null)
   const dragX = useMotionValue(0)
-  const startX = useRef(0)
   const velocity = useRef(0)
+
 
   const goTo = useCallback(
     (index) => {

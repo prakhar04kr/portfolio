@@ -1,9 +1,10 @@
 import { memo, useEffect, useRef } from 'react'
 import gsap from 'gsap'
 
-export function useTextReveal(containerRef, active) {
+function useTextReveal(containerRef, active) {
   useEffect(() => {
     if (!active || !containerRef.current) return
+
 
     const headings = containerRef.current.querySelectorAll('[data-reveal-heading]')
     const lines = containerRef.current.querySelectorAll('[data-reveal-line]')
@@ -53,30 +54,30 @@ export function useTextReveal(containerRef, active) {
   }, [active, containerRef])
 }
 
+
+
 export function useSkillBars(containerRef, active) {
   useEffect(() => {
-    if (!active || !containerRef.current) return
+    if (!active || !containerRef?.current) return
 
     const bars = containerRef.current.querySelectorAll('[data-skill-bar]')
-    bars.forEach((bar, i) => {
-      const width = bar.dataset.skillBar
-      gsap.fromTo(
-        bar,
-        { width: '0%' },
-        {
-          width: `${width}%`,
-          duration: 0.8,
-          delay: i * 0.08,
-          ease: 'elastic.out(1, 0.6)',
-        },
-      )
+    bars.forEach((bar) => {
+      const target = Number(bar.dataset.skillBar || 0)
+      // Set initial to 0 then animate to target
+      bar.style.width = '0%'
+      gsap.to(bar, {
+        width: `${target}%`,
+        duration: 1.1,
+        ease: 'power3.out',
+      })
     })
-  }, [active, containerRef])
+  }, [containerRef, active])
 }
 
 const ExpandedWrapper = memo(function ExpandedWrapper({ children, title, accent, onClose }) {
   const ref = useRef(null)
   useTextReveal(ref, true)
+
 
   useEffect(() => {
     const onKey = (e) => {
@@ -100,4 +101,6 @@ const ExpandedWrapper = memo(function ExpandedWrapper({ children, title, accent,
   )
 })
 
+
 export default ExpandedWrapper
+

@@ -41,8 +41,9 @@ body {
   background: var(--color-page-bg);
   color: var(--color-text-primary);
   overflow-x: hidden;
-  cursor: none;
+  cursor: auto;
 }
+
 
 @media (max-width: 768px) {
   body {

@@ -24,6 +24,8 @@ function ProjectsExpanded({ onClose }) {
               alt={project.title}
               className="h-44 w-full object-cover"
               loading="lazy"
+              width="1200"
+              height="800"
             />
             <div className="p-5">
               <h3 className="text-lg font-bold text-white">{project.title}</h3>
@@ -41,21 +43,28 @@ function ProjectsExpanded({ onClose }) {
                   </span>
                 ))}
               </div>
+
               <div className="mt-4 flex gap-3">
                 <a
                   href={project.live}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="flex items-center gap-1 rounded-full bg-[#00D9FF] px-4 py-2 text-xs font-semibold text-[#07071A]"
                 >
                   Live <IconExternalLink size={14} />
                 </a>
+
                 <a
                   href={project.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="flex items-center gap-1 rounded-full border border-white/15 px-4 py-2 text-xs text-white/70 hover:bg-white/5"
                 >
                   GitHub <IconBrandGithub size={14} />
                 </a>
               </div>
             </div>
+
           </motion.article>
         ))}
       </div>

@@ -12,10 +12,12 @@ export function useMediaQuery(query) {
       setMatches((prev) => (prev === e.matches ? prev : e.matches))
     }
 
-    // initialize from current value (avoid setState-in-effect warning by using functional guard)
-    setMatches((prev) => (prev === mq.matches ? prev : mq.matches))
+    // initialize from current value only when it differs to avoid unnecessary updates
+    // Keep handler-only updates to avoid setState-in-effect complaints.
+    // The initial state is already set from `useState(() => ...)`.
 
     // Safari fallback
+
     if (mq.addEventListener) mq.addEventListener('change', handler)
     else mq.addListener(handler)
 

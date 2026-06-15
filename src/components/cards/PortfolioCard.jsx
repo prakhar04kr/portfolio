@@ -149,8 +149,8 @@ const PortfolioCard = memo(function PortfolioCard({
   animateIn,
   layoutMode = 'globe',
   setCursor,
-  mouseTilt = { x: 0, y: 0 },
 }) {
+
   const [localHover, setLocalHover] = useState(false)
   const cardRef = useRef(null)
   const Icon = ICONS[card.icon] || IconUserCircle

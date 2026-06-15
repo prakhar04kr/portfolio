@@ -19,7 +19,15 @@ function FeaturedExpanded({ onClose }) {
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: i * 0.08 }}
         >
-          <img src={project.image} alt={project.title} className="h-48 w-full object-cover md:h-auto md:w-64" />
+          <img
+            src={project.image}
+            alt={project.title}
+            className="h-48 w-full object-cover md:h-auto md:w-64"
+            loading="lazy"
+            width="1200"
+            height="800"
+          />
+
           <div className="p-6">
             <span className="text-xs font-medium text-[#14B8A6]">Featured #{i + 1}</span>
             <h3 className="mt-2 text-xl font-bold text-white">{project.title}</h3>

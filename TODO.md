@@ -1,3 +1,6 @@
-- [x] Inspect failing render path for desktop globe cards
-- [x] Implement fix in `src/App.jsx` to ensure `cardsVisible` becomes `true` reliably after loader completion
-- [x] Run dev server and manually verify top header card visibility + orbit works
+# TODO
+- [x] Investigate render issue root cause
+- [x] Fix desktop blank-content issue in `src/App.jsx` (ensure `min-width:1201px` renders content)
+
+- [ ] Verify layouts across breakpoints (desktop/tablet/mobile) and ensure no design/animation changes
+

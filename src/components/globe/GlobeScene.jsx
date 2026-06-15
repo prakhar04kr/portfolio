@@ -1,12 +1,15 @@
-import { memo, useRef, useMemo, useState, useCallback, useEffect } from 'react'
+import { memo, useRef, useMemo, useEffect } from 'react'
 import { Canvas, useFrame, useThree } from '@react-three/fiber'
+
+
 import { Html } from '@react-three/drei'
 import * as THREE from 'three'
-import { motion } from 'framer-motion'
+
 import PortfolioCard from '../cards/PortfolioCard'
 import { CARDS } from '../../data/cards'
 import { computeSpherePositions, lerp, GLOBE_RADIUS } from '../../utils/sphere'
-import { useGlobe } from '../../context/GlobeContext'
+import { useGlobe } from '../../context/useGlobe'
+
 
 const CARD_W = 320
 const CARD_H = 420
@@ -23,13 +26,13 @@ function GlobeCard({
   onLeave,
   onClick,
   setCursor,
-  groupRef,
 }) {
+
   const htmlRef = useRef(null)
   const localRef = useRef(null)
   const popRef = useRef(0)
   const opacityRef = useRef(1)
-  const tiltRef = useRef({ x: 0, y: 0 })
+
   const { camera } = useThree()
 
   const isHovered = hoverId === card.id
@@ -85,9 +88,11 @@ function GlobeCard({
             style={{
               width: CARD_W,
               height: CARD_H,
-              transform: `rotateX(${tiltRef.current.x}deg) rotateY(${tiltRef.current.y}deg)`,
+              // Keep stable transform without reading refs during render.
+              transform: 'rotateX(0deg) rotateY(0deg)',
               transition: 'opacity 0.3s',
             }}
+
           >
             <PortfolioCard
               card={card}
@@ -179,7 +184,6 @@ function GlobeGroup({
           onLeave={onLeave}
           onClick={onClick}
           setCursor={setCursor}
-          groupRef={groupRef}
         />
       ))}
     </group>

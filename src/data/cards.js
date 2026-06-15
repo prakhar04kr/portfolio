@@ -22,14 +22,16 @@ export const DEVELOPER = {
 export const PROJECTS = [
   {
     id: 1,
+
     title: 'Dynamic Web-Based Expense Tracker',
     description:
       'Java, JSP, Servlet full-stack web application for real-time tracking of financial input data. Implemented a graph analysis module to visualize expenditure trends, included a savings plan generator, and added a real-time alert system for budget thresholds to improve financial discipline.',
     tech: ['Java', 'JSP', 'Servlet'],
     live: '#',
     github: '#',
-    image: 'https://picsum.photos/seed/expense-tracker/600/400',
+    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80',
   },
+
   {
     id: 2,
     title: 'Sales Data Dashboard',
@@ -38,8 +40,9 @@ export const PROJECTS = [
     tech: ['Python', 'Pandas', 'Matplotlib'],
     live: '#',
     github: '#',
-    image: 'https://picsum.photos/seed/sales-dashboard/600/400',
+    image: 'https://images.unsplash.com/photo-1557825835-70d97fd7c6f0?auto=format&fit=crop&w=1200&q=80',
   },
+
   {
     id: 3,
     title: 'YojnaConnect – Government Scheme Discovery Platform',
@@ -48,18 +51,20 @@ export const PROJECTS = [
     tech: ['React', 'Node.js', 'Express.js', 'MySQL'],
     live: '#',
     github: '#',
-    image: 'https://picsum.photos/seed/yojna-connect/600/400',
+    image: 'https://images.unsplash.com/photo-1526378722484-bd91ca387e72?auto=format&fit=crop&w=1200&q=80',
   },
+
   {
     id: 4,
     title: 'Chess Engine Web App – Interactive Browser-Based Chess Platform',
     description:
       'Browser-based chess platform built with React + TypeScript and TanStack. Includes a custom AI engine powered by Negamax search, Alpha-Beta pruning, Zobrist hashing, and transposition tables. Features a responsive 3D user interface, board customization, hint generation, and game analytics.',
     tech: ['React', 'TypeScript', 'TanStack'],
-    live: '#',
+    live: 'https://chess.prakharkr.online/',
     github: '#',
-    image: 'https://picsum.photos/seed/chess-engine/600/400',
+    image: 'https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=1200&q=80',
   },
+
   {
     id: 5,
     title: 'TypeRacer – Full-Stack Real-Time Web Application',
@@ -68,9 +73,10 @@ export const PROJECTS = [
     tech: ['React', 'Node.js', 'Socket.IO', 'MySQL'],
     live: '#',
     github: '#',
-    image: 'https://picsum.photos/seed/typeracer/600/400',
+    image: 'https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=1200&q=80',
   },
 ]
+
 
 
 export const SKILLS = {

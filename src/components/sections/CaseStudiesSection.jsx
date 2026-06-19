@@ -58,60 +58,6 @@ const CASE_STUDIES = [
     ],
   },
   {
-    key: 'typeracer',
-    title: 'TypeRacer',
-    fullTitle: 'TypeRacer – Full-Stack Real-Time Multiplayer Typing Platform',
-    domain: 'Real-Time Systems • Multiplayer Applications • Web Gaming',
-    accent: '#A855F7',
-    overview:
-      'TypeRacer is a multiplayer typing application where users compete in synchronized typing races with live progress updates, leaderboards, and performance tracking.',
-    problem:
-      'Most typing applications do not provide real-time competitive multiplayer experiences with synchronized gameplay.',
-    solution:
-      'Built a Socket.IO-powered real-time architecture capable of synchronizing typing races among multiple users while tracking performance metrics.',
-    tech: {
-      Frontend: ['React', 'JavaScript', 'HTML', 'CSS'],
-      Backend: ['Node.js', 'Express.js'],
-      Database: ['MySQL'],
-      'Real-Time': ['Socket.IO', 'WebSockets'],
-    },
-    features: [
-      'Multiplayer Racing',
-      'Live Synchronization',
-      'Leaderboards',
-      'WPM Tracking',
-      'Accuracy Tracking',
-      'User Profiles',
-      'Historical Performance',
-    ],
-    challenges: [
-      'Multi-user synchronization',
-      'Concurrent user handling',
-      'WebSocket event management',
-      'Live leaderboard updates',
-      'Score consistency',
-    ],
-    unique: [
-      'Real-time multiplayer architecture',
-      'Competitive gameplay',
-      'WebSocket communication',
-      'Performance analytics',
-    ],
-    future: [
-      'Matchmaking System',
-      'Tournament Mode',
-      'Global Rankings',
-      'Friend Challenges',
-      'AI Opponent Mode',
-    ],
-    learning: [
-      'Real-time architecture',
-      'Event-driven systems',
-      'Multiplayer synchronization',
-      'Backend scalability',
-    ],
-  },
-  {
     key: 'laychess',
     title: 'LayChess',
     fullTitle: 'LayChess – AI-Powered Browser Chess Platform',

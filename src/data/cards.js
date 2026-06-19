@@ -326,7 +326,7 @@ export const CARDS = [
       items: [
         { title: 'YojnaConnect', desc: 'Government Scheme Discovery Platform', tech: 'React • Node.js • MySQL' },
         { title: 'LayChess', desc: 'AI Chess Engine', tech: 'Negamax • Alpha-Beta Pruning' },
-        { title: 'TypeRacer', desc: 'Real-Time Multiplayer Platform', tech: 'Socket.IO • MySQL' },
+        { title: 'KeyForge', desc: 'AI-Powered Multiplayer Typing Platform', tech: 'Socket.IO • Gemini AI • MySQL' },
       ],
     },
   },

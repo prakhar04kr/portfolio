@@ -165,57 +165,59 @@ const CASE_STUDIES = [
     ],
   },
   {
-    key: 'forgeai',
-    title: 'Forge AI',
-    fullTitle: 'Forge AI – AI-Powered Interview Preparation & Assessment Platform',
-    domain: 'Artificial Intelligence • EdTech • Career Development',
+    key: 'keyforge',
+    title: 'KeyForge',
+    fullTitle: 'KeyForge – AI-Powered Real-Time Multiplayer Typing & Racing Platform',
+    domain: 'Real-Time Systems • AI Integration • Competitive Gaming',
     accent: '#FF6B6B',
     overview:
-      'Forge AI is an intelligent interview preparation platform that helps students and job seekers improve technical, aptitude, and communication skills through AI-assisted assessments and personalized feedback.',
+      'KeyForge is an AI-enhanced multiplayer typing racing platform where users compete in synchronized races with live progress updates, intelligent difficulty scaling, leaderboards, and performance analytics. Built as the flagship product combining real-time WebSocket architecture with AI-driven personalization.',
     problem:
-      'Many students lack realistic interview practice, structured assessment systems, and personalized guidance for improving interview performance.',
+      'Competitive typing platforms lack intelligent difficulty adaption, real-time multiplayer synchronization at scale, and AI-powered performance coaching for skill improvement.',
     solution:
-      'Built an AI-powered platform that evaluates candidate performance, generates intelligent feedback, and helps users identify skill gaps while preparing for software development careers.',
+      'Built a Socket.IO-powered real-time platform with an integrated AI feedback layer that analyzes typing patterns, provides personalized coaching, and intelligently matches players of similar skill levels.',
     tech: {
-      Frontend: ['React', 'Vite', 'JavaScript'],
+      Frontend: ['React', 'JavaScript', 'CSS', 'HTML'],
       Backend: ['Node.js', 'Express.js'],
-      Database: ['MySQL', 'PostgreSQL'],
-      'AI Layer': ['Gemini API', 'Prompt Engineering', 'AI Feedback Engine'],
+      Database: ['MySQL'],
+      'Real-Time': ['Socket.IO', 'WebSockets'],
+      'AI Layer': ['Gemini API', 'Performance Analytics', 'Smart Matchmaking'],
     },
     features: [
-      'AI Interview Simulator',
-      'Resume-Based Question Generation',
-      'Technical Assessments',
-      'Aptitude Tests',
-      'Performance Analytics',
-      'Personalized Feedback',
-      'Skill Gap Analysis',
+      'AI-Powered Difficulty Scaling',
+      'Real-Time Multiplayer Races',
+      'Intelligent Matchmaking',
+      'WPM & Accuracy Tracking',
+      'AI Performance Coaching',
+      'Live Leaderboards',
+      'User Skill Profiles',
+      'Race History & Analytics',
     ],
     challenges: [
-      'Prompt engineering',
-      'AI response evaluation',
-      'Assessment scoring logic',
-      'Analytics generation',
-      'API optimization',
+      'Real-time synchronization at scale',
+      'AI feedback latency optimization',
+      'Skill-based matchmaking algorithm',
+      'Concurrent WebSocket event handling',
+      'Score consistency across sessions',
     ],
     unique: [
-      'AI-driven interview preparation',
-      'Personalized feedback system',
-      'Resume-aware assessments',
-      'Career-focused use case',
+      'AI coaching integrated with real-time gameplay',
+      'Intelligent skill-based matchmaking',
+      'Performance-driven difficulty adaptation',
+      'Combined AI + WebSocket architecture',
     ],
     future: [
-      'Voice Interviews',
-      'Video Analysis',
-      'HR Simulation',
-      'Company-Specific Preparation',
-      'AI Communication Scoring',
+      'Voice-to-Text Typing Mode',
+      'Tournament & League System',
+      'Global ELO Rankings',
+      'AI Coach Conversations',
+      'Mobile App with Haptic Feedback',
     ],
     learning: [
-      'AI integration',
-      'Prompt engineering',
-      'Analytics systems',
-      'Scalable AI applications',
+      'Real-time systems at scale',
+      'AI integration into live applications',
+      'Matchmaking algorithm design',
+      'Full-stack event-driven architecture',
     ],
   },
 ]
@@ -244,7 +246,7 @@ function SectionBlock({ title, children, accent }) {
 
 function CaseStudyCard({ study, t }) {
   const [expanded, setExpanded] = useState(false)
-  const { key, title, fullTitle, domain, accent, overview, problem, solution, tech, features, challenges, unique, future, learning } = study
+  const { key, fullTitle, domain, accent, overview, problem, solution, tech, features, challenges, unique, future, learning } = study
 
   return (
     <motion.div
@@ -421,7 +423,7 @@ function CaseStudiesSection() {
           transition={{ duration: 0.5 }}
         >
           <p className="mb-3 text-xs uppercase tracking-[0.2em] text-white/30">
-            Engineering Breakdowns
+            {t('caseStudies.eyebrow')}
           </p>
           <h2 className="text-3xl font-bold text-white md:text-4xl">
             {t('caseStudies.title')}

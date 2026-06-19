@@ -1,4 +1,4 @@
-import { memo, useState, useEffect, useCallback, useRef } from 'react'
+import { memo, useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
 import { IconSearch, IconX } from '@tabler/icons-react'
@@ -26,7 +26,7 @@ const SEARCH_DATA = [
   { type: 'casestudies', title: 'YojnaConnect Case Study', desc: 'GovTech architecture & engineering breakdown', tags: ['GovTech', 'Full Stack'] },
   { type: 'casestudies', title: 'TypeRacer Case Study', desc: 'Real-time multiplayer system design', tags: ['Real-Time', 'WebSocket'] },
   { type: 'casestudies', title: 'LayChess Case Study', desc: 'AI chess engine architecture', tags: ['AI', 'Algorithms'] },
-  { type: 'casestudies', title: 'Forge AI Case Study', desc: 'AI-powered interview preparation platform', tags: ['AI', 'EdTech', 'Gemini'] },
+  { type: 'casestudies', title: 'KeyForge Case Study', desc: 'AI-powered multiplayer typing platform', tags: ['AI', 'Socket.IO', 'Gemini'] },
 ]
 
 const TYPE_COLORS = {
@@ -129,10 +129,7 @@ function SearchModal({ isOpen, onClose }) {
                 </button>
               </div>
 
-              <div
-                className="overflow-y-auto"
-                style={{ maxHeight: '60vh' }}
-              >
+              <div className="overflow-y-auto" style={{ maxHeight: '60vh' }}>
                 {query.trim().length === 0 && (
                   <div className="px-4 py-10 text-center text-sm text-white/30">
                     {t('search.label')}

@@ -1,11 +1,14 @@
 import { memo } from 'react'
+import { useTranslation } from 'react-i18next'
 import { CARDS } from '../../data/cards'
 
 function IndexSection({ onCardClick }) {
+  const { t } = useTranslation()
+
   return (
     <section className="relative z-10 flex min-h-[50vh] flex-col items-center justify-center px-6 py-32">
       <p className="mb-8 text-sm uppercase tracking-[0.2em] text-[rgba(242,242,255,0.28)]">
-        Explore sections
+        {t('explore.label')}
       </p>
       <div className="flex max-w-3xl flex-wrap items-center justify-center gap-x-8 gap-y-4">
         {CARDS.map((card) => (

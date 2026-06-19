@@ -5,10 +5,9 @@ export const DEVELOPER = {
   location: 'Chennai, India',
   email: 'kumar04prakhar@gmail.com',
 
-  bio: 'Final-year Computer Science Engineering student passionate about full-stack development, AI-powered applications, and scalable web platforms. I enjoy building practical products that solve real-world problems using modern technologies such as React, Node.js, Java, MySQL, and TypeScript.\n\nFocused on creating impactful software experiences, from government scheme discovery platforms to real-time multiplayer applications and intelligent web solutions.',
+  bio: 'Final-year Computer Science Engineering student passionate about full-stack development, AI-powered applications, and scalable web platforms.\n\nI enjoy transforming ideas into practical software solutions using React, Node.js, Java, TypeScript, MySQL, and modern web technologies.\n\nMy experience includes building government scheme discovery systems, real-time multiplayer applications, intelligent recommendation platforms, AI-powered interview platforms, and browser-based AI engines.\n\nI am actively seeking opportunities as a Software Developer Intern where I can contribute to impactful products while continuing to grow as an engineer.',
   shortBio: 'Final-year Computer Science Engineering student passionate about full-stack development, AI-powered applications, and scalable web platforms.',
   status: 'Open to Work',
-
 
   social: {
     github: 'https://github.com/prakhar04kr',
@@ -62,7 +61,6 @@ export const PROJECTS = [
     tech: ['Java', 'JSP', 'Servlet'],
     live: '#',
     github: '#',
-
     image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80',
   },
 ]
@@ -169,49 +167,49 @@ export const ACHIEVEMENTS = [
     title: 'Google AI Essentials',
     org: 'Google',
     date: '',
-    description: '',
+    description: 'Completed Google\'s foundational AI literacy program covering practical AI concepts and tools.',
   },
   {
     icon: 'trophy',
     title: 'Google Prompting Essentials',
     org: 'Google',
     date: '',
-    description: '',
+    description: 'Mastered prompt engineering techniques for working effectively with generative AI models.',
   },
   {
     icon: 'trophy',
     title: 'Google Cybersecurity Professional Certificate',
     org: 'Google',
     date: '',
-    description: '',
+    description: 'Comprehensive cybersecurity certification covering threat detection, network security, and incident response.',
   },
   {
     icon: 'trophy',
     title: 'Google Student Ambassador',
     org: 'Google',
     date: '',
-    description: '',
+    description: 'Recognized as a Google Student Ambassador, representing Google technologies in the campus community.',
   },
   {
     icon: 'star',
     title: 'Data Analysis with Python',
     org: 'IBM',
     date: '',
-    description: '',
+    description: 'IBM certification in data analysis using Python, pandas, NumPy, and data visualization libraries.',
   },
   {
     icon: 'star',
     title: 'Python 101 for Data Science',
     org: 'IBM',
     date: '',
-    description: '',
+    description: 'IBM foundational certification covering Python programming for data science workflows.',
   },
   {
     icon: 'star',
     title: 'Full Stack Development MERN',
     org: 'Algoxfusion',
     date: '',
-    description: '',
+    description: 'Certified in full stack MERN development covering MongoDB, Express, React, and Node.js.',
   },
 ]
 
@@ -278,7 +276,14 @@ export const CARDS = [
     subtitle: 'Download · View · Share',
     accent: '#FFD93D',
     icon: 'file-cv',
-    preview: { type: 'document' },
+    preview: {
+      type: 'resume-preview',
+      education: 'B.E. Computer Science & Engineering',
+      org: 'Sathyabama Institute of Science and Technology',
+      cgpa: 'CGPA: 8.52/10',
+      skills: ['Java', 'React', 'Node.js', 'MySQL'],
+      certs: ['Google AI Essentials', 'Google Cybersecurity Professional Certificate'],
+    },
   },
   {
     id: 'achievements',
@@ -289,7 +294,12 @@ export const CARDS = [
     icon: 'trophy',
     preview: {
       type: 'achievements',
-      items: ['React Summit Award', 'Google Developer Expert'],
+      items: [
+        'Google AI Essentials',
+        'Google Cybersecurity Professional Certificate',
+        'IBM Data Analysis with Python',
+        '+4 More Certifications',
+      ],
     },
   },
   {
@@ -301,7 +311,7 @@ export const CARDS = [
     icon: 'mail-forward',
     preview: {
       type: 'availability',
-      text: 'Available for freelance',
+      text: 'Available for internships',
     },
   },
   {
@@ -312,8 +322,12 @@ export const CARDS = [
     accent: '#14B8A6',
     icon: 'rocket',
     preview: {
-      type: 'pills',
-      items: ['YojnaConnect', 'Chess Engine Web App', 'TypeRacer – Full-Stack Real-Time Web Application'],
+      type: 'featured-projects',
+      items: [
+        { title: 'YojnaConnect', desc: 'Government Scheme Discovery Platform', tech: 'React • Node.js • MySQL' },
+        { title: 'LayChess', desc: 'AI Chess Engine', tech: 'Negamax • Alpha-Beta Pruning' },
+        { title: 'TypeRacer', desc: 'Real-Time Multiplayer Platform', tech: 'Socket.IO • MySQL' },
+      ],
     },
   },
 ]

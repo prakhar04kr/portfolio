@@ -1,10 +1,9 @@
 import { useState, useCallback, useEffect } from 'react'
+import { useTranslation } from 'react-i18next'
 
 import { CARDS } from './data/cards'
 import { useBreakpoint } from './hooks/useMediaQuery'
 import { useReducedMotion } from './hooks/useReducedMotion'
-
-
 
 import Navbar from './components/layout/Navbar'
 import ExpandedOverlay from './components/cards/ExpandedOverlay'
@@ -12,16 +11,16 @@ import TabletGrid from './components/layout/TabletGrid'
 import MobileCarousel from './components/layout/MobileCarousel'
 import IndexSection from './components/layout/IndexSection'
 import PortfolioCard from './components/cards/PortfolioCard'
+import OpenToWorkWidget from './components/sections/OpenToWorkWidget'
+import CaseStudiesSection from './components/sections/CaseStudiesSection'
 
 
 function AppContent() {
   const { isMobile, isTablet, isDesktop } = useBreakpoint()
-
   const reducedMotion = useReducedMotion()
-
+  useTranslation()
 
   const [loaderDone] = useState(true)
-
   const [hoverId, setHoverId] = useState(null)
   const [activeId, setActiveId] = useState(null)
   const [activeSection, setActiveSection] = useState('about')
@@ -29,15 +28,12 @@ function AppContent() {
 
   const [cardsVisible, setCardsVisible] = useState(reducedMotion)
   useEffect(() => {
-    // Keep existing card reveal behavior without any splash/intro loader.
     const id = window.requestAnimationFrame(() => setCardsVisible(true))
     return () => window.cancelAnimationFrame(id)
   }, [])
 
-
   useEffect(() => {
     const onScroll = () => {
-
       setScrolled(window.scrollY > 80)
     }
     window.addEventListener('scroll', onScroll, { passive: true })
@@ -78,9 +74,6 @@ function AppContent() {
 
   return (
     <div className="relative min-h-screen">
-      {/* Intro/loading disabled per requirement: render homepage immediately */}
-
-
       <Navbar
         activeSection={activeSection}
         onNavClick={handleNavClick}
@@ -104,7 +97,6 @@ function AppContent() {
           <MobileCarousel onClick={handleClick} cardsVisible={cardsVisible || loaderDone} />
         )}
 
-
         {reducedMotion && (
           <div className="grid grid-cols-1 gap-6 px-6 py-24 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {CARDS.map((card, i) => (
@@ -120,7 +112,11 @@ function AppContent() {
           </div>
         )}
 
+        <OpenToWorkWidget />
+
         {(isTablet || isDesktop || reducedMotion) && <IndexSection onCardClick={handleIndexClick} />}
+
+        <CaseStudiesSection />
 
       </main>
 
@@ -132,4 +128,3 @@ function AppContent() {
 export default function App() {
   return <AppContent />
 }
-

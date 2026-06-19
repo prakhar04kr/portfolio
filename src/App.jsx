@@ -5,7 +5,7 @@ import { useBreakpoint } from './hooks/useMediaQuery'
 import { useReducedMotion } from './hooks/useReducedMotion'
 
 
-import PageLoader from './components/layout/PageLoader'
+
 import Navbar from './components/layout/Navbar'
 import ExpandedOverlay from './components/cards/ExpandedOverlay'
 import TabletGrid from './components/layout/TabletGrid'
@@ -20,7 +20,8 @@ function AppContent() {
   const reducedMotion = useReducedMotion()
 
 
-  const [loaderDone, setLoaderDone] = useState(reducedMotion)
+  const [loaderDone] = useState(true)
+
   const [hoverId, setHoverId] = useState(null)
   const [activeId, setActiveId] = useState(null)
   const [activeSection, setActiveSection] = useState('about')
@@ -28,12 +29,11 @@ function AppContent() {
 
   const [cardsVisible, setCardsVisible] = useState(reducedMotion)
   useEffect(() => {
-    if (!loaderDone) return
-
-    // Avoid setState-in-effect cascading renders: schedule after paint.
+    // Keep existing card reveal behavior without any splash/intro loader.
     const id = window.requestAnimationFrame(() => setCardsVisible(true))
     return () => window.cancelAnimationFrame(id)
-  }, [loaderDone])
+  }, [])
+
 
   useEffect(() => {
     const onScroll = () => {
@@ -77,10 +77,9 @@ function AppContent() {
   }, [handleClick])
 
   return (
-    <div className="relative min-h-screen bg-[#07071A] text-[#F2F2FF]">
-      {!loaderDone && (
-        <PageLoader onComplete={() => setLoaderDone(true)} reducedMotion={reducedMotion} />
-      )}
+    <div className="relative min-h-screen">
+      {/* Intro/loading disabled per requirement: render homepage immediately */}
+
 
       <Navbar
         activeSection={activeSection}

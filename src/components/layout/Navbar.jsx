@@ -1,4 +1,4 @@
-import { memo, useState } from 'react'
+import { memo } from 'react'
 import { motion } from 'framer-motion'
 import { DEVELOPER } from '../../data/cards'
 
@@ -13,8 +13,6 @@ const NAV_ITEMS = [
 ]
 
 function Navbar({ activeSection, onNavClick, setCursor, scrolled }) {
-  const [darkMode, setDarkMode] = useState(true)
-
   return (
     <motion.header
       className={`fixed left-1/2 z-[1000] -translate-x-1/2 transition-all duration-500 ${
@@ -69,27 +67,11 @@ function Navbar({ activeSection, onNavClick, setCursor, scrolled }) {
           ))}
         </div>
 
-        <div className="flex items-center gap-2">
-          <button
-            onMouseEnter={() => setCursor?.('button')}
-            onMouseLeave={() => setCursor?.('default')}
-            className="rounded-full bg-[#6C63FF] px-4 py-2 text-xs font-semibold text-white shadow-[0_0_20px_rgba(108,99,255,0.4)] transition-transform hover:scale-105"
-          >
-            Hire Me
-          </button>
-          <button
-            onClick={() => setDarkMode(!darkMode)}
-            onMouseEnter={() => setCursor?.('button')}
-            onMouseLeave={() => setCursor?.('default')}
-            className="flex h-8 w-8 items-center justify-center rounded-full border border-white/10 bg-white/5 text-sm"
-            aria-label="Toggle theme"
-          >
-            {darkMode ? '🌙' : '☀️'}
-          </button>
-        </div>
+        <div />
       </nav>
     </motion.header>
   )
 }
 
 export default memo(Navbar)
+

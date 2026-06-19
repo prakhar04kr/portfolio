@@ -99,15 +99,48 @@ function CardPreview({ preview, accent }) {
           ))}
         </div>
       )
-    case 'document':
+    case 'resume-preview':
       return (
-        <div className="mx-6 rounded-lg border border-white/10 bg-white/3 p-4">
-          {[...Array(5)].map((_, i) => (
+        <div className="mx-6 space-y-2">
+          <div className="rounded-lg border border-white/8 bg-white/3 px-3 py-2">
+            <p className="text-[11px] font-semibold text-white/80">{preview.education}</p>
+            <p className="text-[10px] text-white/40 mt-0.5 leading-tight">{preview.org}</p>
+            <p className="text-[10px] mt-1" style={{ color: accent }}>{preview.cgpa}</p>
+          </div>
+          <div className="flex flex-wrap gap-1">
+            {preview.skills.map((s) => (
+              <span
+                key={s}
+                className="rounded-full px-2 py-0.5 text-[10px]"
+                style={{ background: `${accent}18`, color: accent, border: `1px solid ${accent}25` }}
+              >
+                {s}
+              </span>
+            ))}
+          </div>
+          <div className="space-y-0.5">
+            {preview.certs.map((c) => (
+              <div key={c} className="flex items-center gap-1.5">
+                <span className="text-[10px]" style={{ color: `${accent}80` }}>✓</span>
+                <span className="text-[10px] text-white/50 truncate">{c}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      )
+    case 'featured-projects':
+      return (
+        <div className="flex flex-col gap-2 px-6">
+          {preview.items.map((item) => (
             <div
-              key={i}
-              className="mb-2 h-1.5 rounded-full bg-white/10"
-              style={{ width: `${70 + (i % 3) * 10}%` }}
-            />
+              key={item.title}
+              className="rounded-xl px-3 py-2"
+              style={{ background: `${accent}10`, border: `1px solid ${accent}20` }}
+            >
+              <p className="text-[12px] font-semibold text-white/90">{item.title}</p>
+              <p className="text-[10px] text-white/50 mt-0.5">{item.desc}</p>
+              <p className="text-[10px] mt-1" style={{ color: accent }}>{item.tech}</p>
+            </div>
           ))}
         </div>
       )
@@ -255,7 +288,7 @@ const PortfolioCard = memo(function PortfolioCard({
 
           <div className="mx-6 my-5 h-px w-[calc(100%-48px)] bg-white/8" />
 
-          <div className="flex-1 w-full">
+          <div className="flex-1 w-full overflow-hidden">
             <CardPreview preview={card.preview} accent={card.accent} />
           </div>
 

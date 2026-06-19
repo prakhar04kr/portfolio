@@ -4,7 +4,9 @@ import ExpandedWrapper from './ExpandedWrapper'
 import { PROJECTS } from '../../data/cards'
 
 function FeaturedExpanded({ onClose }) {
-  const featured = [PROJECTS[0], PROJECTS[3], PROJECTS[4]]
+  // Featured order requirement: remove Expense Tracker and show YojnaConnect as Featured #1.
+  const featured = [PROJECTS[0], PROJECTS[1], PROJECTS[2]]
+
 
   return (
     <ExpandedWrapper title="Featured Work" accent="#14B8A6" onClose={onClose}>

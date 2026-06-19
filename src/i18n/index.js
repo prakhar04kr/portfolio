@@ -63,6 +63,7 @@ const resources = {
       about: {
         title: 'About Me',
         subtitle: 'Full-Stack Developer & Designer',
+        shortBio: 'Final-year Computer Science Engineering student passionate about full-stack development, AI-powered applications, and scalable web platforms.',
         status: 'Open to Work',
         location: 'Chennai, India',
         social: {
@@ -207,6 +208,7 @@ const resources = {
       about: {
         title: 'मेरे बारे में',
         subtitle: 'फुल-स्टैक डेवलपर और डिज़ाइनर',
+        shortBio: 'अंतिम वर्ष का कंप्यूटर साइंस इंजीनियरिंग छात्र, फुल-स्टैक डेवलपमेंट, AI एप्लिकेशन और स्केलेबल वेब प्लेटफॉर्म में रुचि रखता है।',
         status: 'काम के लिए उपलब्ध',
         location: 'चेन्नई, भारत',
         social: {
@@ -351,6 +353,7 @@ const resources = {
       about: {
         title: 'À propos de moi',
         subtitle: 'Développeur Full-Stack & Designer',
+        shortBio: 'Étudiant en dernière année de génie informatique, passionné par le développement full-stack, les applications IA et les plateformes web évolutives.',
         status: 'Ouvert aux opportunités',
         location: 'Chennai, Inde',
         social: {
@@ -495,6 +498,7 @@ const resources = {
       about: {
         title: 'Über mich',
         subtitle: 'Full-Stack-Entwickler & Designer',
+        shortBio: 'Informatikstudent im letzten Jahr mit Leidenschaft für Full-Stack-Entwicklung, KI-Anwendungen und skalierbare Webplattformen.',
         status: 'Offen für Stellen',
         location: 'Chennai, Indien',
         social: {
@@ -639,6 +643,7 @@ const resources = {
       about: {
         title: 'Sobre mí',
         subtitle: 'Desarrollador Full-Stack & Diseñador',
+        shortBio: 'Estudiante de último año de ingeniería informática apasionado por el desarrollo full-stack, las aplicaciones de IA y las plataformas web escalables.',
         status: 'Abierto a oportunidades',
         location: 'Chennai, India',
         social: {

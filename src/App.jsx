@@ -40,37 +40,26 @@ function AppContent() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  const handleHover = useCallback((id) => {
-    setHoverId(id)
-  }, [])
-
-  const handleLeave = useCallback(() => {
-    setHoverId(null)
-  }, [])
+  const handleHover = useCallback((id) => setHoverId(id), [])
+  const handleLeave = useCallback(() => setHoverId(null), [])
 
   const handleClick = useCallback((id) => {
     setActiveId(id)
     setActiveSection(id)
   }, [])
 
-  const handleClose = useCallback(() => {
-    setActiveId(null)
-  }, [])
+  const handleClose = useCallback(() => setActiveId(null), [])
 
   const handleNavClick = useCallback(
     (id) => {
       setActiveSection(id)
       const index = CARDS.findIndex((c) => c.id === id || c.navId === id)
-      if (index >= 0) {
-        handleClick(CARDS[index].id)
-      }
+      if (index >= 0) handleClick(CARDS[index].id)
     },
     [handleClick],
   )
 
-  const handleIndexClick = useCallback((id) => {
-    handleClick(id)
-  }, [handleClick])
+  const handleIndexClick = useCallback((id) => handleClick(id), [handleClick])
 
   return (
     <div className="relative min-h-screen">
@@ -114,9 +103,13 @@ function AppContent() {
 
         <OpenToWorkWidget />
 
-        {(isTablet || isDesktop || reducedMotion) && <IndexSection onCardClick={handleIndexClick} />}
+        {(isTablet || isDesktop || reducedMotion) && (
+          <IndexSection onCardClick={handleIndexClick} />
+        )}
 
         <CaseStudiesSection />
+
+        <IndexSection onCardClick={handleIndexClick} />
 
       </main>
 

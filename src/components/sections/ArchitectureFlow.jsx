@@ -203,29 +203,36 @@ function LayChessFlow({ color, isVisible }) {
   )
 }
 
-function ForgeAIFlow({ color, isVisible }) {
+function KeyForgeFlow({ color, isVisible }) {
   if (!isVisible) return null
-  const nodes = [
-    { label: 'User', sublabel: 'Candidate' },
-    { label: 'React Frontend', sublabel: 'Interview UI' },
-    { label: 'Express Backend', sublabel: 'API Layer' },
-    { label: 'Assessment Engine', sublabel: 'Evaluation Logic' },
-    { label: 'Gemini AI', sublabel: 'Feedback Generation' },
-    { label: 'Database', sublabel: 'MySQL / PostgreSQL' },
-    { label: 'Analytics Dashboard', sublabel: 'Performance Metrics' },
-    { label: 'Personalized Feedback', sublabel: 'Skill Gap Report' },
-  ]
-  const badges = ['React', 'Node.js', 'Gemini AI', 'Prompt Engineering']
+  const badges = ['React', 'Socket.IO', 'Gemini AI', 'MySQL']
   return (
     <div className="flex flex-col items-center gap-0">
-      {nodes.map((n, i) => (
+      <motion.div
+        className="flex gap-3 justify-center mb-0"
+        initial={{ opacity: 0, y: 8 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0 }}
+      >
+        <FlowNode label="Player A" sublabel="Browser" color={color} delay={0} />
+        <FlowNode label="Player B" sublabel="Browser" color={color} delay={0.05} />
+      </motion.div>
+      <SplitConnector color={color} delay={0.1} />
+      {[
+        { label: 'Socket.IO Server', sublabel: 'Real-Time Hub' },
+        { label: 'Express Backend', sublabel: 'API Layer' },
+        { label: 'Race Engine', sublabel: 'Sync & Scoring' },
+        { label: 'Gemini AI Layer', sublabel: 'Coaching Engine' },
+        { label: 'MySQL Database', sublabel: 'Scores & Profiles' },
+        { label: 'Analytics Dashboard', sublabel: 'Performance Report' },
+      ].map((n, i) => (
         <div key={n.label} className="flex flex-col items-center">
-          <FlowNode label={n.label} sublabel={n.sublabel} color={color} delay={i * 0.07} />
-          {i < nodes.length - 1 && <FlowConnector color={color} delay={i * 0.07 + 0.04} />}
+          <FlowNode label={n.label} sublabel={n.sublabel} color={color} delay={0.18 + i * 0.08} />
+          {i < 5 && <FlowConnector color={color} delay={0.18 + i * 0.08 + 0.04} />}
         </div>
       ))}
       <div className="mt-4 flex flex-wrap justify-center gap-2">
-        {badges.map((b, i) => <TechBadge key={b} label={b} color={color} delay={0.7 + i * 0.05} />)}
+        {badges.map((b, i) => <TechBadge key={b} label={b} color={color} delay={0.75 + i * 0.05} />)}
       </div>
     </div>
   )
@@ -235,7 +242,7 @@ const FLOW_MAP = {
   yojnaconnect: YojnaFlow,
   typeracer: TypeRacerFlow,
   laychess: LayChessFlow,
-  forgeai: ForgeAIFlow,
+  keyforge: KeyForgeFlow,
 }
 
 function ArchitectureFlow({ projectKey, color, isVisible }) {

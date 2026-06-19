@@ -9,7 +9,6 @@ import Navbar from './components/layout/Navbar'
 import ExpandedOverlay from './components/cards/ExpandedOverlay'
 import TabletGrid from './components/layout/TabletGrid'
 import MobileCarousel from './components/layout/MobileCarousel'
-import IndexSection from './components/layout/IndexSection'
 import PortfolioCard from './components/cards/PortfolioCard'
 import OpenToWorkWidget from './components/sections/OpenToWorkWidget'
 import CaseStudiesSection from './components/sections/CaseStudiesSection'
@@ -103,13 +102,7 @@ function AppContent() {
 
         <OpenToWorkWidget />
 
-        {(isTablet || isDesktop || reducedMotion) && (
-          <IndexSection onCardClick={handleIndexClick} />
-        )}
-
         <CaseStudiesSection />
-
-        <IndexSection onCardClick={handleIndexClick} />
 
       </main>
 

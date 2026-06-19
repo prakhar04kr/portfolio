@@ -1,5 +1,6 @@
 import { memo, useState, useRef, useCallback } from 'react'
 import { motion } from 'framer-motion'
+import { useTranslation } from 'react-i18next'
 import {
   IconUserCircle,
   IconBrandGithub,
@@ -32,7 +33,7 @@ const SOCIAL_ICONS = {
   leetcode: IconBrandLeetcode,
 }
 
-function CardPreview({ preview, accent }) {
+function CardPreview({ preview, accent, cardId, t }) {
   if (!preview) return null
 
   switch (preview.type) {
@@ -41,7 +42,7 @@ function CardPreview({ preview, accent }) {
         <div className="px-6">
           {preview.lines.map((line, i) => (
             <p key={i} className="text-[13px] leading-relaxed text-[rgba(255,255,255,0.65)]">
-              {line}
+              {t('about.shortBio', line)}
             </p>
           ))}
         </div>
@@ -163,7 +164,7 @@ function CardPreview({ preview, accent }) {
       return (
         <div className="flex items-center justify-center gap-2 px-6">
           <span className="h-2 w-2 animate-pulse rounded-full bg-[#6BCB77]" />
-          <span className="text-[13px] text-[rgba(255,255,255,0.65)]">{preview.text}</span>
+          <span className="text-[13px] text-[rgba(255,255,255,0.65)]">{t('contact.available')}</span>
         </div>
       )
     default:
@@ -183,11 +184,14 @@ const PortfolioCard = memo(function PortfolioCard({
   layoutMode = 'globe',
   setCursor,
 }) {
-
+  const { t } = useTranslation()
   const [localHover, setLocalHover] = useState(false)
   const cardRef = useRef(null)
   const Icon = ICONS[card.icon] || IconUserCircle
   const hovered = isHovered || localHover
+
+  const cardTitle = t(`${card.id}.title`, card.title)
+  const cardSubtitle = t(`${card.id}.subtitle`, card.subtitle)
 
   const handleMouseMove = useCallback(
     (e) => {
@@ -263,9 +267,9 @@ const PortfolioCard = memo(function PortfolioCard({
         }}
       >
         <motion.div
-          className="w-full rounded-t-[24px]"
+          className="w-full flex-shrink-0"
           style={{ background: card.accent }}
-          animate={{ height: hovered ? 10 : 6 }}
+          animate={{ height: hovered ? 12 : 8 }}
           transition={{ type: 'spring', stiffness: 300, damping: 20 }}
         />
 
@@ -283,13 +287,13 @@ const PortfolioCard = memo(function PortfolioCard({
             <Icon size={40} style={{ color: card.accent }} stroke={1.5} />
           </motion.div>
 
-          <h3 className="mt-5 text-[22px] font-bold tracking-[-0.02em] text-white">{card.title}</h3>
-          <p className="mt-1.5 text-[13px] text-[rgba(255,255,255,0.50)]">{card.subtitle}</p>
+          <h3 className="mt-5 text-[22px] font-bold tracking-[-0.02em] text-white">{cardTitle}</h3>
+          <p className="mt-1.5 text-[13px] text-[rgba(255,255,255,0.50)]">{cardSubtitle}</p>
 
           <div className="mx-6 my-5 h-px w-[calc(100%-48px)] bg-white/8" />
 
           <div className="flex-1 w-full overflow-hidden">
-            <CardPreview preview={card.preview} accent={card.accent} />
+            <CardPreview preview={card.preview} accent={card.accent} cardId={card.id} t={t} />
           </div>
 
           <div className="flex w-full items-center justify-between px-6 py-5">
@@ -299,7 +303,7 @@ const PortfolioCard = memo(function PortfolioCard({
                 style={{ background: `${card.preview.badge.color}26`, color: card.preview.badge.color }}
               >
                 <span className="h-1.5 w-1.5 rounded-full" style={{ background: card.preview.badge.color }} />
-                {card.preview.badge.text}
+                {t('openToWork.title', card.preview.badge.text)}
               </span>
             ) : card.id === 'profile' ? (
               <span
@@ -309,12 +313,7 @@ const PortfolioCard = memo(function PortfolioCard({
                 @{DEVELOPER.name.split(' ')[0].toLowerCase()}
               </span>
             ) : (
-              <span
-                className="rounded-full px-3 py-1 text-[11px] font-medium"
-                style={{ background: `${card.accent}26`, color: card.accent }}
-              >
-                Explore
-              </span>
+              <span />
             )}
             <motion.span
               animate={{ x: hovered ? 8 : 0 }}

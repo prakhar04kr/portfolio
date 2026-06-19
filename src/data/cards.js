@@ -100,15 +100,15 @@ export const RESUME = {
       description: '',
     },
     {
-      title: 'Railway High School, Patna',
+      title: '12th Grade',
       org: 'Railway High School, Patna',
-      date: '12th Grade — 59.4%',
+      date: '59.4%',
       description: '',
     },
     {
-      title: 'Don Bosco Academy, Patna',
+      title: '10th Grade',
       org: 'Don Bosco Academy, Patna',
-      date: '10th Grade — 87%',
+      date: '87%',
       description: '',
     },
   ],
@@ -326,7 +326,6 @@ export const CARDS = [
       items: [
         { title: 'YojnaConnect', desc: 'Government Scheme Discovery Platform', tech: 'React • Node.js • MySQL' },
         { title: 'LayChess', desc: 'AI Chess Engine', tech: 'Negamax • Alpha-Beta Pruning' },
-        { title: 'KeyForge', desc: 'AI-Powered Multiplayer Typing Platform', tech: 'Socket.IO • Gemini AI • MySQL' },
       ],
     },
   },

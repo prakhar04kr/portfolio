@@ -66,11 +66,11 @@ function CardPreview({ preview, accent, cardId, t }) {
       )
     case 'pills':
       return (
-        <div className="flex flex-col gap-2 px-6">
+        <div className="flex flex-col gap-2 px-6 w-full">
           {preview.items.map((item) => (
             <span
               key={item}
-              className="rounded-full px-3 py-1.5 text-[11px] text-[rgba(255,255,255,0.7)]"
+              className="rounded-full px-3 py-1.5 text-[11px] text-[rgba(255,255,255,0.7)] truncate"
               style={{ background: `${accent}18`, border: `1px solid ${accent}30` }}
             >
               {item}
@@ -227,7 +227,7 @@ const PortfolioCard = memo(function PortfolioCard({
   const widthClass =
     layoutMode === 'mobile' ? 'w-[calc(100vw-32px)]' : layoutMode === 'tablet' ? 'w-full' : 'w-[320px]'
 
-  const heightClass = layoutMode === 'mobile' ? 'min-h-[380px]' : 'h-[420px]'
+  const heightClass = 'h-[420px]'
 
   return (
     <motion.div
@@ -273,7 +273,7 @@ const PortfolioCard = memo(function PortfolioCard({
           transition={{ type: 'spring', stiffness: 300, damping: 20 }}
         />
 
-        <div className="flex flex-1 flex-col items-center">
+        <div className="flex flex-1 flex-col items-center overflow-hidden min-h-0">
           <motion.div
             className="mt-7 flex h-16 w-16 items-center justify-center rounded-full"
             style={{ background: `${card.accent}26` }}

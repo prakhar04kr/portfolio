@@ -15,7 +15,7 @@ export const DEVELOPER = {
     leetcode: 'https://leetcode.com/',
     twitter: 'https://twitter.com/',
   },
-  photo: 'https://picsum.photos/seed/prakharkumar/400/500',
+  photo: '/prakhar-photo.jpeg',
 }
 
 

@@ -18,7 +18,7 @@ function AboutExpanded({ onClose }) {
         <motion.img
           src={DEVELOPER.photo}
           alt={DEVELOPER.name}
-          className="h-[260px] w-full rounded-2xl object-cover md:h-[320px]"
+          className="aspect-[4/5] w-full rounded-2xl object-cover object-[center_20%]"
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5 }}

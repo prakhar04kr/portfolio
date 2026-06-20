@@ -1,89 +1,19 @@
-import { memo, useState, useRef, useEffect } from 'react'
+import { memo, useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { useTranslation } from 'react-i18next'
-import { IconSearch, IconX, IconMenu2, IconWorld } from '@tabler/icons-react'
+import { IconSearch, IconX, IconMenu2 } from '@tabler/icons-react'
 import { DEVELOPER } from '../../data/cards'
 import SearchModal from '../search/SearchModal'
 
-const NAV_IDS = [
-  { labelKey: 'nav.about', id: 'about' },
-  { labelKey: 'nav.profile', id: 'profile' },
-  { labelKey: 'nav.work', id: 'projects' },
-  { labelKey: 'nav.skills', id: 'skills' },
-  { labelKey: 'nav.resume', id: 'resume' },
-  { labelKey: 'nav.contact', id: 'contact' },
+const NAV_ITEMS = [
+  { label: 'About', id: 'about' },
+  { label: 'Profile', id: 'profile' },
+  { label: 'Work', id: 'projects' },
+  { label: 'Skills', id: 'skills' },
+  { label: 'Resume', id: 'resume' },
+  { label: 'Contact', id: 'contact' },
 ]
 
-const LANGUAGES = [
-  { code: 'en', label: 'EN', name: 'English' },
-  { code: 'hi', label: 'HI', name: 'हिंदी' },
-  { code: 'fr', label: 'FR', name: 'Français' },
-  { code: 'de', label: 'DE', name: 'Deutsch' },
-  { code: 'es', label: 'ES', name: 'Español' },
-]
-
-function LanguageSelector() {
-  const { i18n } = useTranslation()
-  const [open, setOpen] = useState(false)
-  const ref = useRef(null)
-
-  useEffect(() => {
-    const handler = (e) => {
-      if (ref.current && !ref.current.contains(e.target)) setOpen(false)
-    }
-    document.addEventListener('mousedown', handler)
-    return () => document.removeEventListener('mousedown', handler)
-  }, [])
-
-  const current = LANGUAGES.find((l) => l.code === i18n.language) || LANGUAGES[0]
-
-  return (
-    <div ref={ref} className="relative">
-      <button
-        onClick={() => setOpen((v) => !v)}
-        className="flex items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-2.5 py-1.5 text-[12px] text-white/60 transition-colors hover:bg-white/10 hover:text-white"
-        aria-label="Change language"
-        title="Language"
-      >
-        <IconWorld size={13} />
-        <span>{current.label}</span>
-      </button>
-      <AnimatePresence>
-        {open && (
-          <motion.div
-            initial={{ opacity: 0, y: -8, scale: 0.95 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: -8, scale: 0.95 }}
-            transition={{ duration: 0.15 }}
-            className="absolute right-0 top-full mt-2 z-[1100] overflow-hidden rounded-xl border border-white/10 py-1 shadow-2xl"
-            style={{ background: 'rgba(10,10,30,0.97)', minWidth: 140 }}
-          >
-            {LANGUAGES.map((lang) => (
-              <button
-                key={lang.code}
-                onClick={() => {
-                  i18n.changeLanguage(lang.code)
-                  setOpen(false)
-                }}
-                className={`flex w-full items-center gap-2.5 px-3 py-2 text-left text-[13px] transition-colors hover:bg-white/8 ${
-                  i18n.language === lang.code ? 'text-white' : 'text-white/50'
-                }`}
-              >
-                <span className="w-6 text-center text-[11px] font-bold opacity-60">{lang.label}</span>
-                <span>{lang.name}</span>
-                {i18n.language === lang.code && (
-                  <span className="ml-auto text-[10px] text-[#6C63FF]">✓</span>
-                )}
-              </button>
-            ))}
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </div>
-  )
-}
-
-function MobileMenu({ activeSection, onNavClick, onClose, t }) {
+function MobileMenu({ activeSection, onNavClick, onClose }) {
   return (
     <motion.div
       initial={{ opacity: 0, y: -16 }}
@@ -98,7 +28,7 @@ function MobileMenu({ activeSection, onNavClick, onClose, t }) {
         style={{ background: 'rgba(7,7,26,0.97)' }}
       >
         <nav className="flex flex-col">
-          {NAV_IDS.map((item, i) => (
+          {NAV_ITEMS.map((item, i) => (
             <motion.button
               key={item.id}
               initial={{ opacity: 0, x: -12 }}
@@ -117,21 +47,16 @@ function MobileMenu({ activeSection, onNavClick, onClose, t }) {
               {activeSection === item.id && (
                 <span className="h-1.5 w-1.5 rounded-full bg-[#6C63FF]" />
               )}
-              {t(item.labelKey)}
+              {item.label}
             </motion.button>
           ))}
         </nav>
-        <div className="flex items-center justify-between border-t border-white/8 px-5 py-4">
-          <span className="text-[12px] text-white/30">Language</span>
-          <LanguageSelector />
-        </div>
       </div>
     </motion.div>
   )
 }
 
 function Navbar({ activeSection, onNavClick, setCursor, scrolled }) {
-  const { t } = useTranslation()
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [searchOpen, setSearchOpen] = useState(false)
 
@@ -188,7 +113,7 @@ function Navbar({ activeSection, onNavClick, setCursor, scrolled }) {
           </motion.div>
 
           <div className="relative hidden items-center gap-1 md:flex">
-            {NAV_IDS.map((item) => (
+            {NAV_ITEMS.map((item) => (
               <button
                 key={item.id}
                 onClick={() => onNavClick(item.id)}
@@ -198,7 +123,7 @@ function Navbar({ activeSection, onNavClick, setCursor, scrolled }) {
                   activeSection === item.id ? 'text-white' : 'text-[rgba(242,242,255,0.5)] hover:text-white'
                 }`}
               >
-                {t(item.labelKey)}
+                {item.label}
                 {activeSection === item.id && (
                   <motion.div
                     layoutId="nav-indicator"
@@ -220,10 +145,6 @@ function Navbar({ activeSection, onNavClick, setCursor, scrolled }) {
               <IconSearch size={13} />
               <span className="hidden sm:inline">Search</span>
             </button>
-
-            <div className="hidden md:block">
-              <LanguageSelector />
-            </div>
 
             <button
               onClick={() => setMobileMenuOpen((v) => !v)}
@@ -250,7 +171,6 @@ function Navbar({ activeSection, onNavClick, setCursor, scrolled }) {
               activeSection={activeSection}
               onNavClick={onNavClick}
               onClose={() => setMobileMenuOpen(false)}
-              t={t}
             />
           </>
         )}

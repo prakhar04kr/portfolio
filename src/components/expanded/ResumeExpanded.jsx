@@ -1,11 +1,10 @@
 import { memo, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { IconDownload, IconEye, IconX, IconFileCv, IconTrophy, IconCpu } from '@tabler/icons-react'
-import { useTranslation } from 'react-i18next'
 import ExpandedWrapper from './ExpandedWrapper'
 import { RESUME, PROJECTS, SKILLS } from '../../data/cards'
 
-function ResumePreviewModal({ onClose, t }) {
+function ResumePreviewModal({ onClose }) {
   return (
     <AnimatePresence>
       <motion.div
@@ -31,12 +30,10 @@ function ResumePreviewModal({ onClose, t }) {
         >
           <div
             className="flex-shrink-0 flex items-center justify-between px-6 py-4 border-b border-white/8"
-            style={{
-              background: 'linear-gradient(135deg, rgba(255,217,61,0.08) 0%, transparent 100%)',
-            }}
+            style={{ background: 'linear-gradient(135deg, rgba(255,217,61,0.08) 0%, transparent 100%)' }}
           >
             <div>
-              <h3 className="text-lg font-bold text-white">{t('resume.highlights')}</h3>
+              <h3 className="text-lg font-bold text-white">Resume Highlights</h3>
               <p className="text-xs text-white/40 mt-0.5">Prakhar Kumar · Full-Stack Developer</p>
             </div>
             <div className="flex items-center gap-3">
@@ -47,7 +44,7 @@ function ResumePreviewModal({ onClose, t }) {
                 className="flex items-center gap-2 rounded-full bg-[#FFD93D] px-4 py-2 text-xs font-bold text-[#07071A] transition-opacity hover:opacity-90"
               >
                 <IconDownload size={14} />
-                {t('resume.download')}
+                Download PDF
               </a>
               <button
                 onClick={onClose}
@@ -63,9 +60,7 @@ function ResumePreviewModal({ onClose, t }) {
             <section>
               <div className="flex items-center gap-2 mb-4">
                 <IconFileCv size={16} className="text-[#FFD93D]" />
-                <h4 className="text-sm font-semibold uppercase tracking-widest text-[#FFD93D]">
-                  {t('resume.education')}
-                </h4>
+                <h4 className="text-sm font-semibold uppercase tracking-widest text-[#FFD93D]">Education</h4>
               </div>
               <div className="space-y-3">
                 {RESUME.education.map((item, i) => (
@@ -89,9 +84,7 @@ function ResumePreviewModal({ onClose, t }) {
             <section>
               <div className="flex items-center gap-2 mb-4">
                 <IconCpu size={16} className="text-[#FFD93D]" />
-                <h4 className="text-sm font-semibold uppercase tracking-widest text-[#FFD93D]">
-                  {t('skills.title')}
-                </h4>
+                <h4 className="text-sm font-semibold uppercase tracking-widest text-[#FFD93D]">Skills</h4>
               </div>
               <div className="space-y-3">
                 {Object.entries(SKILLS).map(([cat, items]) => (
@@ -99,14 +92,13 @@ function ResumePreviewModal({ onClose, t }) {
                     <p className="text-xs text-white/35 mb-2">{cat}</p>
                     <div className="flex flex-wrap gap-2">
                       {items.map((skill) => (
-                        <div key={skill.name} className="flex items-center gap-2">
-                          <span
-                            className="rounded-full border px-2.5 py-1 text-[11px] font-medium text-white/70"
-                            style={{ borderColor: 'rgba(255,217,61,0.25)', background: 'rgba(255,217,61,0.08)' }}
-                          >
-                            {skill.name}
-                          </span>
-                        </div>
+                        <span
+                          key={skill.name}
+                          className="rounded-full border px-2.5 py-1 text-[11px] font-medium text-white/70"
+                          style={{ borderColor: 'rgba(255,217,61,0.25)', background: 'rgba(255,217,61,0.08)' }}
+                        >
+                          {skill.name}
+                        </span>
                       ))}
                     </div>
                   </div>
@@ -117,9 +109,7 @@ function ResumePreviewModal({ onClose, t }) {
             <section>
               <div className="flex items-center gap-2 mb-4">
                 <IconCpu size={16} className="text-[#FFD93D]" />
-                <h4 className="text-sm font-semibold uppercase tracking-widest text-[#FFD93D]">
-                  {t('projects.title')}
-                </h4>
+                <h4 className="text-sm font-semibold uppercase tracking-widest text-[#FFD93D]">Projects</h4>
               </div>
               <div className="space-y-2">
                 {PROJECTS.slice(0, 3).map((project, i) => (
@@ -153,9 +143,7 @@ function ResumePreviewModal({ onClose, t }) {
             <section>
               <div className="flex items-center gap-2 mb-4">
                 <IconTrophy size={16} className="text-[#FFD93D]" />
-                <h4 className="text-sm font-semibold uppercase tracking-widest text-[#FFD93D]">
-                  {t('resume.certifications')}
-                </h4>
+                <h4 className="text-sm font-semibold uppercase tracking-widest text-[#FFD93D]">Certifications</h4>
               </div>
               <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
                 {RESUME.certifications.map((cert, i) => (
@@ -183,11 +171,10 @@ function ResumePreviewModal({ onClose, t }) {
 }
 
 function ResumeExpanded({ onClose }) {
-  const { t } = useTranslation()
   const [previewOpen, setPreviewOpen] = useState(false)
 
   return (
-    <ExpandedWrapper title={t('resume.title')} accent="#FFD93D" onClose={onClose}>
+    <ExpandedWrapper title="Resume" accent="#FFD93D" onClose={onClose}>
       <div className="mb-10 flex flex-wrap gap-3">
         <motion.a
           href="/resume.pdf"
@@ -198,7 +185,7 @@ function ResumeExpanded({ onClose }) {
           transition={{ repeat: Infinity, duration: 2, ease: 'easeInOut' }}
         >
           <IconDownload size={20} />
-          {t('resume.download')}
+          Download PDF
         </motion.a>
 
         <motion.button
@@ -208,14 +195,12 @@ function ResumeExpanded({ onClose }) {
           whileTap={{ scale: 0.97 }}
         >
           <IconEye size={20} />
-          {t('resume.preview')}
+          Preview Resume
         </motion.button>
       </div>
 
       <section className="mb-10">
-        <h3 data-reveal-line className="mb-4 text-xl font-semibold text-[#FFD93D]">
-          {t('resume.education')}
-        </h3>
+        <h3 data-reveal-line className="mb-4 text-xl font-semibold text-[#FFD93D]">Education</h3>
         {RESUME.education.map((item) => (
           <div key={item.title} data-reveal-line className="glass-card mb-4 rounded-xl p-5">
             <div className="flex flex-wrap justify-between gap-2">
@@ -237,9 +222,7 @@ function ResumeExpanded({ onClose }) {
       </section>
 
       <section className="mb-10">
-        <h3 data-reveal-line className="mb-4 text-xl font-semibold text-[#FFD93D]">
-          {t('resume.experience')}
-        </h3>
+        <h3 data-reveal-line className="mb-4 text-xl font-semibold text-[#FFD93D]">Experience</h3>
         {RESUME.experience.map((item) => (
           <div key={item.title} data-reveal-line className="relative mb-6 border-l-2 border-[#FFD93D]/30 pl-6">
             <div className="absolute -left-[5px] top-1 h-2 w-2 rounded-full bg-[#FFD93D]" />
@@ -254,9 +237,7 @@ function ResumeExpanded({ onClose }) {
       </section>
 
       <section>
-        <h3 data-reveal-line className="mb-4 text-xl font-semibold text-[#FFD93D]">
-          {t('resume.certifications')}
-        </h3>
+        <h3 data-reveal-line className="mb-4 text-xl font-semibold text-[#FFD93D]">Certifications</h3>
         {RESUME.certifications.map((item) => (
           <div key={item.title} data-reveal-line className="mb-3 flex justify-between rounded-xl bg-white/3 px-5 py-4">
             <div>
@@ -268,9 +249,7 @@ function ResumeExpanded({ onClose }) {
         ))}
       </section>
 
-      {previewOpen && (
-        <ResumePreviewModal onClose={() => setPreviewOpen(false)} t={t} />
-      )}
+      {previewOpen && <ResumePreviewModal onClose={() => setPreviewOpen(false)} />}
     </ExpandedWrapper>
   )
 }

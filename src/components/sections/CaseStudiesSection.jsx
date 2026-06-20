@@ -1,6 +1,5 @@
 import { memo, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { useTranslation } from 'react-i18next'
 import ArchitectureFlow from './ArchitectureFlow'
 
 const CASE_STUDIES = [
@@ -190,7 +189,7 @@ function SectionBlock({ title, children, accent }) {
   )
 }
 
-function CaseStudyCard({ study, t }) {
+function CaseStudyCard({ study }) {
   const [expanded, setExpanded] = useState(false)
   const { key, fullTitle, domain, accent, overview, problem, solution, tech, features, challenges, unique, future, learning } = study
 
@@ -216,7 +215,7 @@ function CaseStudyCard({ study, t }) {
               className="rounded-full px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider"
               style={{ background: `${accent}20`, color: accent }}
             >
-              {t('caseStudies.domain')}
+              Domain
             </span>
             <span className="text-[11px] text-white/40">{domain}</span>
           </div>
@@ -251,19 +250,19 @@ function CaseStudyCard({ study, t }) {
 
               <div className="grid gap-6 md:grid-cols-2">
                 <div>
-                  <SectionBlock title={t('caseStudies.sections.overview')} accent={accent}>
+                  <SectionBlock title="Overview" accent={accent}>
                     <p className="text-sm text-white/60 leading-relaxed">{overview}</p>
                   </SectionBlock>
 
-                  <SectionBlock title={t('caseStudies.sections.problem')} accent={accent}>
+                  <SectionBlock title="Problem" accent={accent}>
                     <p className="text-sm text-white/60 leading-relaxed">{problem}</p>
                   </SectionBlock>
 
-                  <SectionBlock title={t('caseStudies.sections.solution')} accent={accent}>
+                  <SectionBlock title="Solution" accent={accent}>
                     <p className="text-sm text-white/60 leading-relaxed">{solution}</p>
                   </SectionBlock>
 
-                  <SectionBlock title={t('caseStudies.sections.tech')} accent={accent}>
+                  <SectionBlock title="Tech Stack" accent={accent}>
                     <div className="space-y-2">
                       {Object.entries(tech).map(([cat, items]) => (
                         <div key={cat}>
@@ -278,7 +277,7 @@ function CaseStudyCard({ study, t }) {
                     </div>
                   </SectionBlock>
 
-                  <SectionBlock title={t('caseStudies.sections.features')} accent={accent}>
+                  <SectionBlock title="Key Features" accent={accent}>
                     <ul className="space-y-1">
                       {features.map((f) => (
                         <li key={f} className="flex items-start gap-2 text-sm text-white/60">
@@ -291,7 +290,7 @@ function CaseStudyCard({ study, t }) {
                 </div>
 
                 <div>
-                  <SectionBlock title={t('caseStudies.sections.architecture')} accent={accent}>
+                  <SectionBlock title="Architecture" accent={accent}>
                     <div
                       className="rounded-xl border p-4"
                       style={{ background: `${accent}08`, borderColor: `${accent}20` }}
@@ -300,7 +299,7 @@ function CaseStudyCard({ study, t }) {
                     </div>
                   </SectionBlock>
 
-                  <SectionBlock title={t('caseStudies.sections.challenges')} accent={accent}>
+                  <SectionBlock title="Challenges" accent={accent}>
                     <ul className="space-y-1">
                       {challenges.map((c) => (
                         <li key={c} className="flex items-start gap-2 text-sm text-white/60">
@@ -311,7 +310,7 @@ function CaseStudyCard({ study, t }) {
                     </ul>
                   </SectionBlock>
 
-                  <SectionBlock title={t('caseStudies.sections.unique')} accent={accent}>
+                  <SectionBlock title="What Makes It Unique" accent={accent}>
                     <div className="flex flex-wrap gap-1.5">
                       {unique.map((u) => (
                         <span
@@ -325,7 +324,7 @@ function CaseStudyCard({ study, t }) {
                     </div>
                   </SectionBlock>
 
-                  <SectionBlock title={t('caseStudies.sections.future')} accent={accent}>
+                  <SectionBlock title="Future Plans" accent={accent}>
                     <div className="flex flex-wrap gap-1.5">
                       {future.map((f) => (
                         <span key={f} className="rounded-full border border-white/10 px-2.5 py-0.5 text-[11px] text-white/40">
@@ -335,7 +334,7 @@ function CaseStudyCard({ study, t }) {
                     </div>
                   </SectionBlock>
 
-                  <SectionBlock title={t('caseStudies.sections.learning')} accent={accent}>
+                  <SectionBlock title="Key Learnings" accent={accent}>
                     <ul className="space-y-1">
                       {learning.map((l) => (
                         <li key={l} className="flex items-start gap-2 text-sm text-white/60">
@@ -356,8 +355,6 @@ function CaseStudyCard({ study, t }) {
 }
 
 function CaseStudiesSection() {
-  const { t } = useTranslation()
-
   return (
     <section className="relative z-10 px-4 py-16 md:px-8 lg:px-12">
       <div className="mx-auto max-w-5xl">
@@ -369,13 +366,13 @@ function CaseStudiesSection() {
           transition={{ duration: 0.5 }}
         >
           <p className="mb-3 text-xs uppercase tracking-[0.2em] text-white/30">
-            {t('caseStudies.eyebrow')}
+            Deep Dives
           </p>
           <h2 className="text-3xl font-bold text-white md:text-4xl">
-            {t('caseStudies.title')}
+            Engineering Case Studies
           </h2>
           <p className="mt-3 mx-auto max-w-2xl text-sm text-white/50 leading-relaxed">
-            {t('caseStudies.subtitle')}
+            A detailed look at the architecture, decisions, and trade-offs behind selected projects.
           </p>
         </motion.div>
 
@@ -388,7 +385,7 @@ function CaseStudiesSection() {
               viewport={{ once: true, margin: '-40px' }}
               transition={{ delay: i * 0.07, duration: 0.4 }}
             >
-              <CaseStudyCard study={study} t={t} />
+              <CaseStudyCard study={study} />
             </motion.div>
           ))}
         </div>

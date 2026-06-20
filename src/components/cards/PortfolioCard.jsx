@@ -1,6 +1,5 @@
 import { memo, useState, useRef, useCallback } from 'react'
 import { motion } from 'framer-motion'
-import { useTranslation } from 'react-i18next'
 import {
   IconUserCircle,
   IconBrandGithub,
@@ -33,7 +32,7 @@ const SOCIAL_ICONS = {
   leetcode: IconBrandLeetcode,
 }
 
-function CardPreview({ preview, accent, cardId, t }) {
+function CardPreview({ preview, accent }) {
   if (!preview) return null
 
   switch (preview.type) {
@@ -42,7 +41,7 @@ function CardPreview({ preview, accent, cardId, t }) {
         <div className="px-6">
           {preview.lines.map((line, i) => (
             <p key={i} className="text-[13px] leading-relaxed text-[rgba(255,255,255,0.65)]">
-              {t('about.shortBio', line)}
+              {line}
             </p>
           ))}
         </div>
@@ -164,7 +163,7 @@ function CardPreview({ preview, accent, cardId, t }) {
       return (
         <div className="flex items-center justify-center gap-2 px-6">
           <span className="h-2 w-2 animate-pulse rounded-full bg-[#6BCB77]" />
-          <span className="text-[13px] text-[rgba(255,255,255,0.65)]">{t('contact.available')}</span>
+          <span className="text-[13px] text-[rgba(255,255,255,0.65)]">Available for internships</span>
         </div>
       )
     default:
@@ -184,14 +183,10 @@ const PortfolioCard = memo(function PortfolioCard({
   layoutMode = 'globe',
   setCursor,
 }) {
-  const { t } = useTranslation()
   const [localHover, setLocalHover] = useState(false)
   const cardRef = useRef(null)
   const Icon = ICONS[card.icon] || IconUserCircle
   const hovered = isHovered || localHover
-
-  const cardTitle = t(`${card.id}.title`, card.title)
-  const cardSubtitle = t(`${card.id}.subtitle`, card.subtitle)
 
   const handleMouseMove = useCallback(
     (e) => {
@@ -227,12 +222,10 @@ const PortfolioCard = memo(function PortfolioCard({
   const widthClass =
     layoutMode === 'mobile' ? 'w-[calc(100vw-32px)]' : layoutMode === 'tablet' ? 'w-full' : 'w-[320px]'
 
-  const heightClass = 'h-[420px]'
-
   return (
     <motion.div
       ref={cardRef}
-      className={`relative ${widthClass} ${heightClass} cursor-pointer select-none`}
+      className={`relative ${widthClass} h-[420px] cursor-pointer select-none`}
       style={{
         opacity: isDimmed ? 0.6 : 1,
         transform: layoutMode === 'tablet' ? 'perspective(1200px)' : undefined,
@@ -250,9 +243,7 @@ const PortfolioCard = memo(function PortfolioCard({
     >
       <div
         className={`card-glow ${hovered ? 'card-glow-active' : ''}`}
-        style={{
-          background: `radial-gradient(circle, ${card.accent}59 0%, transparent 70%)`,
-        }}
+        style={{ background: `radial-gradient(circle, ${card.accent}59 0%, transparent 70%)` }}
       />
       <div
         className="glass-card relative flex h-full flex-col overflow-hidden rounded-[24px] will-transform transition-shadow duration-400"
@@ -277,23 +268,19 @@ const PortfolioCard = memo(function PortfolioCard({
           <motion.div
             className="mt-7 flex h-16 w-16 items-center justify-center rounded-full"
             style={{ background: `${card.accent}26` }}
-            animate={
-              hovered
-                ? { rotate: 12, scale: 1.15 }
-                : { rotate: 0, scale: 1 }
-            }
+            animate={hovered ? { rotate: 12, scale: 1.15 } : { rotate: 0, scale: 1 }}
             transition={{ type: 'spring', stiffness: 300, damping: 18 }}
           >
             <Icon size={40} style={{ color: card.accent }} stroke={1.5} />
           </motion.div>
 
-          <h3 className="mt-5 text-[22px] font-bold tracking-[-0.02em] text-white">{cardTitle}</h3>
-          <p className="mt-1.5 text-[13px] text-[rgba(255,255,255,0.50)]">{cardSubtitle}</p>
+          <h3 className="mt-5 text-[22px] font-bold tracking-[-0.02em] text-white">{card.title}</h3>
+          <p className="mt-1.5 text-[13px] text-[rgba(255,255,255,0.50)]">{card.subtitle}</p>
 
           <div className="mx-6 my-5 h-px w-[calc(100%-48px)] bg-white/8" />
 
           <div className="flex-1 w-full overflow-hidden">
-            <CardPreview preview={card.preview} accent={card.accent} cardId={card.id} t={t} />
+            <CardPreview preview={card.preview} accent={card.accent} />
           </div>
 
           <div className="flex w-full items-center justify-between px-6 py-5">
@@ -303,7 +290,7 @@ const PortfolioCard = memo(function PortfolioCard({
                 style={{ background: `${card.preview.badge.color}26`, color: card.preview.badge.color }}
               >
                 <span className="h-1.5 w-1.5 rounded-full" style={{ background: card.preview.badge.color }} />
-                {t('openToWork.title', card.preview.badge.text)}
+                {card.preview.badge.text}
               </span>
             ) : card.id === 'profile' ? (
               <span

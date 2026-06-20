@@ -1,5 +1,4 @@
 import { useState, useCallback, useEffect } from 'react'
-import { useTranslation } from 'react-i18next'
 
 import { CARDS } from './data/cards'
 import { useBreakpoint } from './hooks/useMediaQuery'
@@ -13,11 +12,9 @@ import PortfolioCard from './components/cards/PortfolioCard'
 import OpenToWorkWidget from './components/sections/OpenToWorkWidget'
 import CaseStudiesSection from './components/sections/CaseStudiesSection'
 
-
 function AppContent() {
   const { isMobile, isTablet, isDesktop } = useBreakpoint()
   const reducedMotion = useReducedMotion()
-  useTranslation()
 
   const [loaderDone] = useState(true)
   const [hoverId, setHoverId] = useState(null)
@@ -32,9 +29,7 @@ function AppContent() {
   }, [])
 
   useEffect(() => {
-    const onScroll = () => {
-      setScrolled(window.scrollY > 80)
-    }
+    const onScroll = () => setScrolled(window.scrollY > 80)
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
@@ -57,8 +52,6 @@ function AppContent() {
     },
     [handleClick],
   )
-
-  const handleIndexClick = useCallback((id) => handleClick(id), [handleClick])
 
   return (
     <div className="relative min-h-screen">
@@ -101,9 +94,7 @@ function AppContent() {
         )}
 
         <OpenToWorkWidget />
-
         <CaseStudiesSection />
-
       </main>
 
       {activeId && <ExpandedOverlay activeId={activeId} onClose={handleClose} />}

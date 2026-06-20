@@ -1,6 +1,5 @@
 import { memo } from 'react'
 import { motion } from 'framer-motion'
-import { useTranslation } from 'react-i18next'
 
 const ROLES = [
   'Software Development Internship',
@@ -11,11 +10,6 @@ const ROLES = [
 ]
 
 function OpenToWorkWidget() {
-  const { t } = useTranslation()
-
-  const roles = t('openToWork.roles', { returnObjects: true })
-  const displayRoles = Array.isArray(roles) ? roles : ROLES
-
   return (
     <section className="relative z-10 px-4 py-8 md:px-8 lg:px-12">
       <div className="mx-auto max-w-5xl">
@@ -43,17 +37,15 @@ function OpenToWorkWidget() {
                   <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#6BCB77] opacity-50" />
                   <span className="relative inline-flex h-3 w-3 rounded-full bg-[#6BCB77]" />
                 </span>
-                <h3 className="text-xl font-bold text-white">
-                  {t('openToWork.title')}
-                </h3>
+                <h3 className="text-xl font-bold text-white">Open To Work</h3>
               </div>
               <p className="text-sm text-white/40 ml-6">
-                {t('openToWork.footer')}
+                Available for internships and collaborative software projects.
               </p>
             </div>
 
             <div className="flex-1 grid grid-cols-1 gap-2 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2">
-              {displayRoles.map((role, i) => (
+              {ROLES.map((role, i) => (
                 <motion.div
                   key={role}
                   initial={{ opacity: 0, x: -10 }}

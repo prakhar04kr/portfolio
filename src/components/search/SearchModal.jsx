@@ -1,6 +1,5 @@
 import { memo, useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { useTranslation } from 'react-i18next'
 import { IconSearch, IconX } from '@tabler/icons-react'
 
 const SEARCH_DATA = [
@@ -24,7 +23,6 @@ const SEARCH_DATA = [
   { type: 'certifications', title: 'Python 101 for Data Science', desc: 'IBM', tags: ['Python', 'IBM'] },
   { type: 'certifications', title: 'Full Stack Development MERN', desc: 'Algoxfusion', tags: ['MERN', 'Full Stack'] },
   { type: 'casestudies', title: 'YojnaConnect Case Study', desc: 'GovTech architecture & engineering breakdown', tags: ['GovTech', 'Full Stack'] },
-  { type: 'casestudies', title: 'TypeRacer Case Study', desc: 'Real-time multiplayer system design', tags: ['Real-Time', 'WebSocket'] },
   { type: 'casestudies', title: 'LayChess Case Study', desc: 'AI chess engine architecture', tags: ['AI', 'Algorithms'] },
   { type: 'casestudies', title: 'KeyForge Case Study', desc: 'AI-powered multiplayer typing platform', tags: ['AI', 'Socket.IO', 'Gemini'] },
 ]
@@ -34,6 +32,13 @@ const TYPE_COLORS = {
   skills: '#FF6B6B',
   certifications: '#6BCB77',
   casestudies: '#A855F7',
+}
+
+const TYPE_LABELS = {
+  projects: 'Projects',
+  skills: 'Skills',
+  certifications: 'Certifications',
+  casestudies: 'Case Studies',
 }
 
 function highlight(text, query) {
@@ -50,7 +55,6 @@ function highlight(text, query) {
 }
 
 function SearchModal({ isOpen, onClose }) {
-  const { t } = useTranslation()
   const [query, setQuery] = useState('')
   const inputRef = useRef(null)
 
@@ -62,9 +66,7 @@ function SearchModal({ isOpen, onClose }) {
   }, [isOpen])
 
   useEffect(() => {
-    const handler = (e) => {
-      if (e.key === 'Escape') onClose()
-    }
+    const handler = (e) => { if (e.key === 'Escape') onClose() }
     window.addEventListener('keydown', handler)
     return () => window.removeEventListener('keydown', handler)
   }, [onClose])
@@ -115,7 +117,7 @@ function SearchModal({ isOpen, onClose }) {
                   type="text"
                   value={query}
                   onChange={(e) => setQuery(e.target.value)}
-                  placeholder={t('search.placeholder')}
+                  placeholder="Search projects, skills, certifications..."
                   className="flex-1 bg-transparent text-sm text-white outline-none placeholder:text-white/30"
                   autoComplete="off"
                   spellCheck={false}
@@ -132,20 +134,20 @@ function SearchModal({ isOpen, onClose }) {
               <div className="overflow-y-auto" style={{ maxHeight: '60vh' }}>
                 {query.trim().length === 0 && (
                   <div className="px-4 py-10 text-center text-sm text-white/30">
-                    {t('search.label')}
+                    Search Portfolio
                   </div>
                 )}
 
                 {query.trim().length > 0 && results.length === 0 && (
                   <div className="px-4 py-10 text-center text-sm text-white/30">
-                    {t('search.noResults')}
+                    No results found
                   </div>
                 )}
 
                 {Object.entries(grouped).map(([type, items]) => (
                   <div key={type} className="px-2 py-2">
                     <div className="px-3 py-1.5 text-[10px] font-semibold uppercase tracking-widest text-white/30">
-                      {t(`search.categories.${type}`)}
+                      {TYPE_LABELS[type]}
                     </div>
                     {items.map((item) => (
                       <div

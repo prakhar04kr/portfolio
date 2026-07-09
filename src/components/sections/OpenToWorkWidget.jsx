@@ -1,5 +1,5 @@
 import { memo } from 'react'
-import { motion } from 'framer-motion'
+import { FadeInSection } from '../motion/ScrollReveal'
 
 const ROLES = [
   'AI/ML Engineering Internship',
@@ -11,22 +11,18 @@ const ROLES = [
 
 function OpenToWorkWidget() {
   return (
-    <section className="relative z-10 px-4 py-8 md:px-8 lg:px-12">
+    <FadeInSection className="relative z-10 px-4 py-8 md:px-8 lg:px-12">
       <div className="mx-auto max-w-5xl">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="relative overflow-hidden rounded-2xl border border-[#6BCB77]/20 p-6 md:p-8"
+        <div
+          className="relative overflow-hidden rounded-2xl border border-white/10 p-6 md:p-8"
           style={{
-            background: 'linear-gradient(135deg, rgba(107,203,119,0.06) 0%, rgba(7,7,26,0.8) 100%)',
+            background: 'linear-gradient(135deg, rgba(255,255,255,0.04) 0%, rgba(7,7,26,0.75) 100%)',
           }}
         >
           <div
             className="pointer-events-none absolute inset-0 rounded-2xl"
             style={{
-              background: 'radial-gradient(ellipse at top left, rgba(107,203,119,0.12) 0%, transparent 60%)',
+              background: 'radial-gradient(ellipse at top left, rgba(107,203,119,0.08) 0%, transparent 60%)',
             }}
           />
 
@@ -45,26 +41,22 @@ function OpenToWorkWidget() {
             </div>
 
             <div className="grid flex-1 grid-cols-1 gap-2 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2">
-              {ROLES.map((role, i) => (
-                <motion.div
+              {ROLES.map((role) => (
+                <div
                   key={role}
-                  initial={{ opacity: 0, x: -10 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.06, duration: 0.35 }}
                   className="flex items-center gap-2.5"
                 >
                   <span className="flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-[#6BCB77]/20 text-[10px] text-[#6BCB77]">
                     ✓
                   </span>
                   <span className="text-sm text-white/75">{role}</span>
-                </motion.div>
+                </div>
               ))}
             </div>
           </div>
-        </motion.div>
+        </div>
       </div>
-    </section>
+    </FadeInSection>
   )
 }
 

@@ -1,6 +1,7 @@
 import { memo, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import ArchitectureFlow from './ArchitectureFlow'
+import { FadeInSection } from '../motion/ScrollReveal'
 
 const CASE_STUDIES = [
   {
@@ -411,15 +412,9 @@ function CaseStudiesSection() {
   }
 
   return (
-    <section className="relative z-10 px-4 py-16 md:px-8 lg:px-12">
+    <FadeInSection className="relative z-10 px-4 py-16 md:px-8 lg:px-12">
       <div className="mx-auto max-w-5xl">
-        <motion.div
-          className="mb-10 text-center"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-        >
+        <div className="mb-10 text-center">
           <p className="mb-3 text-xs uppercase tracking-[0.2em] text-white/30">
             Deep Dives
           </p>
@@ -429,7 +424,7 @@ function CaseStudiesSection() {
           <p className="mt-3 mx-auto max-w-2xl text-sm text-white/50 leading-relaxed">
             A detailed look at the architecture, decisions, and trade-offs behind selected projects.
           </p>
-        </motion.div>
+        </div>
 
         <div className="space-y-4">
           {CASE_STUDIES.map((study, i) => (
@@ -438,7 +433,7 @@ function CaseStudiesSection() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-40px' }}
-              transition={{ delay: i * 0.07, duration: 0.4 }}
+              transition={{ delay: i * 0.05, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
             >
               <CaseStudyCard
                 study={study}
@@ -449,7 +444,7 @@ function CaseStudiesSection() {
           ))}
         </div>
       </div>
-    </section>
+    </FadeInSection>
   )
 }
 

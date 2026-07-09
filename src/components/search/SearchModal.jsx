@@ -18,7 +18,7 @@ const SEARCH_DATA = [
   { type: 'certifications', title: 'Oracle GenAI Professional', desc: 'Oracle Cloud Infrastructure', tags: ['Oracle', 'GenAI'] },
   { type: 'certifications', title: 'IBM AI Developer', desc: 'IBM', tags: ['IBM', 'AI'] },
   { type: 'certifications', title: 'Health-Hack 2025 Silver Medal', desc: '5th of 236 teams', tags: ['Hackathon', 'Award'] },
-  { type: 'certifications', title: 'Google Responsible AI', desc: 'Google Cloud', tags: ['Google', 'Ethics'] },
+  { type: 'certifications', title: 'Cisco Introduction to Data Science', desc: 'Cisco Networking Academy', tags: ['Cisco', 'Data Science'] },
   { type: 'casestudies', title: 'Marg-Darshak Case Study', desc: 'Computer vision navigation architecture', tags: ['YOLOv8', 'Computer Vision'] },
   { type: 'casestudies', title: 'Smart Document Assistant Case Study', desc: 'RAG pipeline architecture', tags: ['RAG', 'LangChain'] },
   { type: 'casestudies', title: 'ShareBite Case Study', desc: 'Food redistribution platform', tags: ['Firebase', 'Gemini'] },

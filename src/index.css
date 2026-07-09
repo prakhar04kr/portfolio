@@ -38,7 +38,7 @@ html.lenis body {
 body {
   margin: 0;
   font-family: var(--font-sans);
-  background: var(--color-page-bg);
+  background: #080812;
   color: var(--color-text-primary);
   overflow-x: hidden;
   cursor: auto;
@@ -116,30 +116,58 @@ body {
   transform: translateY(12px);
 }
 
-.certificate-marquee-mask {
-  mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
-  -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+.mesh-background {
+  background: #080812;
+  overflow: hidden;
 }
 
-.certificate-marquee-track {
-  animation: certificate-flow var(--marquee-duration, 40s) linear infinite;
+.mesh-background__blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  will-change: transform;
 }
 
-.certificate-marquee-track:hover {
-  animation-play-state: paused;
+.mesh-background__blob--1 {
+  top: -10%;
+  left: -8%;
+  width: 42vw;
+  height: 42vw;
+  background: radial-gradient(circle, rgba(76, 68, 180, 0.22) 0%, transparent 70%);
+  animation: mesh-drift-1 28s ease-in-out infinite alternate;
 }
 
-.certificate-marquee-reverse {
-  animation-direction: reverse;
+.mesh-background__blob--2 {
+  right: -12%;
+  top: 28%;
+  width: 36vw;
+  height: 36vw;
+  background: radial-gradient(circle, rgba(45, 110, 170, 0.16) 0%, transparent 72%);
+  animation: mesh-drift-2 34s ease-in-out infinite alternate;
 }
 
-@keyframes certificate-flow {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
+.mesh-background__blob--3 {
+  bottom: -18%;
+  left: 24%;
+  width: 48vw;
+  height: 48vw;
+  background: radial-gradient(circle, rgba(90, 60, 140, 0.14) 0%, transparent 70%);
+  animation: mesh-drift-3 30s ease-in-out infinite alternate;
+}
+
+@keyframes mesh-drift-1 {
+  from { transform: translate(0, 0) scale(1); }
+  to { transform: translate(6vw, 4vh) scale(1.08); }
+}
+
+@keyframes mesh-drift-2 {
+  from { transform: translate(0, 0) scale(1); }
+  to { transform: translate(-5vw, 6vh) scale(1.05); }
+}
+
+@keyframes mesh-drift-3 {
+  from { transform: translate(0, 0) scale(1); }
+  to { transform: translate(4vw, -5vh) scale(1.06); }
 }
 
 .scrollbar-hide {

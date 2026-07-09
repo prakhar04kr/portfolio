@@ -1,4 +1,4 @@
-import { memo, useState, useRef, useCallback } from 'react'
+import { memo, useState, useRef } from 'react'
 import { motion } from 'framer-motion'
 import {
   IconUserCircle,
@@ -194,21 +194,6 @@ const PortfolioCard = memo(function PortfolioCard({
   const Icon = ICONS[card.icon] || IconUserCircle
   const hovered = isHovered || localHover
 
-  const handleMouseMove = useCallback(
-    (e) => {
-      if (layoutMode !== 'globe' && layoutMode !== 'tablet') return
-      const rect = cardRef.current?.getBoundingClientRect()
-      if (!rect) return
-      const cx = rect.left + rect.width / 2
-      const cy = rect.top + rect.height / 2
-      const dx = (e.clientX - cx) / (rect.width / 2)
-      const dy = (e.clientY - cy) / (rect.height / 2)
-      cardRef.current.style.setProperty('--tilt-x', `${-dy * 8}deg`)
-      cardRef.current.style.setProperty('--tilt-y', `${dx * 8}deg`)
-    },
-    [layoutMode],
-  )
-
   const handleEnter = () => {
     setLocalHover(true)
     onHover?.(card.id)
@@ -219,10 +204,6 @@ const PortfolioCard = memo(function PortfolioCard({
     setLocalHover(false)
     onLeave?.()
     setCursor?.('default')
-    if (cardRef.current) {
-      cardRef.current.style.setProperty('--tilt-x', '0deg')
-      cardRef.current.style.setProperty('--tilt-y', '0deg')
-    }
   }
 
   const widthClass =
@@ -232,35 +213,25 @@ const PortfolioCard = memo(function PortfolioCard({
     <motion.div
       ref={cardRef}
       className={`relative ${widthClass} h-[420px] cursor-pointer select-none`}
-      style={{
-        opacity: isDimmed ? 0.6 : 1,
-        transform: layoutMode === 'tablet' ? 'perspective(1200px)' : undefined,
-        '--tilt-x': '0deg',
-        '--tilt-y': '0deg',
-      }}
-      initial={animateIn ? { scale: 0, opacity: 0 } : false}
-      animate={animateIn ? { scale: 1, opacity: 1 } : { opacity: isDimmed ? 0.6 : 1 }}
-      transition={{ type: 'spring', stiffness: 70, damping: 14, delay: index * 0.1 }}
+      style={{ opacity: isDimmed ? 0.72 : 1 }}
+      initial={animateIn ? { opacity: 0, y: 28 } : false}
+      animate={animateIn ? { opacity: 1, y: 0 } : { opacity: isDimmed ? 0.72 : 1 }}
+      transition={{ duration: 0.55, delay: index * 0.07, ease: [0.22, 1, 0.36, 1] }}
       onMouseEnter={handleEnter}
       onMouseLeave={handleLeave}
-      onMouseMove={handleMouseMove}
       onClick={() => onClick?.(card.id)}
       data-card-id={card.id}
     >
-      <div
-        className={`card-glow ${hovered ? 'card-glow-active' : ''}`}
-        style={{ background: `radial-gradient(circle, ${card.accent}18 0%, transparent 72%)` }}
-      />
-      <div
-        className="glass-card relative flex h-full flex-col overflow-hidden rounded-[24px] will-transform transition-shadow duration-400"
+      <motion.div
+        className="glass-card relative flex h-full flex-col overflow-hidden rounded-[24px]"
+        animate={{
+          y: hovered ? -6 : 0,
+        }}
+        transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
         style={{
-          transform:
-            layoutMode === 'tablet'
-              ? `rotateX(var(--tilt-x)) rotateY(var(--tilt-y)) translateZ(${hovered ? 20 : 0}px)`
-              : undefined,
           boxShadow: hovered
-            ? `0 12px 40px -16px ${card.accent}20, 0 0 0 1px ${card.accent}14, inset 0 1px 0 rgba(255,255,255,0.08)`
-            : '0 0 0 1px rgba(255,255,255,0.04)',
+            ? '0 20px 40px -18px rgba(0, 0, 0, 0.55), 0 8px 16px -10px rgba(0, 0, 0, 0.35)'
+            : '0 4px 20px -12px rgba(0, 0, 0, 0.35)',
         }}
       >
         <motion.div
@@ -316,7 +287,7 @@ const PortfolioCard = memo(function PortfolioCard({
             </motion.span>
           </div>
         </div>
-      </div>
+      </motion.div>
     </motion.div>
   )
 })

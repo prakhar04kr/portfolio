@@ -1,6 +1,6 @@
 import { useState, useCallback, useEffect } from 'react'
 
-import { CARDS } from './data/cards'
+import { CARDS, DEVELOPER } from './data/cards'
 import { useBreakpoint } from './hooks/useMediaQuery'
 import { useReducedMotion } from './hooks/useReducedMotion'
 
@@ -12,8 +12,8 @@ import PortfolioCard from './components/cards/PortfolioCard'
 import OpenToWorkWidget from './components/sections/OpenToWorkWidget'
 import CaseStudiesSection from './components/sections/CaseStudiesSection'
 import CertificateFlowSection from './components/sections/CertificateFlowSection'
-import BackgroundOrbs from './components/background/BackgroundOrbs'
-import Starfield from './components/background/Starfield'
+import MeshBackground from './components/background/MeshBackground'
+import { SlideUpReveal } from './components/motion/ScrollReveal'
 
 function AppContent() {
   const { isMobile, isTablet, isDesktop } = useBreakpoint()
@@ -24,7 +24,6 @@ function AppContent() {
   const [activeId, setActiveId] = useState(null)
   const [activeSection, setActiveSection] = useState('about')
   const [scrolled, setScrolled] = useState(false)
-  const [scrollY, setScrollY] = useState(0)
 
   const [cardsVisible, setCardsVisible] = useState(reducedMotion)
   useEffect(() => {
@@ -33,10 +32,7 @@ function AppContent() {
   }, [])
 
   useEffect(() => {
-    const onScroll = () => {
-      setScrolled(window.scrollY > 80)
-      setScrollY(window.scrollY)
-    }
+    const onScroll = () => setScrolled(window.scrollY > 80)
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
@@ -67,12 +63,7 @@ function AppContent() {
 
   return (
     <div className="relative min-h-screen">
-      {!reducedMotion && (
-        <>
-          <Starfield />
-          <BackgroundOrbs scrollY={scrollY} />
-        </>
-      )}
+      {!reducedMotion && <MeshBackground />}
 
       <Navbar
         activeSection={activeSection}
@@ -82,6 +73,26 @@ function AppContent() {
       />
 
       <main className="relative z-10">
+        <section className="px-6 pb-4 pt-28 md:px-8 md:pt-32">
+          <div className="mx-auto max-w-5xl text-center">
+            <SlideUpReveal delay={0.05}>
+              <p className="mb-3 text-xs uppercase tracking-[0.28em] text-white/35">
+                AI/ML Engineer &amp; Full-Stack Developer
+              </p>
+            </SlideUpReveal>
+            <SlideUpReveal delay={0.15}>
+              <h1 className="text-4xl font-bold tracking-tight text-white md:text-5xl">
+                {DEVELOPER.name}
+              </h1>
+            </SlideUpReveal>
+            <SlideUpReveal delay={0.25}>
+              <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-white/55 md:text-base">
+                {DEVELOPER.shortBio}
+              </p>
+            </SlideUpReveal>
+          </div>
+        </section>
+
         {(isTablet || isDesktop) && !reducedMotion && (
           <TabletGrid
             hoverId={hoverId}
@@ -98,7 +109,7 @@ function AppContent() {
         )}
 
         {reducedMotion && (
-          <div className="grid grid-cols-1 gap-6 px-6 py-24 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          <div className="grid grid-cols-1 gap-6 px-6 py-12 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {CARDS.map((card, i) => (
               <PortfolioCard
                 key={card.id}

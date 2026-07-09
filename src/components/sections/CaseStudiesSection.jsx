@@ -1,7 +1,6 @@
 import { memo, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import ArchitectureFlow from './ArchitectureFlow'
-import { FadeInSection } from '../motion/ScrollReveal'
 
 const CASE_STUDIES = [
   {
@@ -412,7 +411,7 @@ function CaseStudiesSection() {
   }
 
   return (
-    <FadeInSection className="relative z-10 px-4 py-16 md:px-8 lg:px-12">
+    <section className="relative z-10 px-4 py-16 md:px-8 lg:px-12">
       <div className="mx-auto max-w-5xl">
         <div className="mb-10 text-center">
           <p className="mb-3 text-xs uppercase tracking-[0.2em] text-white/30">
@@ -427,24 +426,17 @@ function CaseStudiesSection() {
         </div>
 
         <div className="space-y-4">
-          {CASE_STUDIES.map((study, i) => (
-            <motion.div
+          {CASE_STUDIES.map((study) => (
+            <CaseStudyCard
               key={study.key}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-40px' }}
-              transition={{ delay: i * 0.05, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-            >
-              <CaseStudyCard
-                study={study}
-                expanded={expandedKey === study.key}
-                onToggle={handleToggle}
-              />
-            </motion.div>
+              study={study}
+              expanded={expandedKey === study.key}
+              onToggle={handleToggle}
+            />
           ))}
         </div>
       </div>
-    </FadeInSection>
+    </section>
   )
 }
 

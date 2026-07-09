@@ -1,14 +1,11 @@
 import { memo } from 'react'
 import PortfolioCard from '../cards/PortfolioCard'
 import { CARDS } from '../../data/cards'
-import { FadeInSection } from '../motion/ScrollReveal'
 
-function TabletGrid({ hoverId, onHover, onLeave, onClick, cardsVisible, setCursor }) {
+function TabletGrid({ hoverId, onHover, onLeave, onClick, setCursor }) {
   return (
-    <FadeInSection className="px-6 pb-8 md:px-8" delay={0.1}>
-      <div
-        className="mx-auto grid max-w-6xl grid-cols-2 gap-6"
-      >
+    <section className="px-6 pb-8 md:px-8">
+      <div className="mx-auto grid max-w-6xl grid-cols-2 gap-6">
         {CARDS.map((card, i) => (
           <PortfolioCard
             key={card.id}
@@ -19,13 +16,13 @@ function TabletGrid({ hoverId, onHover, onLeave, onClick, cardsVisible, setCurso
             onHover={onHover}
             onLeave={onLeave}
             onClick={onClick}
-            animateIn={cardsVisible}
+            animateIn={i < 4}
             layoutMode="tablet"
             setCursor={setCursor}
           />
         ))}
       </div>
-    </FadeInSection>
+    </section>
   )
 }
 

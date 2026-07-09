@@ -1,8 +1,7 @@
 import { memo, useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { AnimatePresence, motion } from 'framer-motion'
 import { IconX, IconZoomIn } from '@tabler/icons-react'
 import { CERTIFICATES } from '../../data/certificates'
-import { FadeInSection } from '../motion/ScrollReveal'
 
 function Lightbox({ cert, onClose }) {
   return (
@@ -19,10 +18,10 @@ function Lightbox({ cert, onClose }) {
         />
         <motion.div
           className="relative z-10 w-full max-w-4xl"
-          initial={{ opacity: 0, scale: 0.96, y: 20 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          exit={{ opacity: 0, scale: 0.96, y: 20 }}
-          transition={{ type: 'spring', stiffness: 280, damping: 28 }}
+          initial={{ opacity: 0, scale: 0.98 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0, scale: 0.98 }}
+          transition={{ duration: 0.2 }}
         >
           <button
             type="button"
@@ -33,7 +32,7 @@ function Lightbox({ cert, onClose }) {
             <IconX size={18} />
           </button>
           <div className="overflow-hidden rounded-2xl border border-white/12 bg-[#0c0c18] shadow-2xl">
-            <img src={cert.image} alt={cert.title} className="block w-full" />
+            <img src={cert.image} alt={cert.title} className="block w-full" decoding="async" />
           </div>
           <div className="mt-4 text-center">
             <h3 className="text-xl font-bold text-white">{cert.title}</h3>
@@ -61,7 +60,7 @@ function CertificateFlowSection() {
   const [selected, setSelected] = useState(null)
 
   return (
-    <FadeInSection id="certificates" className="relative z-10 py-20 md:py-28">
+    <section id="certificates" className="relative z-10 py-20 md:py-28">
       <div className="relative mx-auto max-w-7xl px-4 md:px-8">
         <div className="mb-12 text-center">
           <p className="mb-3 text-xs uppercase tracking-[0.25em] text-white/35">Credentials</p>
@@ -74,23 +73,21 @@ function CertificateFlowSection() {
         </div>
 
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-3">
-          {CERTIFICATES.map((cert, i) => (
-            <motion.button
+          {CERTIFICATES.map((cert) => (
+            <button
               key={cert.id}
               type="button"
               onClick={() => setSelected(cert)}
               className="group overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] text-left transition-all duration-300 hover:-translate-y-1 hover:border-white/16 hover:shadow-[0_18px_40px_-20px_rgba(0,0,0,0.65)] focus:outline-none focus-visible:ring-2 focus-visible:ring-white/20"
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-40px' }}
-              transition={{ duration: 0.55, delay: i * 0.06, ease: [0.22, 1, 0.36, 1] }}
             >
-              <div className="relative">
+              <div className="relative aspect-[4/3] overflow-hidden bg-white/[0.02]">
                 <img
                   src={cert.image}
                   alt={cert.title}
-                  className="block w-full object-cover"
+                  className="block h-full w-full object-cover object-top"
                   loading="lazy"
+                  decoding="async"
+                  fetchPriority="low"
                 />
                 <div className="absolute right-3 top-3 flex h-8 w-8 items-center justify-center rounded-full border border-white/15 bg-black/40 text-white/70 opacity-0 backdrop-blur-sm transition-opacity duration-300 group-hover:opacity-100">
                   <IconZoomIn size={14} />
@@ -101,7 +98,7 @@ function CertificateFlowSection() {
                 <p className="mt-1 text-xs text-white/45">{cert.issuer}</p>
                 <p className="mt-1 text-xs text-white/35">{cert.subtitle}</p>
               </div>
-            </motion.button>
+            </button>
           ))}
         </div>
       </div>
@@ -109,7 +106,7 @@ function CertificateFlowSection() {
       <AnimatePresence>
         {selected && <Lightbox cert={selected} onClose={() => setSelected(null)} />}
       </AnimatePresence>
-    </FadeInSection>
+    </section>
   )
 }
 

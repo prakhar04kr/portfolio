@@ -147,7 +147,7 @@ export const ACHIEVEMENTS = [
     org: 'Microsoft · AI-103',
     date: '2025',
     description: 'Associate-level certification demonstrating expertise in building AI applications and agents on Azure.',
-    image: '/certificates/azure-ai-103.png',
+    image: '/certificates/azure-ai-103.webp',
   },
   {
     icon: 'star',
@@ -155,7 +155,7 @@ export const ACHIEVEMENTS = [
     org: 'Oracle',
     date: '2025',
     description: 'Professional certification in OCI Generative AI services, LLM integration, and cloud-native AI solutions.',
-    image: '/certificates/oracle-genai.png',
+    image: '/certificates/oracle-genai.webp',
   },
   {
     icon: 'star',
@@ -163,7 +163,7 @@ export const ACHIEVEMENTS = [
     org: 'IBM · Coursera',
     date: 'Jan 2025',
     description: 'Professional certificate covering generative AI, Python, Flask, and full-stack AI application development.',
-    image: '/certificates/ibm-ai-developer.png',
+    image: '/certificates/ibm-ai-developer.webp',
   },
   {
     icon: 'star',
@@ -171,7 +171,7 @@ export const ACHIEVEMENTS = [
     org: 'Cisco Networking Academy',
     date: 'May 2024',
     description: 'Course completion covering data analytics, AI/ML fundamentals, and career pathways in data science.',
-    image: '/certificates/cisco-data-science.png',
+    image: '/certificates/cisco-data-science.webp',
   },
   {
     icon: 'star',

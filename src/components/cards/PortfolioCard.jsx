@@ -214,9 +214,9 @@ const PortfolioCard = memo(function PortfolioCard({
       ref={cardRef}
       className={`relative ${widthClass} h-[420px] cursor-pointer select-none`}
       style={{ opacity: isDimmed ? 0.72 : 1 }}
-      initial={animateIn ? { opacity: 0, y: 28 } : false}
+      initial={animateIn ? { opacity: 0, y: 12 } : false}
       animate={animateIn ? { opacity: 1, y: 0 } : { opacity: isDimmed ? 0.72 : 1 }}
-      transition={{ duration: 0.55, delay: index * 0.07, ease: [0.22, 1, 0.36, 1] }}
+      transition={{ duration: 0.35, delay: Math.min(index * 0.03, 0.12), ease: [0.22, 1, 0.36, 1] }}
       onMouseEnter={handleEnter}
       onMouseLeave={handleLeave}
       onClick={() => onClick?.(card.id)}

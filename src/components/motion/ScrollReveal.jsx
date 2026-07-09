@@ -19,7 +19,7 @@ export const FadeInSection = memo(function FadeInSection({
       initial={{ opacity: 0, y: 36 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-80px' }}
-      transition={{ duration: 0.7, delay, ease: EASE }}
+      transition={{ duration: 0.45, delay, ease: EASE }}
     >
       {children}
     </Component>

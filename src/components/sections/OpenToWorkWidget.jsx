@@ -1,5 +1,4 @@
 import { memo } from 'react'
-import { FadeInSection } from '../motion/ScrollReveal'
 
 const ROLES = [
   'AI/ML Engineering Internship',
@@ -11,7 +10,7 @@ const ROLES = [
 
 function OpenToWorkWidget() {
   return (
-    <FadeInSection className="relative z-10 px-4 py-8 md:px-8 lg:px-12">
+    <section className="relative z-10 px-4 py-8 md:px-8 lg:px-12">
       <div className="mx-auto max-w-5xl">
         <div
           className="relative overflow-hidden rounded-2xl border border-white/10 p-6 md:p-8"
@@ -29,10 +28,7 @@ function OpenToWorkWidget() {
           <div className="relative flex flex-col gap-6 md:flex-row md:items-start md:gap-10">
             <div className="flex-shrink-0">
               <div className="mb-1 flex items-center gap-3">
-                <span className="relative flex h-3 w-3">
-                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#6BCB77] opacity-50" />
-                  <span className="relative inline-flex h-3 w-3 rounded-full bg-[#6BCB77]" />
-                </span>
+                <span className="relative inline-flex h-3 w-3 rounded-full bg-[#6BCB77]" />
                 <h3 className="text-xl font-bold text-white">Open To Work</h3>
               </div>
               <p className="ml-6 text-sm text-white/40">
@@ -56,7 +52,7 @@ function OpenToWorkWidget() {
           </div>
         </div>
       </div>
-    </FadeInSection>
+    </section>
   )
 }
 

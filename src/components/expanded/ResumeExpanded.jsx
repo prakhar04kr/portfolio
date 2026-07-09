@@ -2,7 +2,7 @@ import { memo, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { IconDownload, IconEye, IconX, IconFileCv, IconTrophy, IconCpu } from '@tabler/icons-react'
 import ExpandedWrapper from './ExpandedWrapper'
-import { RESUME, PROJECTS, SKILLS } from '../../data/cards'
+import { RESUME, PROJECTS, SKILLS, DEVELOPER } from '../../data/cards'
 
 function ResumePreviewModal({ onClose }) {
   return (
@@ -34,7 +34,7 @@ function ResumePreviewModal({ onClose }) {
           >
             <div>
               <h3 className="text-lg font-bold text-white">Resume Highlights</h3>
-              <p className="text-xs text-white/40 mt-0.5">Prakhar Kumar · Full-Stack Developer</p>
+              <p className="text-xs text-white/40 mt-0.5">{DEVELOPER.name} · {DEVELOPER.title}</p>
             </div>
             <div className="flex items-center gap-3">
               <a

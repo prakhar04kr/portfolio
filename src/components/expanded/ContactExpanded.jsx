@@ -1,6 +1,7 @@
 import { memo, useState } from 'react'
 import { motion } from 'framer-motion'
-import { IconBrandGithub, IconBrandLinkedin, IconBrandLeetcode, IconSend } from '@tabler/icons-react'
+import { IconBrandGithub, IconBrandLinkedin, IconSend } from '@tabler/icons-react'
+import { HuggingFaceIcon } from '../icons/HuggingFaceIcon'
 import ExpandedWrapper from './ExpandedWrapper'
 import { DEVELOPER } from '../../data/cards'
 
@@ -16,15 +17,21 @@ function ContactExpanded({ onClose }) {
     <ExpandedWrapper title="Contact" accent="#FF922B" onClose={onClose}>
       <div data-reveal-line className="mb-6 inline-flex items-center gap-2 rounded-full bg-[#6BCB77]/15 px-4 py-2 text-sm text-[#6BCB77]">
         <span className="h-2 w-2 animate-pulse rounded-full bg-[#6BCB77]" />
-        Available for freelance
+        Available for AI/ML internships
       </div>
 
       <p data-reveal-line className="mb-2 text-sm text-[rgba(242,242,255,0.5)]">
         Currently based in
       </p>
-      <span data-reveal-line className="mb-8 inline-block rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm">
+      <span data-reveal-line className="mb-4 inline-block rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm">
         📍 {DEVELOPER.location}
       </span>
+      <p data-reveal-line className="mb-8 text-sm text-[rgba(242,242,255,0.5)]">
+        Or reach me directly at{' '}
+        <a href={`mailto:${DEVELOPER.email}`} className="text-[#FF922B] hover:underline">
+          {DEVELOPER.email}
+        </a>
+      </p>
 
       {sent ? (
         <motion.div
@@ -53,7 +60,7 @@ function ContactExpanded({ onClose }) {
           />
           <textarea
             data-reveal-line
-            placeholder="Tell me about your project..."
+            placeholder="Tell me about the opportunity..."
             rows={5}
             required
             className="w-full resize-none rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white outline-none focus:border-[#FF922B]/50"
@@ -73,7 +80,7 @@ function ContactExpanded({ onClose }) {
         {[
           { Icon: IconBrandGithub, url: DEVELOPER.social.github },
           { Icon: IconBrandLinkedin, url: DEVELOPER.social.linkedin },
-          { Icon: IconBrandLeetcode, url: DEVELOPER.social.leetcode },
+          { Icon: HuggingFaceIcon, url: DEVELOPER.social.huggingface },
         ].map(({ Icon, url }, i) => (
           <a
             key={i}

@@ -116,17 +116,17 @@ function TechBadge({ label, color, delay = 0 }) {
   )
 }
 
-function YojnaFlow({ color, isVisible }) {
+function MargDarshakFlow({ color, isVisible }) {
   if (!isVisible) return null
   const nodes = [
-    { label: 'User', sublabel: 'Browser' },
-    { label: 'React Frontend', sublabel: 'Vite + JSX' },
-    { label: 'Express API', sublabel: 'REST Layer' },
-    { label: 'Business Logic', sublabel: 'Filtering Engine' },
-    { label: 'MySQL Database', sublabel: 'Data Store' },
-    { label: 'Scheme Results', sublabel: 'Rendered UI' },
+    { label: 'Raspberry Pi', sublabel: 'Live Video Stream' },
+    { label: 'Flask Server', sublabel: 'Video Ingestion' },
+    { label: 'YOLOv8 Detector', sublabel: 'Hazard Detection' },
+    { label: 'Distance Estimator', sublabel: 'OpenCV' },
+    { label: 'TTS Engine', sublabel: 'Voice Alerts' },
+    { label: 'User Feedback', sublabel: '15 FPS Output' },
   ]
-  const badges = ['React', 'Node.js', 'Express', 'MySQL']
+  const badges = ['YOLOv8', 'OpenCV', 'Flask', 'Raspberry Pi']
   return (
     <div className="flex flex-col items-center gap-0">
       {nodes.map((n, i) => (
@@ -142,89 +142,69 @@ function YojnaFlow({ color, isVisible }) {
   )
 }
 
-function TypeRacerFlow({ color, isVisible }) {
-  if (!isVisible) return null
-  const badges = ['React', 'Socket.IO', 'Express', 'MySQL']
-  return (
-    <div className="flex flex-col items-center gap-0">
-      <motion.div
-        className="flex gap-3 justify-center mb-0"
-        initial={{ opacity: 0, y: 8 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0 }}
-      >
-        <FlowNode label="Player A" sublabel="Browser" color={color} delay={0} />
-        <FlowNode label="Player B" sublabel="Browser" color={color} delay={0.05} />
-      </motion.div>
-      <SplitConnector color={color} delay={0.1} />
-      {[
-        { label: 'Socket.IO Server', sublabel: 'WebSocket Hub' },
-        { label: 'Express Backend', sublabel: 'API Layer' },
-        { label: 'Race Engine', sublabel: 'Sync Logic' },
-        { label: 'MySQL Database', sublabel: 'Scores & Users' },
-        { label: 'Leaderboard', sublabel: 'Live Updates' },
-      ].map((n, i) => (
-        <div key={n.label} className="flex flex-col items-center">
-          <FlowNode label={n.label} sublabel={n.sublabel} color={color} delay={0.18 + i * 0.08} />
-          {i < 4 && <FlowConnector color={color} delay={0.18 + i * 0.08 + 0.04} />}
-        </div>
-      ))}
-      <div className="mt-4 flex flex-wrap justify-center gap-2">
-        {badges.map((b, i) => <TechBadge key={b} label={b} color={color} delay={0.7 + i * 0.05} />)}
-      </div>
-    </div>
-  )
-}
-
-function LayChessFlow({ color, isVisible }) {
+function SmartDocFlow({ color, isVisible }) {
   if (!isVisible) return null
   const nodes = [
-    { label: 'User Move', sublabel: 'Input' },
-    { label: 'Move Generator', sublabel: 'Legal Moves' },
-    { label: 'Negamax Search', sublabel: 'Tree Traversal' },
-    { label: 'Alpha-Beta Pruning', sublabel: 'Branch Cutoff' },
-    { label: 'Evaluation Engine', sublabel: 'Position Score' },
-    { label: 'Transposition Table', sublabel: 'Zobrist Hash Cache' },
-    { label: 'Best Move', sublabel: 'Selected Output' },
+    { label: 'PDF Upload', sublabel: 'User Input' },
+    { label: 'Text Extraction', sublabel: 'Chunking' },
+    { label: 'HuggingFace Embeddings', sublabel: 'Vectorization' },
+    { label: 'ChromaDB', sublabel: 'Vector Store' },
+    { label: 'Retrieval', sublabel: 'Top-K Chunks' },
+    { label: 'Gemini API', sublabel: 'Grounded Response' },
   ]
-  const badges = ['React', 'TypeScript', 'Negamax', 'Alpha-Beta', 'Zobrist']
+  const badges = ['LangChain', 'ChromaDB', 'Gemini', 'Gradio']
   return (
     <div className="flex flex-col items-center gap-0">
       {nodes.map((n, i) => (
         <div key={n.label} className="flex flex-col items-center">
-          <FlowNode label={n.label} sublabel={n.sublabel} color={color} delay={i * 0.07} />
-          {i < nodes.length - 1 && <FlowConnector color={color} delay={i * 0.07 + 0.04} />}
+          <FlowNode label={n.label} sublabel={n.sublabel} color={color} delay={i * 0.08} />
+          {i < nodes.length - 1 && <FlowConnector color={color} delay={i * 0.08 + 0.04} />}
         </div>
       ))}
       <div className="mt-4 flex flex-wrap justify-center gap-2">
-        {badges.map((b, i) => <TechBadge key={b} label={b} color={color} delay={0.65 + i * 0.05} />)}
+        {badges.map((b, i) => <TechBadge key={b} label={b} color={color} delay={0.6 + i * 0.05} />)}
       </div>
     </div>
   )
 }
 
-function KeyForgeFlow({ color, isVisible }) {
+function AudioTranscriptionFlow({ color, isVisible }) {
   if (!isVisible) return null
-  const badges = ['React', 'Socket.IO', 'Gemini AI', 'MySQL']
+  const nodes = [
+    { label: 'Audio Upload', sublabel: 'MP3/WAV/M4A' },
+    { label: 'React Frontend', sublabel: 'Progress UI' },
+    { label: 'FastAPI Backend', sublabel: 'Async Handler' },
+    { label: 'Faster-Whisper', sublabel: 'STT Model' },
+    { label: 'Transcript Output', sublabel: 'Text Result' },
+  ]
+  const badges = ['React', 'FastAPI', 'Whisper', 'HF Spaces']
   return (
     <div className="flex flex-col items-center gap-0">
-      <motion.div
-        className="flex gap-3 justify-center mb-0"
-        initial={{ opacity: 0, y: 8 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0 }}
-      >
-        <FlowNode label="Player A" sublabel="Browser" color={color} delay={0} />
-        <FlowNode label="Player B" sublabel="Browser" color={color} delay={0.05} />
-      </motion.div>
-      <SplitConnector color={color} delay={0.1} />
+      {nodes.map((n, i) => (
+        <div key={n.label} className="flex flex-col items-center">
+          <FlowNode label={n.label} sublabel={n.sublabel} color={color} delay={i * 0.08} />
+          {i < nodes.length - 1 && <FlowConnector color={color} delay={i * 0.08 + 0.04} />}
+        </div>
+      ))}
+      <div className="mt-4 flex flex-wrap justify-center gap-2">
+        {badges.map((b, i) => <TechBadge key={b} label={b} color={color} delay={0.55 + i * 0.05} />)}
+      </div>
+    </div>
+  )
+}
+
+function ShareBiteFlow({ color, isVisible }) {
+  if (!isVisible) return null
+  const badges = ['React', 'Firebase', 'Gemini', 'Cloudinary']
+  return (
+    <div className="flex flex-col items-center gap-0">
       {[
-        { label: 'Socket.IO Server', sublabel: 'Real-Time Hub' },
-        { label: 'Express Backend', sublabel: 'API Layer' },
-        { label: 'Race Engine', sublabel: 'Sync & Scoring' },
-        { label: 'Gemini AI Layer', sublabel: 'Coaching Engine' },
-        { label: 'MySQL Database', sublabel: 'Scores & Profiles' },
-        { label: 'Analytics Dashboard', sublabel: 'Performance Report' },
+        { label: 'Donor Upload', sublabel: 'Food + Image' },
+        { label: 'Gemini AI Service', sublabel: 'Metadata Extraction' },
+        { label: 'Cloudinary', sublabel: 'Image Processing' },
+        { label: 'Firebase DB', sublabel: 'Real-time Feed' },
+        { label: 'LocationIQ', sublabel: 'Geocoding' },
+        { label: 'Claim System', sublabel: 'DB Transactions' },
       ].map((n, i) => (
         <div key={n.label} className="flex flex-col items-center">
           <FlowNode label={n.label} sublabel={n.sublabel} color={color} delay={0.18 + i * 0.08} />
@@ -239,10 +219,10 @@ function KeyForgeFlow({ color, isVisible }) {
 }
 
 const FLOW_MAP = {
-  yojnaconnect: YojnaFlow,
-  typeracer: TypeRacerFlow,
-  laychess: LayChessFlow,
-  keyforge: KeyForgeFlow,
+  margdarshak: MargDarshakFlow,
+  smartdoc: SmartDocFlow,
+  audiotranscription: AudioTranscriptionFlow,
+  sharebite: ShareBiteFlow,
 }
 
 function ArchitectureFlow({ projectKey, color, isVisible }) {

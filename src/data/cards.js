@@ -1,225 +1,186 @@
 export const DEVELOPER = {
-  name: 'Prakhar Kumar',
-  monogram: 'PK',
-  title: 'Full-Stack Developer',
-  location: 'Chennai, India',
-  email: 'kumar04prakhar@gmail.com',
+  name: 'Sahil Kumar',
+  monogram: 'SK',
+  title: 'AI/ML Engineer & Full-Stack Developer',
+  location: 'Bhopal, India',
+  email: 'sahil06030652@gmail.com',
+  phone: '+91 8789573655',
 
-  bio: 'Final-year Computer Science Engineering student passionate about full-stack development, AI-powered applications, and scalable web platforms.\n\nI enjoy transforming ideas into practical software solutions using React, Node.js, Java, TypeScript, MySQL, and modern web technologies.\n\nMy experience includes building government scheme discovery systems, real-time multiplayer applications, intelligent recommendation platforms, AI-powered interview platforms, and browser-based AI engines.\n\nI am actively seeking opportunities as a Software Developer Intern where I can contribute to impactful products while continuing to grow as an engineer.',
-  shortBio: 'Final-year Computer Science Engineering student passionate about full-stack development, AI-powered applications, and scalable web platforms.',
-  status: 'Open to Work',
+  bio: 'B.Tech CSE (AI & ML) student at VIT Bhopal (graduating Sept 2027) with hands-on experience building GenAI, RAG, and full-stack applications.\n\nI specialize in machine learning, deep learning, NLP, and generative AI — building real-world systems with LangChain, HuggingFace, Azure AI, and modern web stacks.\n\nMy projects span computer vision navigation aids, RAG-powered document assistants, speech-to-text platforms, and AI-enhanced social impact apps deployed on Hugging Face Spaces and cloud infrastructure.\n\nActively seeking an immediate internship or campus-trainee role in AI/ML or cloud-native development.',
+  shortBio:
+    'B.Tech CSE (AI & ML) student building GenAI, RAG, and full-stack applications. Seeking AI/ML internship roles.',
+  status: 'Open to Internships',
 
   social: {
-    github: 'https://github.com/prakhar04kr',
-    linkedin: 'https://linkedin.com/in/prakhar-kumar-7512aa311',
-    leetcode: 'https://leetcode.com/',
-    twitter: 'https://twitter.com/',
+    github: 'https://github.com/',
+    linkedin: 'https://linkedin.com/in/',
+    huggingface: 'https://huggingface.co/',
+    email: 'mailto:sahil06030652@gmail.com',
   },
-  photo: 'https://picsum.photos/seed/prakharkumar/400/500',
+  photo: 'https://ui-avatars.com/api/?name=Sahil+Kumar&size=400&background=6C63FF&color=fff&bold=true&format=png',
 }
-
 
 export const PROJECTS = [
   {
     id: 1,
-    title: 'YojnaConnect',
+    title: 'Marg-Darshak',
     description:
-      'Full-stack platform built with React, Vite, Node.js, Express.js, and MySQL to help users discover relevant government welfare schemes. Features include scheme search, eligibility filtering, a recommendation engine, and detailed scheme pages via REST APIs with full-stack architecture.',
-    tech: ['React', 'Vite', 'Node.js', 'Express.js', 'MySQL'],
-    live: 'https://yojnaconnect.prakharkr.online/',
-    github: 'https://github.com/prakhar04kr/YOJNA-CONNECT',
-    image: 'https://images.unsplash.com/photo-1526378722484-bd91ca387e72?auto=format&fit=crop&w=1200&q=80',
+      'AI navigation device for the visually impaired. Streams live video from Raspberry Pi to a Flask + YOLOv8 server for real-time hazard detection (cars, stairs, potholes) with distance estimation at 15 FPS. Multi-threaded TTS voice alerts and microservice design earned 5th place at Health-Hack 2025 (VIT Bhopal × Johns Hopkins).',
+    tech: ['Python', 'YOLOv8', 'OpenCV', 'Flask', 'Raspberry Pi'],
+    live: '#',
+    github: '#',
+    image: 'https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?auto=format&fit=crop&w=1200&q=80',
   },
-
   {
     id: 2,
-    title: 'Chess Engine Web App',
+    title: 'Smart Document Assistant',
     description:
-      'Browser-based chess platform built with React + TypeScript and TanStack. Includes a custom AI engine powered by Negamax search, Alpha-Beta pruning, Zobrist hashing, and transposition tables. Features a responsive 3D user interface, board customization, hint generation, and game analytics.',
-    tech: ['React', 'TypeScript', 'TanStack'],
-    live: 'https://chess.prakharkr.online/',
-    github: 'https://github.com/prakhar04kr/laychess',
-    image: 'https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=1200&q=80',
-  },
-
-  {
-    id: 3,
-    title: 'TypeRacer – Full-Stack Real-Time Web Application',
-    description:
-      'Multiplayer typing game built with React, Node.js, Socket.IO, and MySQL. Enables real-time race synchronization and live leaderboard updates. Includes secure authentication, WPM/accuracy tracking, RESTful APIs, and database-driven score management with a responsive UX.',
-    tech: ['React', 'Node.js', 'Socket.IO', 'MySQL'],
-    live: 'https://typeracer.prakharkr.online/',
-    github: 'https://github.com/prakhar04kr/KEYFORGE_IN',
-    image: 'https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=1200&q=80',
-  },
-
-  {
-    id: 4,
-    title: 'Dynamic Web-Based Expense Tracker',
-    description:
-      'Java, JSP, Servlet full-stack web application for real-time tracking of financial input data. Implemented a graph analysis module to visualize expenditure trends, included a savings plan generator, and added a real-time alert system for budget thresholds to improve financial discipline.',
-    tech: ['Java', 'JSP', 'Servlet'],
+      'RAG-powered PDF chatbot with a full pipeline: PDF extraction → HuggingFace embeddings → ChromaDB retrieval → Gemini API. Grounds answers in source docs to cut hallucinations; supports PDFs up to 10 MB (~200 pages). Includes AI safety guardrails and bias mitigation; deployed to Hugging Face Spaces handling 100+ daily queries.',
+    tech: ['Python', 'LangChain', 'ChromaDB', 'Gemini API', 'Gradio'],
     live: '#',
     github: '#',
     image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80',
   },
+  {
+    id: 3,
+    title: 'Audio Transcription System',
+    description:
+      'Full-stack speech-to-text app with React frontend and async FastAPI backend using Faster-Whisper. Handles MP3/WAV/M4A files with non-blocking processing, smoothly transcribing clips up to 10 minutes without server timeouts. Deployed to Hugging Face Spaces.',
+    tech: ['React', 'FastAPI', 'Faster-Whisper', 'Hugging Face Spaces'],
+    live: '#',
+    github: '#',
+    image: 'https://images.unsplash.com/photo-1478737270235-90f4771bd50b?auto=format&fit=crop&w=1200&q=80',
+  },
+  {
+    id: 4,
+    title: 'ShareBite',
+    description:
+      'Surplus food redistribution platform with React.js & Firebase managing real-time donation feeds with Role-Based Access Control. Node.js/Express AI microservice uses Gemini API to extract food metadata from uploads. Integrated Cloudinary, LocationIQ geocoding, and DB transactions to prevent concurrent claim errors.',
+    tech: ['React.js', 'Node.js', 'Firebase', 'Gemini API', 'Cloudinary'],
+    live: '#',
+    github: '#',
+    image: 'https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=1200&q=80',
+  },
 ]
 
-
-
-
 export const SKILLS = {
-  Frontend: [
-    { name: 'React', level: 92 },
-    { name: 'TypeScript', level: 88 },
-    { name: 'Next.js', level: 85 },
-    { name: 'Three.js', level: 78 },
-    { name: 'Tailwind CSS', level: 90 },
+  'AI / ML & GenAI': [
+    { name: 'Machine Learning', level: 88 },
+    { name: 'Deep Learning', level: 85 },
+    { name: 'NLP & RAG', level: 90 },
+    { name: 'Generative AI', level: 92 },
+    { name: 'Computer Vision', level: 86 },
   ],
-  Backend: [
-    { name: 'Node.js', level: 85 },
-    { name: 'Python', level: 80 },
-    { name: 'PostgreSQL', level: 82 },
-    { name: 'GraphQL', level: 75 },
-    { name: 'Rust', level: 68 },
+  Languages: [
+    { name: 'Python', level: 92 },
+    { name: 'JavaScript', level: 85 },
+    { name: 'C++', level: 78 },
+    { name: 'SQL', level: 82 },
   ],
-  DevOps: [
-    { name: 'AWS', level: 74 },
-    { name: 'Docker', level: 78 },
-    { name: 'CI/CD', level: 82 },
-    { name: 'Kubernetes', level: 65 },
+  'Frameworks & Tools': [
+    { name: 'LangChain', level: 90 },
+    { name: 'HuggingFace', level: 88 },
+    { name: 'OpenCV / YOLOv8', level: 85 },
+    { name: 'FastAPI / Flask', level: 87 },
+    { name: 'React.js', level: 84 },
+  ],
+  'Cloud & DevOps': [
+    { name: 'Microsoft Azure', level: 86 },
+    { name: 'Hugging Face Spaces', level: 90 },
+    { name: 'Docker', level: 80 },
+    { name: 'Firebase', level: 82 },
+    { name: 'Git & REST APIs', level: 88 },
   ],
 }
 
 export const RESUME = {
   education: [
     {
-      title: 'B.E., Computer Science and Engineering',
-      org: 'Sathyabama Institute of Science and Technology, Chennai',
-      date: 'CGPA: 8.52/10.00 (2023 — 2027)',
-      description: '',
-    },
-    {
-      title: '12th Grade',
-      org: 'Railway High School, Patna',
-      date: '59.4%',
-      description: '',
-    },
-    {
-      title: '10th Grade',
-      org: 'Don Bosco Academy, Patna',
-      date: '87%',
+      title: 'B.Tech CSE (AI & ML Specialisation)',
+      org: 'VIT Bhopal University',
+      date: 'Sept 2023 — Sept 2027 · CGPA: 8.04 / 10',
       description: '',
     },
   ],
-
-  experience: [
-    {
-      title: 'Software Development Intern',
-      org: 'https://cloudspital.in/',
-      date: '',
-      description: '',
-    },
-  ],
+  experience: [],
   certifications: [
     {
-      title: 'Google AI Essentials',
-      org: 'Google',
-      date: '',
+      title: '5th Place (Silver Medal) — Health-Hack 2025',
+      org: 'VIT Bhopal × Johns Hopkins University',
+      date: 'Feb 2025',
     },
     {
-      title: 'Google Prompting Essentials',
-      org: 'Google',
-      date: '',
+      title: 'Azure AI Apps and Agents Developer Associate (AI-103)',
+      org: 'Microsoft',
+      date: '2025',
     },
     {
-      title: 'Google Cybersecurity Professional Certificate',
-      org: 'Google',
-      date: '',
+      title: 'OCI 2025 Certified Generative AI Professional',
+      org: 'Oracle Cloud Infrastructure',
+      date: '2025',
     },
     {
-      title: 'Google Student Ambassador',
-      org: 'Google',
-      date: '',
-    },
-    {
-      title: 'Data Analysis with Python',
+      title: 'IBM AI Developer Certificate',
       org: 'IBM',
-      date: '',
+      date: '2025',
     },
     {
-      title: 'Python 101 for Data Science',
-      org: 'IBM',
-      date: '',
-    },
-    {
-      title: 'Full Stack Development (MERN)',
-      org: 'Algoxfusion',
-      date: '',
+      title: 'Introduction to Responsible AI',
+      org: 'Google Cloud',
+      date: '2025',
     },
   ],
 }
 
-
 export const ACHIEVEMENTS = [
   {
     icon: 'trophy',
-    title: 'Google AI Essentials',
-    org: 'Google',
-    date: '',
-    description: 'Completed Google\'s foundational AI literacy program covering practical AI concepts and tools.',
+    title: 'Health-Hack 2025 — Silver Medal (5th Place)',
+    org: 'VIT Bhopal × Johns Hopkins University',
+    date: 'Feb 2025',
+    description: 'Top 5 of 236 teams from 150+ universities for Marg-Darshak — AI navigation device for the visually impaired.',
+    image: '/certificates/health-hack-2025.svg',
   },
   {
     icon: 'trophy',
-    title: 'Google Prompting Essentials',
-    org: 'Google',
-    date: '',
-    description: 'Mastered prompt engineering techniques for working effectively with generative AI models.',
-  },
-  {
-    icon: 'trophy',
-    title: 'Google Cybersecurity Professional Certificate',
-    org: 'Google',
-    date: '',
-    description: 'Comprehensive cybersecurity certification covering threat detection, network security, and incident response.',
-  },
-  {
-    icon: 'trophy',
-    title: 'Google Student Ambassador',
-    org: 'Google',
-    date: '',
-    description: 'Recognized as a Google Student Ambassador, representing Google technologies in the campus community.',
+    title: 'Microsoft Certified: Azure AI Apps and Agents Developer',
+    org: 'Microsoft · AI-103',
+    date: '2025',
+    description: 'Associate-level certification demonstrating expertise in building AI applications and agents on Azure.',
+    image: '/certificates/azure-ai-103.svg',
   },
   {
     icon: 'star',
-    title: 'Data Analysis with Python',
+    title: 'Oracle Cloud Infrastructure Generative AI Professional',
+    org: 'Oracle',
+    date: '2025',
+    description: 'Professional certification in OCI Generative AI services, LLM integration, and cloud-native AI solutions.',
+    image: '/certificates/oracle-genai.svg',
+  },
+  {
+    icon: 'star',
+    title: 'IBM AI Developer Certificate',
     org: 'IBM',
-    date: '',
-    description: 'IBM certification in data analysis using Python, pandas, NumPy, and data visualization libraries.',
+    date: '2025',
+    description: 'Comprehensive program covering machine learning, deep learning, and AI application deployment.',
+    image: '/certificates/ibm-ai-developer.svg',
   },
   {
     icon: 'star',
-    title: 'Python 101 for Data Science',
-    org: 'IBM',
-    date: '',
-    description: 'IBM foundational certification covering Python programming for data science workflows.',
-  },
-  {
-    icon: 'star',
-    title: 'Full Stack Development MERN',
-    org: 'Algoxfusion',
-    date: '',
-    description: 'Certified in full stack MERN development covering MongoDB, Express, React, and Node.js.',
+    title: 'Google Cloud — Introduction to Responsible AI',
+    org: 'Google Cloud',
+    date: '2025',
+    description: 'Completion badge covering ethical AI principles, bias mitigation, and responsible AI deployment.',
+    image: '/certificates/google-responsible-ai.svg',
   },
 ]
-
 
 export const CARDS = [
   {
     id: 'about',
     navId: 'about',
     title: 'About Me',
-    subtitle: 'Full-Stack Developer & Designer',
+    subtitle: 'AI/ML Engineer & Developer',
     accent: '#6C63FF',
     icon: 'user-circle',
     preview: {
@@ -232,19 +193,19 @@ export const CARDS = [
     id: 'profile',
     navId: 'profile',
     title: 'Profile',
-    subtitle: 'GitHub · LinkedIn · LeetCode',
+    subtitle: 'GitHub · LinkedIn · HuggingFace',
     accent: '#A855F7',
     icon: 'brand-github',
     preview: {
       type: 'social',
-      socials: ['github', 'linkedin', 'leetcode'],
+      socials: ['github', 'linkedin', 'huggingface'],
     },
   },
   {
     id: 'projects',
     navId: 'work',
     title: 'Projects',
-    subtitle: '4 highlighted builds',
+    subtitle: '4 AI & full-stack builds',
     accent: '#00D9FF',
     icon: 'layout-grid',
     preview: {
@@ -252,20 +213,19 @@ export const CARDS = [
       items: PROJECTS.map((p) => p.title),
     },
   },
-
   {
     id: 'skills',
     navId: 'skills',
     title: 'Skills',
-    subtitle: 'Frontend · Backend · DevOps',
+    subtitle: 'AI/ML · Languages · Cloud',
     accent: '#FF6B6B',
     icon: 'cpu',
     preview: {
       type: 'bars',
       items: [
-        { label: 'React', value: 92 },
-        { label: 'Node', value: 85 },
-        { label: 'AWS', value: 74 },
+        { label: 'Python', value: 92 },
+        { label: 'RAG / GenAI', value: 90 },
+        { label: 'Azure AI', value: 86 },
       ],
     },
   },
@@ -278,27 +238,27 @@ export const CARDS = [
     icon: 'file-cv',
     preview: {
       type: 'resume-preview',
-      education: 'B.E. Computer Science & Engineering',
-      org: 'Sathyabama Institute of Science and Technology',
-      cgpa: 'CGPA: 8.52/10',
-      skills: ['Java', 'React', 'Node.js', 'MySQL'],
-      certs: ['Google AI Essentials', 'Google Cybersecurity Professional Certificate'],
+      education: 'B.Tech CSE (AI & ML)',
+      org: 'VIT Bhopal University',
+      cgpa: 'CGPA: 8.04/10',
+      skills: ['Python', 'LangChain', 'React', 'Azure AI'],
+      certs: ['Microsoft Azure AI-103', 'Oracle GenAI Professional'],
     },
   },
   {
     id: 'achievements',
     navId: 'achievements',
     title: 'Achievements',
-    subtitle: 'Awards · Certs · Milestones',
+    subtitle: 'Certs · Awards · Milestones',
     accent: '#6BCB77',
     icon: 'trophy',
     preview: {
       type: 'achievements',
       items: [
-        'Google AI Essentials',
-        'Google Cybersecurity Professional Certificate',
-        'IBM Data Analysis with Python',
-        '+4 More Certifications',
+        'Health-Hack 2025 Silver Medal',
+        'Microsoft Azure AI-103',
+        'Oracle GenAI Professional',
+        '+2 More Certifications',
       ],
     },
   },
@@ -311,7 +271,7 @@ export const CARDS = [
     icon: 'mail-forward',
     preview: {
       type: 'availability',
-      text: 'Available for internships',
+      text: 'Available for AI/ML internships',
     },
   },
   {
@@ -324,8 +284,8 @@ export const CARDS = [
     preview: {
       type: 'featured-projects',
       items: [
-        { title: 'YojnaConnect', desc: 'Government Scheme Discovery Platform', tech: 'React • Node.js • MySQL' },
-        { title: 'LayChess', desc: 'AI Chess Engine', tech: 'Negamax • Alpha-Beta Pruning' },
+        { title: 'Marg-Darshak', desc: 'AI Navigation for Visually Impaired', tech: 'YOLOv8 • OpenCV • Flask' },
+        { title: 'Smart Document Assistant', desc: 'RAG-Powered PDF Chatbot', tech: 'LangChain • ChromaDB • Gemini' },
       ],
     },
   },

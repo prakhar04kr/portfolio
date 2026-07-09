@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="640" viewBox="0 0 900 640">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1a1400"/>
+      <stop offset="100%" stop-color="#2d2200"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#C0C0C0"/>
+      <stop offset="50%" stop-color="#E8E8E8"/>
+      <stop offset="100%" stop-color="#A8A8A8"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="640" fill="url(#bg)" rx="12"/>
+  <rect x="24" y="24" width="852" height="592" fill="none" stroke="url(#gold)" stroke-width="4" rx="8"/>
+  <text x="450" y="80" text-anchor="middle" fill="#C0C0C0" font-family="Arial, sans-serif" font-size="18" letter-spacing="5">HEALTH-HACK 2025</text>
+  <text x="450" y="115" text-anchor="middle" fill="#888" font-family="Arial, sans-serif" font-size="14">VIT Bhopal × Johns Hopkins University</text>
+  <polygon points="450,150 480,220 420,220" fill="url(#gold)" opacity="0.9"/>
+  <circle cx="450" cy="200" r="55" fill="none" stroke="url(#gold)" stroke-width="3"/>
+  <text x="450" y="210" text-anchor="middle" fill="#1a1400" font-family="Arial, sans-serif" font-size="28" font-weight="bold">5th</text>
+  <text x="450" y="290" text-anchor="middle" fill="#C0C0C0" font-family="Georgia, serif" font-size="28" font-weight="bold">SILVER MEDAL</text>
+  <line x1="180" y1="315" x2="720" y2="315" stroke="#C0C0C060" stroke-width="2"/>
+  <text x="450" y="365" text-anchor="middle" fill="#aaa" font-family="Arial, sans-serif" font-size="18">Awarded to Team</text>
+  <text x="450" y="420" text-anchor="middle" fill="#ffffff" font-family="Georgia, serif" font-size="40" font-style="italic">Marg-Darshak</text>
+  <text x="450" y="470" text-anchor="middle" fill="#888" font-family="Arial, sans-serif" font-size="16">Sahil Kumar · AI Navigation Device for the Visually Impaired</text>
+  <text x="450" y="510" text-anchor="middle" fill="#888" font-family="Arial, sans-serif" font-size="15">Top 5 of 236 Teams · 150+ Universities</text>
+  <text x="450" y="570" text-anchor="middle" fill="#C0C0C0" font-family="Arial, sans-serif" font-size="13" font-weight="bold">FEBRUARY 2025 · HEALTH INNOVATION HACKATHON</text>
+</svg>

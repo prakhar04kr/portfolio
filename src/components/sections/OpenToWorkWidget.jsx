@@ -2,11 +2,11 @@ import { memo } from 'react'
 import { motion } from 'framer-motion'
 
 const ROLES = [
-  'Software Development Internship',
-  'Full Stack Development',
-  'Backend Development',
-  'Java Developer Roles',
-  'AI & Web Development Projects',
+  'AI/ML Engineering Internship',
+  'GenAI & RAG Development',
+  'Cloud-Native AI Applications',
+  'Full-Stack Development',
+  'Computer Vision Projects',
 ]
 
 function OpenToWorkWidget() {
@@ -32,19 +32,19 @@ function OpenToWorkWidget() {
 
           <div className="relative flex flex-col gap-6 md:flex-row md:items-start md:gap-10">
             <div className="flex-shrink-0">
-              <div className="flex items-center gap-3 mb-1">
+              <div className="mb-1 flex items-center gap-3">
                 <span className="relative flex h-3 w-3">
                   <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#6BCB77] opacity-50" />
                   <span className="relative inline-flex h-3 w-3 rounded-full bg-[#6BCB77]" />
                 </span>
                 <h3 className="text-xl font-bold text-white">Open To Work</h3>
               </div>
-              <p className="text-sm text-white/40 ml-6">
-                Available for internships and collaborative software projects.
+              <p className="ml-6 text-sm text-white/40">
+                Seeking immediate internship or campus-trainee roles in AI/ML &amp; cloud-native development.
               </p>
             </div>
 
-            <div className="flex-1 grid grid-cols-1 gap-2 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2">
+            <div className="grid flex-1 grid-cols-1 gap-2 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2">
               {ROLES.map((role, i) => (
                 <motion.div
                   key={role}

@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="640" viewBox="0 0 900 640">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f1419"/>
+      <stop offset="100%" stop-color="#1a2332"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="640" fill="url(#bg)" rx="12"/>
+  <rect x="24" y="24" width="852" height="592" fill="none" stroke="#4285F4" stroke-width="3" rx="8"/>
+  <text x="450" y="90" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="22" font-weight="bold">Google Cloud</text>
+  <circle cx="450" cy="155" r="30" fill="none" stroke="#4285F4" stroke-width="3"/>
+  <path d="M435 155 L448 168 L468 142" fill="none" stroke="#34A853" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="450" y="230" text-anchor="middle" fill="#ffffff" font-family="Georgia, serif" font-size="32" font-weight="bold">Introduction to</text>
+  <text x="450" y="275" text-anchor="middle" fill="#ffffff" font-family="Georgia, serif" font-size="32" font-weight="bold">Responsible AI</text>
+  <line x1="200" y1="300" x2="700" y2="300" stroke="#4285F440" stroke-width="2"/>
+  <text x="450" y="360" text-anchor="middle" fill="#9aa0a6" font-family="Arial, sans-serif" font-size="18">Completion Badge awarded to</text>
+  <text x="450" y="420" text-anchor="middle" fill="#ffffff" font-family="Georgia, serif" font-size="44" font-style="italic">Sahil Kumar</text>
+  <text x="450" y="480" text-anchor="middle" fill="#9aa0a6" font-family="Arial, sans-serif" font-size="16">For understanding ethical AI principles, bias mitigation,</text>
+  <text x="450" y="508" text-anchor="middle" fill="#9aa0a6" font-family="Arial, sans-serif" font-size="16">and responsible deployment of AI systems</text>
+  <text x="450" y="570" text-anchor="middle" fill="#4285F4" font-family="Arial, sans-serif" font-size="13" font-weight="bold">GOOGLE CLOUD SKILLS BOOST · COMPLETION BADGE</text>
+</svg>

@@ -4,14 +4,11 @@ import ExpandedWrapper from './ExpandedWrapper'
 import { PROJECTS } from '../../data/cards'
 
 function FeaturedExpanded({ onClose }) {
-  // Featured order requirement: remove Expense Tracker and show YojnaConnect as Featured #1.
   const featured = [PROJECTS[0], PROJECTS[1], PROJECTS[2]]
-
-
   return (
     <ExpandedWrapper title="Featured Work" accent="#14B8A6" onClose={onClose}>
       <p data-reveal-line className="mb-8 text-[rgba(242,242,255,0.65)]">
-        Hand-picked highlights from recent launches and open-source contributions.
+        Hand-picked highlights from AI/ML projects and deployed applications.
       </p>
       {featured.map((project, i) => (
         <motion.div

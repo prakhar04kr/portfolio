@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="640" viewBox="0 0 900 640">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a1628"/>
+      <stop offset="100%" stop-color="#0d2847"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0078D4"/>
+      <stop offset="100%" stop-color="#50E6FF"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="640" fill="url(#bg)" rx="12"/>
+  <rect x="24" y="24" width="852" height="592" fill="none" stroke="url(#accent)" stroke-width="3" rx="8"/>
+  <rect x="36" y="36" width="828" height="568" fill="none" stroke="#0078D440" stroke-width="1" rx="6"/>
+  <text x="450" y="100" text-anchor="middle" fill="#50E6FF" font-family="Georgia, serif" font-size="22" letter-spacing="6">MICROSOFT CERTIFIED</text>
+  <text x="450" y="200" text-anchor="middle" fill="#ffffff" font-family="Georgia, serif" font-size="34" font-weight="bold">Azure AI Apps and Agents</text>
+  <text x="450" y="248" text-anchor="middle" fill="#ffffff" font-family="Georgia, serif" font-size="34" font-weight="bold">Developer Associate</text>
+  <line x1="200" y1="280" x2="700" y2="280" stroke="#0078D4" stroke-width="2"/>
+  <text x="450" y="340" text-anchor="middle" fill="#a8d4f0" font-family="Arial, sans-serif" font-size="18">This certifies that</text>
+  <text x="450" y="400" text-anchor="middle" fill="#ffffff" font-family="Georgia, serif" font-size="42" font-style="italic">Sahil Kumar</text>
+  <text x="450" y="460" text-anchor="middle" fill="#a8d4f0" font-family="Arial, sans-serif" font-size="16">has demonstrated expertise in building AI applications</text>
+  <text x="450" y="490" text-anchor="middle" fill="#a8d4f0" font-family="Arial, sans-serif" font-size="16">and agents on Microsoft Azure platform</text>
+  <text x="450" y="560" text-anchor="middle" fill="#0078D4" font-family="Arial, sans-serif" font-size="14" font-weight="bold">EXAM AI-103 · ASSOCIATE LEVEL</text>
+  <circle cx="120" cy="120" r="40" fill="none" stroke="#0078D460" stroke-width="2"/>
+  <circle cx="780" cy="120" r="40" fill="none" stroke="#0078D460" stroke-width="2"/>
+</svg>

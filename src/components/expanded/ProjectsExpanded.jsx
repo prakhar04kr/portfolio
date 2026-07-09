@@ -8,7 +8,7 @@ function ProjectsExpanded({ onClose }) {
   return (
     <ExpandedWrapper title="Projects" accent="#00D9FF" onClose={onClose}>
       <p data-reveal-line className="mb-8 text-[rgba(242,242,255,0.65)]">
-        Six shipped products spanning AI, fintech, collaboration, and developer tooling.
+        Four shipped products spanning computer vision, RAG, speech-to-text, and social impact platforms.
       </p>
       <div className="grid gap-6 md:grid-cols-2">
         {PROJECTS.map((project, i) => (

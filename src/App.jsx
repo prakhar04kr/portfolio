@@ -11,6 +11,9 @@ import MobileCarousel from './components/layout/MobileCarousel'
 import PortfolioCard from './components/cards/PortfolioCard'
 import OpenToWorkWidget from './components/sections/OpenToWorkWidget'
 import CaseStudiesSection from './components/sections/CaseStudiesSection'
+import CertificateFlowSection from './components/sections/CertificateFlowSection'
+import BackgroundOrbs from './components/background/BackgroundOrbs'
+import Starfield from './components/background/Starfield'
 
 function AppContent() {
   const { isMobile, isTablet, isDesktop } = useBreakpoint()
@@ -21,6 +24,7 @@ function AppContent() {
   const [activeId, setActiveId] = useState(null)
   const [activeSection, setActiveSection] = useState('about')
   const [scrolled, setScrolled] = useState(false)
+  const [scrollY, setScrollY] = useState(0)
 
   const [cardsVisible, setCardsVisible] = useState(reducedMotion)
   useEffect(() => {
@@ -29,7 +33,10 @@ function AppContent() {
   }, [])
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 80)
+    const onScroll = () => {
+      setScrolled(window.scrollY > 80)
+      setScrollY(window.scrollY)
+    }
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
@@ -46,6 +53,11 @@ function AppContent() {
 
   const handleNavClick = useCallback(
     (id) => {
+      if (id === 'certificates') {
+        setActiveSection(id)
+        document.getElementById('certificates')?.scrollIntoView({ behavior: 'smooth' })
+        return
+      }
       setActiveSection(id)
       const index = CARDS.findIndex((c) => c.id === id || c.navId === id)
       if (index >= 0) handleClick(CARDS[index].id)
@@ -55,6 +67,13 @@ function AppContent() {
 
   return (
     <div className="relative min-h-screen">
+      {!reducedMotion && (
+        <>
+          <Starfield />
+          <BackgroundOrbs scrollY={scrollY} />
+        </>
+      )}
+
       <Navbar
         activeSection={activeSection}
         onNavClick={handleNavClick}
@@ -94,6 +113,7 @@ function AppContent() {
         )}
 
         <OpenToWorkWidget />
+        <CertificateFlowSection />
         <CaseStudiesSection />
       </main>
 

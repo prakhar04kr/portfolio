@@ -1,14 +1,19 @@
 import { memo } from 'react'
 import { motion } from 'framer-motion'
-import { IconBrandGithub, IconBrandLinkedin, IconBrandLeetcode, IconBrandTwitter } from '@tabler/icons-react'
+import {
+  IconBrandGithub,
+  IconBrandLinkedin,
+  IconMail,
+} from '@tabler/icons-react'
+import { HuggingFaceIcon } from '../icons/HuggingFaceIcon'
 import ExpandedWrapper from './ExpandedWrapper'
 import { DEVELOPER } from '../../data/cards'
 
 const SOCIAL = [
   { key: 'github', Icon: IconBrandGithub, label: 'GitHub', url: DEVELOPER.social.github },
   { key: 'linkedin', Icon: IconBrandLinkedin, label: 'LinkedIn', url: DEVELOPER.social.linkedin },
-  { key: 'leetcode', Icon: IconBrandLeetcode, label: 'LeetCode', url: DEVELOPER.social.leetcode },
-  { key: 'twitter', Icon: IconBrandTwitter, label: 'Twitter', url: DEVELOPER.social.twitter },
+  { key: 'huggingface', Icon: HuggingFaceIcon, label: 'HuggingFace', url: DEVELOPER.social.huggingface },
+  { key: 'email', Icon: IconMail, label: 'Email', url: DEVELOPER.social.email },
 ]
 
 function AboutExpanded({ onClose }) {
@@ -31,11 +36,11 @@ function AboutExpanded({ onClose }) {
             <span className="h-2 w-2 animate-pulse rounded-full bg-[#6BCB77]" />
             {DEVELOPER.status}
           </div>
-          <p data-reveal-line className="mb-4 text-[rgba(242,242,255,0.65)] leading-relaxed">
+          <p data-reveal-line className="mb-4 whitespace-pre-line text-[rgba(242,242,255,0.65)] leading-relaxed">
             {DEVELOPER.bio}
           </p>
           <p data-reveal-line className="mb-6 text-sm text-[rgba(242,242,255,0.5)]">
-            📍 {DEVELOPER.location}
+            📍 {DEVELOPER.location} · {DEVELOPER.phone}
           </p>
           <div className="flex flex-wrap gap-3">
             {SOCIAL.map(({ key, Icon, label, url }) => (

@@ -115,3 +115,38 @@ body {
   opacity: 0;
   transform: translateY(12px);
 }
+
+.certificate-marquee-mask {
+  mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+}
+
+.certificate-marquee-track {
+  animation: certificate-flow var(--marquee-duration, 40s) linear infinite;
+}
+
+.certificate-marquee-track:hover {
+  animation-play-state: paused;
+}
+
+.certificate-marquee-reverse {
+  animation-direction: reverse;
+}
+
+@keyframes certificate-flow {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}

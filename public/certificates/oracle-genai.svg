@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="640" viewBox="0 0 900 640">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1a0505"/>
+      <stop offset="100%" stop-color="#2d0a0a"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="640" fill="url(#bg)" rx="12"/>
+  <rect x="24" y="24" width="852" height="592" fill="none" stroke="#F80000" stroke-width="3" rx="8"/>
+  <text x="450" y="90" text-anchor="middle" fill="#F80000" font-family="Arial, sans-serif" font-size="20" font-weight="bold" letter-spacing="4">ORACLE CLOUD INFRASTRUCTURE</text>
+  <text x="450" y="180" text-anchor="middle" fill="#ffffff" font-family="Georgia, serif" font-size="30" font-weight="bold">2025 Certified</text>
+  <text x="450" y="230" text-anchor="middle" fill="#ffffff" font-family="Georgia, serif" font-size="30" font-weight="bold">Generative AI Professional</text>
+  <line x1="180" y1="260" x2="720" y2="260" stroke="#F8000080" stroke-width="2"/>
+  <text x="450" y="330" text-anchor="middle" fill="#ff9999" font-family="Arial, sans-serif" font-size="18">Awarded to</text>
+  <text x="450" y="395" text-anchor="middle" fill="#ffffff" font-family="Georgia, serif" font-size="44" font-style="italic">Sahil Kumar</text>
+  <text x="450" y="460" text-anchor="middle" fill="#ff9999" font-family="Arial, sans-serif" font-size="16">For demonstrating proficiency in OCI Generative AI services,</text>
+  <text x="450" y="488" text-anchor="middle" fill="#ff9999" font-family="Arial, sans-serif" font-size="16">LLM integration, and cloud-native AI solution design</text>
+  <text x="450" y="560" text-anchor="middle" fill="#F80000" font-family="Arial, sans-serif" font-size="13" font-weight="bold">ORACLE CERTIFIED PROFESSIONAL · 2025</text>
+</svg>

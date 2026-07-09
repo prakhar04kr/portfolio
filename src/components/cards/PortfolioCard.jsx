@@ -11,8 +11,8 @@ import {
   IconRocket,
   IconArrowRight,
   IconBrandLinkedin,
-  IconBrandLeetcode,
 } from '@tabler/icons-react'
+import { HuggingFaceIcon } from '../icons/HuggingFaceIcon'
 import { DEVELOPER } from '../../data/cards'
 
 const ICONS = {
@@ -29,7 +29,7 @@ const ICONS = {
 const SOCIAL_ICONS = {
   github: IconBrandGithub,
   linkedin: IconBrandLinkedin,
-  leetcode: IconBrandLeetcode,
+  huggingface: HuggingFaceIcon,
 }
 
 function CardPreview({ preview, accent }) {

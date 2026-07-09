@@ -108,6 +108,16 @@ function Lightbox({ cert, onClose }) {
             <p className="mt-1 text-sm text-white/50">
               {cert.issuer} · {cert.subtitle}
             </p>
+            {cert.verifyUrl && (
+              <a
+                href={cert.verifyUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-3 inline-block text-sm font-medium text-[#6C63FF] hover:underline"
+              >
+                Verify credential →
+              </a>
+            )}
           </div>
         </motion.div>
       </motion.div>

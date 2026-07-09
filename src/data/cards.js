@@ -12,8 +12,8 @@ export const DEVELOPER = {
   status: 'Open to Internships',
 
   social: {
-    github: 'https://github.com/',
-    linkedin: 'https://linkedin.com/in/',
+    github: 'https://github.com/Sahil5273',
+    linkedin: 'https://www.linkedin.com/in/sahil-kumar-7410a728a/',
     huggingface: 'https://huggingface.co/',
     email: 'mailto:sahil06030652@gmail.com',
   },
@@ -147,7 +147,7 @@ export const ACHIEVEMENTS = [
     org: 'Microsoft · AI-103',
     date: '2025',
     description: 'Associate-level certification demonstrating expertise in building AI applications and agents on Azure.',
-    image: '/certificates/azure-ai-103.svg',
+    image: '/certificates/azure-ai-103.png',
   },
   {
     icon: 'star',
@@ -163,7 +163,7 @@ export const ACHIEVEMENTS = [
     org: 'IBM',
     date: '2025',
     description: 'Comprehensive program covering machine learning, deep learning, and AI application deployment.',
-    image: '/certificates/ibm-ai-developer.svg',
+    image: '/certificates/ibm-ai-developer.png',
   },
   {
     icon: 'star',

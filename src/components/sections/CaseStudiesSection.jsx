@@ -239,8 +239,7 @@ function SectionBlock({ title, children, accent }) {
   )
 }
 
-function CaseStudyCard({ study }) {
-  const [expanded, setExpanded] = useState(false)
+function CaseStudyCard({ study, expanded, onToggle }) {
   const { key, fullTitle, domain, accent, overview, problem, solution, tech, features, challenges, unique, future, learning } = study
 
   return (
@@ -249,14 +248,14 @@ function CaseStudyCard({ study }) {
       className="rounded-2xl border overflow-hidden"
       style={{
         background: 'rgba(7,7,26,0.7)',
-        borderColor: expanded ? `${accent}40` : 'rgba(255,255,255,0.08)',
-        boxShadow: expanded ? `0 0 40px ${accent}18` : 'none',
+        borderColor: expanded ? `${accent}22` : 'rgba(255,255,255,0.08)',
+        boxShadow: expanded ? `0 8px 32px -12px ${accent}12` : 'none',
       }}
       transition={{ layout: { duration: 0.4, ease: 'easeInOut' } }}
     >
       <button
-        className="w-full text-left px-6 py-5 flex items-start justify-between gap-4 group"
-        onClick={() => setExpanded((v) => !v)}
+        className="w-full text-left px-7 py-6 flex items-start justify-between gap-4 group"
+        onClick={() => onToggle(key)}
         aria-expanded={expanded}
       >
         <div className="flex-1">
@@ -292,7 +291,7 @@ function CaseStudyCard({ study }) {
             transition={{ duration: 0.4, ease: 'easeInOut' }}
             className="overflow-hidden"
           >
-            <div className="px-6 pb-8">
+            <div className="px-7 pb-8">
               <div
                 className="h-px w-full mb-6"
                 style={{ background: `linear-gradient(to right, ${accent}40, transparent)` }}
@@ -405,6 +404,12 @@ function CaseStudyCard({ study }) {
 }
 
 function CaseStudiesSection() {
+  const [expandedKey, setExpandedKey] = useState(null)
+
+  const handleToggle = (key) => {
+    setExpandedKey((current) => (current === key ? null : key))
+  }
+
   return (
     <section className="relative z-10 px-4 py-16 md:px-8 lg:px-12">
       <div className="mx-auto max-w-5xl">
@@ -435,7 +440,11 @@ function CaseStudiesSection() {
               viewport={{ once: true, margin: '-40px' }}
               transition={{ delay: i * 0.07, duration: 0.4 }}
             >
-              <CaseStudyCard study={study} />
+              <CaseStudyCard
+                study={study}
+                expanded={expandedKey === study.key}
+                onToggle={handleToggle}
+              />
             </motion.div>
           ))}
         </div>

@@ -38,7 +38,7 @@ function CardPreview({ preview, accent }) {
   switch (preview.type) {
     case 'bio':
       return (
-        <div className="px-6">
+        <div className="px-8">
           {preview.lines.map((line, i) => (
             <p key={i} className="text-[13px] leading-relaxed text-[rgba(255,255,255,0.65)]">
               {line}
@@ -48,7 +48,7 @@ function CardPreview({ preview, accent }) {
       )
     case 'social':
       return (
-        <div className="flex items-center justify-center gap-4 px-6">
+        <div className="flex items-center justify-center gap-4 px-8">
           {preview.socials.map((key) => {
             const Icon = SOCIAL_ICONS[key]
             return (
@@ -65,12 +65,26 @@ function CardPreview({ preview, accent }) {
       )
     case 'pills':
       return (
-        <div className="flex flex-col gap-2 px-6 w-full">
+        <div className="flex flex-col gap-2.5 px-8 w-full">
           {preview.items.map((item) => (
             <span
               key={item}
-              className="rounded-full px-3 py-1.5 text-[11px] text-[rgba(255,255,255,0.7)] truncate"
-              style={{ background: `${accent}18`, border: `1px solid ${accent}30` }}
+              className="rounded-full px-3.5 py-2 text-[11px] text-[rgba(255,255,255,0.7)] truncate"
+              style={{ background: `${accent}14`, border: `1px solid ${accent}22` }}
+            >
+              {item}
+            </span>
+          ))}
+        </div>
+      )
+    case 'tags':
+      return (
+        <div className="flex flex-wrap justify-center gap-2 px-8">
+          {preview.items.map((item) => (
+            <span
+              key={item}
+              className="rounded-full px-3.5 py-1.5 text-[11px] text-[rgba(255,255,255,0.72)]"
+              style={{ background: `${accent}12`, border: `1px solid ${accent}22` }}
             >
               {item}
             </span>
@@ -79,30 +93,22 @@ function CardPreview({ preview, accent }) {
       )
     case 'bars':
       return (
-        <div className="flex flex-col gap-3 px-6">
+        <div className="flex flex-wrap justify-center gap-2 px-8">
           {preview.items.map((item) => (
-            <div key={item.label}>
-              <div className="mb-1 flex justify-between text-[11px] text-[rgba(255,255,255,0.5)]">
-                <span>{item.label}</span>
-                <span>{item.value}%</span>
-              </div>
-              <div className="h-1 overflow-hidden rounded-full bg-white/8">
-                <motion.div
-                  className="h-full rounded-full"
-                  style={{ background: accent }}
-                  initial={{ width: 0 }}
-                  animate={{ width: `${item.value}%` }}
-                  transition={{ type: 'spring', stiffness: 70, damping: 14, delay: 0.2 }}
-                />
-              </div>
-            </div>
+            <span
+              key={typeof item === 'string' ? item : item.label}
+              className="rounded-full px-3.5 py-1.5 text-[11px] text-[rgba(255,255,255,0.72)]"
+              style={{ background: `${accent}12`, border: `1px solid ${accent}22` }}
+            >
+              {typeof item === 'string' ? item : item.label}
+            </span>
           ))}
         </div>
       )
     case 'resume-preview':
       return (
-        <div className="mx-6 space-y-2">
-          <div className="rounded-lg border border-white/8 bg-white/3 px-3 py-2">
+        <div className="mx-8 space-y-2.5">
+          <div className="rounded-lg border border-white/8 bg-white/3 px-4 py-3">
             <p className="text-[11px] font-semibold text-white/80">{preview.education}</p>
             <p className="text-[10px] text-white/40 mt-0.5 leading-tight">{preview.org}</p>
             <p className="text-[10px] mt-1" style={{ color: accent }}>{preview.cgpa}</p>
@@ -130,12 +136,12 @@ function CardPreview({ preview, accent }) {
       )
     case 'featured-projects':
       return (
-        <div className="flex flex-col gap-2 px-6">
+        <div className="flex flex-col gap-2.5 px-8">
           {preview.items.map((item) => (
             <div
               key={item.title}
-              className="rounded-xl px-3 py-2"
-              style={{ background: `${accent}10`, border: `1px solid ${accent}20` }}
+              className="rounded-xl px-4 py-3"
+              style={{ background: `${accent}08`, border: `1px solid ${accent}16` }}
             >
               <p className="text-[12px] font-semibold text-white/90">{item.title}</p>
               <p className="text-[10px] text-white/50 mt-0.5">{item.desc}</p>
@@ -146,12 +152,12 @@ function CardPreview({ preview, accent }) {
       )
     case 'achievements':
       return (
-        <div className="flex flex-col gap-2 px-6">
+        <div className="flex flex-col gap-2.5 px-8">
           {preview.items.map((item) => (
             <div
               key={item}
-              className="flex items-center gap-2 rounded-full px-3 py-1.5 text-[11px] text-[rgba(255,255,255,0.7)]"
-              style={{ background: `${accent}18` }}
+              className="flex items-center gap-2 rounded-full px-3.5 py-2 text-[11px] text-[rgba(255,255,255,0.7)]"
+              style={{ background: `${accent}12` }}
             >
               <IconTrophy size={14} style={{ color: accent }} />
               {item}
@@ -161,7 +167,7 @@ function CardPreview({ preview, accent }) {
       )
     case 'availability':
       return (
-        <div className="flex items-center justify-center gap-2 px-6">
+        <div className="flex items-center justify-center gap-2 px-8">
           <span className="h-2 w-2 animate-pulse rounded-full bg-[#6BCB77]" />
           <span className="text-[13px] text-[rgba(255,255,255,0.65)]">Available for internships</span>
         </div>
@@ -243,7 +249,7 @@ const PortfolioCard = memo(function PortfolioCard({
     >
       <div
         className={`card-glow ${hovered ? 'card-glow-active' : ''}`}
-        style={{ background: `radial-gradient(circle, ${card.accent}59 0%, transparent 70%)` }}
+        style={{ background: `radial-gradient(circle, ${card.accent}18 0%, transparent 72%)` }}
       />
       <div
         className="glass-card relative flex h-full flex-col overflow-hidden rounded-[24px] will-transform transition-shadow duration-400"
@@ -253,8 +259,8 @@ const PortfolioCard = memo(function PortfolioCard({
               ? `rotateX(var(--tilt-x)) rotateY(var(--tilt-y)) translateZ(${hovered ? 20 : 0}px)`
               : undefined,
           boxShadow: hovered
-            ? `0 0 40px 8px ${card.accent}59, 0 0 80px 16px ${card.accent}26, inset 0 1px 0 rgba(255,255,255,0.15)`
-            : undefined,
+            ? `0 12px 40px -16px ${card.accent}20, 0 0 0 1px ${card.accent}14, inset 0 1px 0 rgba(255,255,255,0.08)`
+            : '0 0 0 1px rgba(255,255,255,0.04)',
         }}
       >
         <motion.div
@@ -264,26 +270,26 @@ const PortfolioCard = memo(function PortfolioCard({
           transition={{ type: 'spring', stiffness: 300, damping: 20 }}
         />
 
-        <div className="flex flex-1 flex-col items-center overflow-hidden min-h-0">
+        <div className="flex flex-1 flex-col items-center overflow-hidden min-h-0 px-2">
           <motion.div
-            className="mt-7 flex h-16 w-16 items-center justify-center rounded-full"
-            style={{ background: `${card.accent}26` }}
+            className="mt-8 flex h-16 w-16 items-center justify-center rounded-full"
+            style={{ background: `${card.accent}18` }}
             animate={hovered ? { rotate: 12, scale: 1.15 } : { rotate: 0, scale: 1 }}
             transition={{ type: 'spring', stiffness: 300, damping: 18 }}
           >
             <Icon size={40} style={{ color: card.accent }} stroke={1.5} />
           </motion.div>
 
-          <h3 className="mt-5 text-[22px] font-bold tracking-[-0.02em] text-white">{card.title}</h3>
-          <p className="mt-1.5 text-[13px] text-[rgba(255,255,255,0.50)]">{card.subtitle}</p>
+          <h3 className="mt-5 px-8 text-center text-[22px] font-bold tracking-[-0.02em] text-white">{card.title}</h3>
+          <p className="mt-2 px-8 text-center text-[13px] leading-relaxed text-[rgba(255,255,255,0.50)]">{card.subtitle}</p>
 
-          <div className="mx-6 my-5 h-px w-[calc(100%-48px)] bg-white/8" />
+          <div className="mx-8 my-6 h-px w-[calc(100%-64px)] bg-white/8" />
 
           <div className="flex-1 w-full overflow-hidden">
             <CardPreview preview={card.preview} accent={card.accent} />
           </div>
 
-          <div className="flex w-full items-center justify-between px-6 py-5">
+          <div className="flex w-full items-center justify-between px-8 py-6">
             {card.preview?.badge ? (
               <span
                 className="flex items-center gap-1.5 rounded-full px-3 py-1 text-[11px] font-medium"

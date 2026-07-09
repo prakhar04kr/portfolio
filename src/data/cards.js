@@ -221,12 +221,8 @@ export const CARDS = [
     accent: '#FF6B6B',
     icon: 'cpu',
     preview: {
-      type: 'bars',
-      items: [
-        { label: 'Python', value: 92 },
-        { label: 'RAG / GenAI', value: 90 },
-        { label: 'Azure AI', value: 86 },
-      ],
+      type: 'tags',
+      items: ['Python', 'RAG / GenAI', 'LangChain', 'Azure AI', 'YOLOv8', 'FastAPI'],
     },
   },
   {

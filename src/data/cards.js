@@ -94,11 +94,14 @@ export const SKILLS = {
 export const RESUME = {
   pdf: '/resume.pdf',
 
+  summary:
+    'Final-year B.E. Computer Science student with hands-on experience in full stack development, AI applications, and data engineering. Skilled in building scalable web applications and REST APIs using React, Spring Boot, and Node.js with strong problem-solving abilities. Experienced in developing intelligent software solutions leveraging Microsoft Azure AI, Azure AI Foundry, AI agents, prompt engineering, and large language models (LLMs) for real-world applications. Proficient in modern software engineering practices including database design, API integration, cloud deployment, and agile development with a focus on delivering performant, user-centric applications.',
+
   education: [
     {
       title: 'B.E., Computer Science and Engineering',
       org: 'Sathyabama Institute of Science and Technology, Chennai',
-      date: 'CGPA: 8.52/10.00 (2023 — 2027)',
+      date: 'CGPA: 8.6/10.00 (2023 — 2027)',
       description: '',
     },
     {
@@ -115,71 +118,76 @@ export const RESUME = {
     },
   ],
 
+  experience: [
+    {
+      title: 'Software Development Intern',
+      org: 'Cloudspital Pvt. Ltd.',
+      date: 'Jun 2026 — Aug 2026',
+      description:
+        'Developed and enhanced software modules for healthcare technology solutions, contributing to scalable web applications. Built and integrated RESTful APIs and optimized database interactions to improve application functionality. Collaborated with cross-functional teams to deliver features, troubleshoot issues, and improve performance using agile practices and Git.',
+    },
+  ],
+
   skills: {
-    Programming: ['Java (JSP, Servlet)', 'Python', 'SQL'],
-    'Web Technologies': ['JSP', 'Servlet', 'HTML', 'CSS', 'JavaScript'],
-    Libraries: ['Pandas', 'NumPy', 'Jupyter'],
-    Domains: ['Data Analysis', 'Web Apps', 'Automation'],
+    'Programming Languages': ['Java', 'Python', 'JavaScript', 'TypeScript', 'SQL', 'HTML5', 'CSS3'],
+    Frontend: ['React', 'Vite', 'Tailwind CSS'],
+    Backend: ['Spring Boot', 'Node.js', 'Express.js', 'REST APIs', 'WebSockets'],
+    Databases: ['MySQL', 'MongoDB', 'Microsoft Fabric'],
+    'AI & Cloud': [
+      'Microsoft Azure',
+      'Azure AI',
+      'Azure AI Foundry',
+      'AI Agents',
+      'Prompt Engineering',
+      'Large Language Models (LLMs)',
+    ],
+    Tools: ['Git', 'GitHub', 'VS Code', 'Postman', 'Vercel', 'DigitalOcean'],
+    'Core Concepts': [
+      'Data Structures & Algorithms',
+      'Object-Oriented Programming',
+      'DBMS',
+      'Operating Systems',
+      'Computer Networks',
+      'JWT Authentication',
+      'Full Stack Development',
+    ],
   },
 
   projects: [
     {
-      title: 'Dynamic Web-Based Expense Tracker',
-      tech: ['Java', 'JSP', 'Servlet'],
+      title: 'Chess Engine Web App',
+      tech: ['React', 'TypeScript', 'TanStack Start'],
     },
     {
-      title: 'Sales Data Dashboard',
-      tech: ['Python', 'Pandas', 'Matplotlib'],
+      title: 'YojnaConnect - Government Scheme Discovery Platform',
+      tech: ['React', 'Vite', 'Node.js', 'Express.js', 'MySQL'],
     },
     {
-      title: 'YojnaConnect – Government Scheme Discovery Platform',
-      tech: ['React', 'Node.js', 'Express.js', 'MySQL'],
-    },
-    {
-      title: 'Chess Engine Web App – Interactive Browser-Based Chess Platform',
-      tech: ['React', 'TypeScript', 'TanStack'],
-    },
-    {
-      title: 'TypeRacer – Full-Stack Real-Time Web Application',
+      title: 'TypeRacer - Full-Stack Real-Time Web Application',
       tech: ['React', 'Node.js', 'Socket.IO', 'MySQL'],
     },
   ],
 
   certifications: [
     {
+      title: 'Azure AI Apps and Agents Developer Associate',
+      org: 'Microsoft',
+      date: '2026',
+    },
+    {
+      title: 'Fabric Data Engineer Associate',
+      org: 'Microsoft',
+      date: '2026',
+    },
+    {
       title: 'Google AI Essentials',
       org: 'Google',
-      date: '',
-    },
-    {
-      title: 'Google Prompting Essentials',
-      org: 'Google',
-      date: '',
-    },
-    {
-      title: 'Google Cybersecurity Professional Certificate',
-      org: 'Google',
-      date: '',
-    },
-    {
-      title: 'Google Student Ambassador',
-      org: 'Google',
-      date: '',
+      date: '2025',
     },
     {
       title: 'Data Analysis with Python',
       org: 'IBM',
-      date: '',
-    },
-    {
-      title: 'Python 101 for Data Science',
-      org: 'IBM',
-      date: '',
-    },
-    {
-      title: 'Full Stack Development (MERN)',
-      org: 'Algoxfusion',
-      date: '',
+      date: '2024',
     },
   ],
 }
@@ -304,9 +312,9 @@ export const CARDS = [
       type: 'resume-preview',
       education: 'B.E., Computer Science and Engineering',
       org: 'Sathyabama Institute of Science and Technology, Chennai',
-      cgpa: 'CGPA: 8.52/10.00 (2023 — 2027)',
-      skills: ['Java', 'Python', 'React', 'SQL'],
-      certs: ['Google AI Essentials', 'Google Cybersecurity Professional Certificate'],
+      cgpa: 'CGPA: 8.6/10.00 (2023 — 2027)',
+      skills: ['React', 'Azure AI', 'Spring Boot', 'Java'],
+      certs: ['Microsoft Azure AI Apps and Agents Developer Associate', 'Microsoft Fabric Data Engineer Associate'],
     },
   },
   {

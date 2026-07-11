@@ -1,6 +1,6 @@
 import { memo, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { IconDownload, IconEye, IconX, IconFileCv, IconTrophy, IconCpu } from '@tabler/icons-react'
+import { IconDownload, IconEye, IconX, IconFileCv, IconTrophy, IconCpu, IconBriefcase } from '@tabler/icons-react'
 import ExpandedWrapper from './ExpandedWrapper'
 import { RESUME } from '../../data/cards'
 
@@ -68,6 +68,41 @@ function ResumePreviewModal({ onClose }) {
                   title="Prakhar Kumar Resume"
                   className="h-[420px] w-full bg-white"
                 />
+              </div>
+            </section>
+
+            <section>
+              <div className="flex items-center gap-2 mb-4">
+                <IconFileCv size={16} className="text-[#FFD93D]" />
+                <h4 className="text-sm font-semibold uppercase tracking-widest text-[#FFD93D]">Professional Summary</h4>
+              </div>
+              <p className="rounded-xl border border-white/8 bg-white/3 px-4 py-3 text-sm leading-relaxed text-white/70">
+                {RESUME.summary}
+              </p>
+            </section>
+
+            <section>
+              <div className="flex items-center gap-2 mb-4">
+                <IconBriefcase size={16} className="text-[#FFD93D]" />
+                <h4 className="text-sm font-semibold uppercase tracking-widest text-[#FFD93D]">Experience</h4>
+              </div>
+              <div className="space-y-3">
+                {RESUME.experience.map((item, i) => (
+                  <motion.div
+                    key={item.title}
+                    initial={{ opacity: 0, x: -12 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: i * 0.06 }}
+                    className="rounded-xl border border-white/8 bg-white/3 px-4 py-3"
+                  >
+                    <div className="flex flex-wrap justify-between gap-2">
+                      <p className="text-sm font-semibold text-white">{item.title}</p>
+                      <span className="text-xs text-[#FFD93D]">{item.date}</span>
+                    </div>
+                    <p className="text-xs text-[#FFD93D]/80 mt-0.5">{item.org}</p>
+                    <p className="text-xs text-white/50 mt-2 leading-relaxed">{item.description}</p>
+                  </motion.div>
+                ))}
               </div>
             </section>
 
@@ -212,6 +247,28 @@ function ResumeExpanded({ onClose }) {
           Preview Resume
         </motion.button>
       </div>
+
+      <section className="mb-10">
+        <h3 data-reveal-line className="mb-4 text-xl font-semibold text-[#FFD93D]">Professional Summary</h3>
+        <p data-reveal-line className="glass-card rounded-xl p-5 text-sm leading-relaxed text-[rgba(242,242,255,0.7)]">
+          {RESUME.summary}
+        </p>
+      </section>
+
+      <section className="mb-10">
+        <h3 data-reveal-line className="mb-4 text-xl font-semibold text-[#FFD93D]">Experience</h3>
+        {RESUME.experience.map((item) => (
+          <div key={item.title} data-reveal-line className="relative mb-6 border-l-2 border-[#FFD93D]/30 pl-6">
+            <div className="absolute -left-[5px] top-1 h-2 w-2 rounded-full bg-[#FFD93D]" />
+            <div className="flex flex-wrap justify-between gap-2">
+              <h4 className="font-bold text-white">{item.title}</h4>
+              <span className="text-sm text-[rgba(242,242,255,0.4)]">{item.date}</span>
+            </div>
+            <p className="mt-1 text-sm text-[#FFD93D]">{item.org}</p>
+            <p className="mt-2 text-sm text-[rgba(242,242,255,0.55)]">{item.description}</p>
+          </div>
+        ))}
+      </section>
 
       <section className="mb-10">
         <h3 data-reveal-line className="mb-4 text-xl font-semibold text-[#FFD93D]">Education</h3>

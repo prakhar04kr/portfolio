@@ -13,7 +13,7 @@ import {
   IconBrandLinkedin,
   IconBrandLeetcode,
 } from '@tabler/icons-react'
-import { DEVELOPER } from '../../data/cards'
+import { DEVELOPER, RESUME } from '../../data/cards'
 
 const ICONS = {
   'user-circle': IconUserCircle,
@@ -99,16 +99,20 @@ function CardPreview({ preview, accent }) {
           ))}
         </div>
       )
-    case 'resume-preview':
+    case 'resume-preview': {
+      const degree = RESUME.education[0]
+      const skills = RESUME.cardPreview.skills
+      const certs = RESUME.cardPreview.certs
+
       return (
         <div className="mx-6 space-y-2">
           <div className="rounded-lg border border-white/8 bg-white/3 px-3 py-2">
-            <p className="text-[11px] font-semibold text-white/80">{preview.education}</p>
-            <p className="text-[10px] text-white/40 mt-0.5 leading-tight">{preview.org}</p>
-            <p className="text-[10px] mt-1" style={{ color: accent }}>{preview.cgpa}</p>
+            <p className="text-[11px] font-semibold text-white/80">{degree.title}</p>
+            <p className="text-[10px] text-white/40 mt-0.5 leading-tight">{degree.org}</p>
+            <p className="text-[10px] mt-1" style={{ color: accent }}>{degree.date}</p>
           </div>
           <div className="flex flex-wrap gap-1">
-            {preview.skills.map((s) => (
+            {skills.map((s) => (
               <span
                 key={s}
                 className="rounded-full px-2 py-0.5 text-[10px]"
@@ -119,15 +123,16 @@ function CardPreview({ preview, accent }) {
             ))}
           </div>
           <div className="space-y-0.5">
-            {preview.certs.map((c) => (
+            {certs.map((c) => (
               <div key={c} className="flex items-center gap-1.5">
                 <span className="text-[10px]" style={{ color: `${accent}80` }}>✓</span>
-                <span className="text-[10px] text-white/50 truncate">{c}</span>
+                <span className="text-[10px] text-white/50 leading-tight">{c}</span>
               </div>
             ))}
           </div>
         </div>
       )
+    }
     case 'featured-projects':
       return (
         <div className="flex flex-col gap-2 px-6">

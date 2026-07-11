@@ -190,6 +190,11 @@ export const RESUME = {
       date: '2024',
     },
   ],
+
+  cardPreview: {
+    skills: ['React', 'Azure AI', 'Spring Boot', 'Java'],
+    certs: ['Azure AI Apps Developer Associate', 'Fabric Data Engineer Associate'],
+  },
 }
 
 
@@ -310,11 +315,6 @@ export const CARDS = [
     icon: 'file-cv',
     preview: {
       type: 'resume-preview',
-      education: 'B.E., Computer Science and Engineering',
-      org: 'Sathyabama Institute of Science and Technology, Chennai',
-      cgpa: 'CGPA: 8.6/10.00 (2023 — 2027)',
-      skills: ['React', 'Azure AI', 'Spring Boot', 'Java'],
-      certs: ['Microsoft Azure AI Apps and Agents Developer Associate', 'Microsoft Fabric Data Engineer Associate'],
     },
   },
   {

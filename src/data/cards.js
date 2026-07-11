@@ -92,6 +92,8 @@ export const SKILLS = {
 }
 
 export const RESUME = {
+  pdf: '/resume.pdf',
+
   education: [
     {
       title: 'B.E., Computer Science and Engineering',
@@ -102,25 +104,47 @@ export const RESUME = {
     {
       title: '12th Grade',
       org: 'Railway High School, Patna',
-      date: '59.4%',
+      date: '59.4% (2023)',
       description: '',
     },
     {
       title: '10th Grade',
       org: 'Don Bosco Academy, Patna',
-      date: '87%',
+      date: '87% (2021)',
       description: '',
     },
   ],
 
-  experience: [
+  skills: {
+    Programming: ['Java (JSP, Servlet)', 'Python', 'SQL'],
+    'Web Technologies': ['JSP', 'Servlet', 'HTML', 'CSS', 'JavaScript'],
+    Libraries: ['Pandas', 'NumPy', 'Jupyter'],
+    Domains: ['Data Analysis', 'Web Apps', 'Automation'],
+  },
+
+  projects: [
     {
-      title: 'Software Development Intern',
-      org: 'https://cloudspital.in/',
-      date: '',
-      description: '',
+      title: 'Dynamic Web-Based Expense Tracker',
+      tech: ['Java', 'JSP', 'Servlet'],
+    },
+    {
+      title: 'Sales Data Dashboard',
+      tech: ['Python', 'Pandas', 'Matplotlib'],
+    },
+    {
+      title: 'YojnaConnect – Government Scheme Discovery Platform',
+      tech: ['React', 'Node.js', 'Express.js', 'MySQL'],
+    },
+    {
+      title: 'Chess Engine Web App – Interactive Browser-Based Chess Platform',
+      tech: ['React', 'TypeScript', 'TanStack'],
+    },
+    {
+      title: 'TypeRacer – Full-Stack Real-Time Web Application',
+      tech: ['React', 'Node.js', 'Socket.IO', 'MySQL'],
     },
   ],
+
   certifications: [
     {
       title: 'Google AI Essentials',
@@ -278,10 +302,10 @@ export const CARDS = [
     icon: 'file-cv',
     preview: {
       type: 'resume-preview',
-      education: 'B.E. Computer Science & Engineering',
-      org: 'Sathyabama Institute of Science and Technology',
-      cgpa: 'CGPA: 8.52/10',
-      skills: ['Java', 'React', 'Node.js', 'MySQL'],
+      education: 'B.E., Computer Science and Engineering',
+      org: 'Sathyabama Institute of Science and Technology, Chennai',
+      cgpa: 'CGPA: 8.52/10.00 (2023 — 2027)',
+      skills: ['Java', 'Python', 'React', 'SQL'],
       certs: ['Google AI Essentials', 'Google Cybersecurity Professional Certificate'],
     },
   },

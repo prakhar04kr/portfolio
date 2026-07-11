@@ -2,7 +2,7 @@ import { memo, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { IconDownload, IconEye, IconX, IconFileCv, IconTrophy, IconCpu } from '@tabler/icons-react'
 import ExpandedWrapper from './ExpandedWrapper'
-import { RESUME, PROJECTS, SKILLS } from '../../data/cards'
+import { RESUME } from '../../data/cards'
 
 function ResumePreviewModal({ onClose }) {
   return (
@@ -21,7 +21,7 @@ function ResumePreviewModal({ onClose }) {
         />
 
         <motion.div
-          className="relative z-10 w-full max-w-2xl max-h-[90vh] overflow-hidden rounded-2xl border border-[#FFD93D]/20 flex flex-col"
+          className="relative z-10 w-full max-w-3xl max-h-[90vh] overflow-hidden rounded-2xl border border-[#FFD93D]/20 flex flex-col"
           style={{ background: 'rgba(7,7,26,0.97)' }}
           initial={{ opacity: 0, scale: 0.94, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -38,7 +38,7 @@ function ResumePreviewModal({ onClose }) {
             </div>
             <div className="flex items-center gap-3">
               <a
-                href="/resume.pdf"
+                href={RESUME.pdf}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 rounded-full bg-[#FFD93D] px-4 py-2 text-xs font-bold text-[#07071A] transition-opacity hover:opacity-90"
@@ -57,6 +57,20 @@ function ResumePreviewModal({ onClose }) {
           </div>
 
           <div className="flex-1 overflow-y-auto px-6 py-6 space-y-7">
+            <section>
+              <div className="flex items-center gap-2 mb-4">
+                <IconFileCv size={16} className="text-[#FFD93D]" />
+                <h4 className="text-sm font-semibold uppercase tracking-widest text-[#FFD93D]">Resume Preview</h4>
+              </div>
+              <div className="overflow-hidden rounded-xl border border-white/10 bg-white/5">
+                <iframe
+                  src={`${RESUME.pdf}#toolbar=0&navpanes=0`}
+                  title="Prakhar Kumar Resume"
+                  className="h-[420px] w-full bg-white"
+                />
+              </div>
+            </section>
+
             <section>
               <div className="flex items-center gap-2 mb-4">
                 <IconFileCv size={16} className="text-[#FFD93D]" />
@@ -87,17 +101,17 @@ function ResumePreviewModal({ onClose }) {
                 <h4 className="text-sm font-semibold uppercase tracking-widest text-[#FFD93D]">Skills</h4>
               </div>
               <div className="space-y-3">
-                {Object.entries(SKILLS).map(([cat, items]) => (
+                {Object.entries(RESUME.skills).map(([cat, items]) => (
                   <div key={cat}>
                     <p className="text-xs text-white/35 mb-2">{cat}</p>
                     <div className="flex flex-wrap gap-2">
                       {items.map((skill) => (
                         <span
-                          key={skill.name}
+                          key={skill}
                           className="rounded-full border px-2.5 py-1 text-[11px] font-medium text-white/70"
                           style={{ borderColor: 'rgba(255,217,61,0.25)', background: 'rgba(255,217,61,0.08)' }}
                         >
-                          {skill.name}
+                          {skill}
                         </span>
                       ))}
                     </div>
@@ -112,9 +126,9 @@ function ResumePreviewModal({ onClose }) {
                 <h4 className="text-sm font-semibold uppercase tracking-widest text-[#FFD93D]">Projects</h4>
               </div>
               <div className="space-y-2">
-                {PROJECTS.slice(0, 3).map((project, i) => (
+                {RESUME.projects.map((project, i) => (
                   <motion.div
-                    key={project.id}
+                    key={project.title}
                     initial={{ opacity: 0, x: -12 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.2 + i * 0.06 }}
@@ -124,7 +138,7 @@ function ResumePreviewModal({ onClose }) {
                     <div className="flex-1 min-w-0">
                       <p className="text-sm font-semibold text-white">{project.title}</p>
                       <div className="mt-1 flex flex-wrap gap-1">
-                        {project.tech.slice(0, 4).map((t) => (
+                        {project.tech.map((t) => (
                           <span
                             key={t}
                             className="rounded-full px-1.5 py-0.5 text-[10px] text-[#FFD93D]/70"
@@ -177,7 +191,7 @@ function ResumeExpanded({ onClose }) {
     <ExpandedWrapper title="Resume" accent="#FFD93D" onClose={onClose}>
       <div className="mb-10 flex flex-wrap gap-3">
         <motion.a
-          href="/resume.pdf"
+          href={RESUME.pdf}
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center gap-2 rounded-full bg-[#FFD93D] px-8 py-4 text-base font-bold text-[#07071A] shadow-[0_0_40px_rgba(255,217,61,0.3)]"
@@ -216,22 +230,47 @@ function ResumeExpanded({ onClose }) {
               </span>
             </div>
             <p className="mt-1 text-sm text-[#FFD93D]">{item.org}</p>
-            <p className="mt-2 text-sm text-[rgba(242,242,255,0.55)]">{item.description}</p>
+            {item.description ? (
+              <p className="mt-2 text-sm text-[rgba(242,242,255,0.55)]">{item.description}</p>
+            ) : null}
           </div>
         ))}
       </section>
 
       <section className="mb-10">
-        <h3 data-reveal-line className="mb-4 text-xl font-semibold text-[#FFD93D]">Experience</h3>
-        {RESUME.experience.map((item) => (
-          <div key={item.title} data-reveal-line className="relative mb-6 border-l-2 border-[#FFD93D]/30 pl-6">
-            <div className="absolute -left-[5px] top-1 h-2 w-2 rounded-full bg-[#FFD93D]" />
-            <div className="flex flex-wrap justify-between gap-2">
-              <h4 className="font-bold text-white">{item.title}</h4>
-              <span className="text-sm text-[rgba(242,242,255,0.4)]">{item.date}</span>
+        <h3 data-reveal-line className="mb-4 text-xl font-semibold text-[#FFD93D]">Skills</h3>
+        {Object.entries(RESUME.skills).map(([category, items]) => (
+          <div key={category} data-reveal-line className="glass-card mb-4 rounded-xl p-5">
+            <h4 className="mb-3 font-semibold text-white">{category}</h4>
+            <div className="flex flex-wrap gap-2">
+              {items.map((skill) => (
+                <span
+                  key={skill}
+                  className="rounded-full border border-[#FFD93D]/25 bg-[#FFD93D]/10 px-3 py-1 text-sm text-[#FFD93D]"
+                >
+                  {skill}
+                </span>
+              ))}
             </div>
-            <p className="mt-1 text-sm text-[#FFD93D]">{item.org}</p>
-            <p className="mt-2 text-sm text-[rgba(242,242,255,0.55)]">{item.description}</p>
+          </div>
+        ))}
+      </section>
+
+      <section className="mb-10">
+        <h3 data-reveal-line className="mb-4 text-xl font-semibold text-[#FFD93D]">Projects</h3>
+        {RESUME.projects.map((project) => (
+          <div key={project.title} data-reveal-line className="glass-card mb-4 rounded-xl p-5">
+            <h4 className="font-bold text-white">{project.title}</h4>
+            <div className="mt-2 flex flex-wrap gap-2">
+              {project.tech.map((tech) => (
+                <span
+                  key={tech}
+                  className="rounded-full border border-[#FFD93D]/25 bg-[#FFD93D]/10 px-2.5 py-0.5 text-xs text-[#FFD93D]"
+                >
+                  {tech}
+                </span>
+              ))}
+            </div>
           </div>
         ))}
       </section>
@@ -244,7 +283,7 @@ function ResumeExpanded({ onClose }) {
               <h4 className="font-medium text-white">{item.title}</h4>
               <p className="text-sm text-[rgba(242,242,255,0.5)]">{item.org}</p>
             </div>
-            <span className="text-sm text-[#FFD93D]">{item.date}</span>
+            {item.date ? <span className="text-sm text-[#FFD93D]">{item.date}</span> : null}
           </div>
         ))}
       </section>

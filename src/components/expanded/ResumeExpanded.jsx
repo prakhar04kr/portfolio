@@ -63,11 +63,23 @@ function ResumePreviewModal({ onClose }) {
                 <h4 className="text-sm font-semibold uppercase tracking-widest text-[#FFD93D]">Resume Preview</h4>
               </div>
               <div className="overflow-hidden rounded-xl border border-white/10 bg-white/5">
-                <iframe
-                  src={`${RESUME.pdf}#toolbar=0&navpanes=0`}
-                  title="Prakhar Kumar Resume"
+                <object
+                  data={`${RESUME.pdf}#toolbar=0&navpanes=0`}
+                  type="application/pdf"
                   className="h-[420px] w-full bg-white"
-                />
+                >
+                  <div className="flex h-[420px] flex-col items-center justify-center gap-3 px-6 text-center">
+                    <p className="text-sm text-white/60">PDF preview is not available in this browser.</p>
+                    <a
+                      href={RESUME.pdf}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="rounded-full bg-[#FFD93D] px-4 py-2 text-xs font-bold text-[#07071A] transition-opacity hover:opacity-90"
+                    >
+                      Open Resume PDF
+                    </a>
+                  </div>
+                </object>
               </div>
             </section>
 

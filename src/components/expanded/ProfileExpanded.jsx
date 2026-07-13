@@ -11,18 +11,16 @@ const PLATFORMS = [
     label: 'GitHub',
     handle: 'prakhar04kr',
     url: DEVELOPER.social.github,
-
-    stats: 'Project · Portfolio Highlights',
+    stats: 'Open-source full-stack projects',
     color: '#A855F7',
   },
   {
     key: 'linkedin',
     Icon: IconBrandLinkedin,
     label: 'LinkedIn',
-    handle: '/in/prakhar-kumar-7512aa311',
-
+    handle: 'prakhar-kumar-7512aa311',
     url: DEVELOPER.social.linkedin,
-    stats: '500+ connections · Open to work',
+    stats: 'Full-Stack · Open to internships',
     color: '#0A66C2',
   },
 ]
@@ -30,8 +28,8 @@ const PLATFORMS = [
 function ProfileExpanded({ onClose }) {
   return (
     <ExpandedWrapper title="Profile" accent="#A855F7" onClose={onClose}>
-      <p data-reveal-line className="mb-8 max-w-xl text-[rgba(242,242,255,0.65)]">
-        Connect with me across platforms. I share code, career insights, and problem-solving journeys.
+      <p data-reveal-line className="mb-8 max-w-2xl text-sm leading-relaxed text-[rgba(242,242,255,0.55)] md:text-base">
+        Connect with me across platforms. I share full-stack projects, deployed demos, and engineering insights.
       </p>
 
       <div className="grid gap-4 md:grid-cols-2">
@@ -54,12 +52,22 @@ function ProfileExpanded({ onClose }) {
             </div>
             <h3 className="text-lg font-bold text-white">{platform.label}</h3>
             <p className="mt-1 text-sm text-[rgba(242,242,255,0.5)]">{platform.handle}</p>
-            <p className="mt-3 text-xs text-[rgba(242,242,255,0.4)]">{platform.stats}</p>
+            <p className="mt-3 text-center text-xs text-[rgba(242,242,255,0.4)]">{platform.stats}</p>
             <span className="mt-4 flex items-center gap-1 text-xs font-medium" style={{ color: platform.color }}>
               Visit profile <IconExternalLink size={14} />
             </span>
           </motion.a>
         ))}
+      </div>
+
+      <div data-reveal-line className="mt-8 rounded-2xl border border-white/8 bg-[#0d0d18] p-6">
+        <p className="text-sm text-[rgba(242,242,255,0.5)]">Email</p>
+        <a
+          href={`mailto:${DEVELOPER.email}`}
+          className="mt-1 inline-block text-lg font-medium text-[#A855F7] transition-opacity hover:opacity-80"
+        >
+          {DEVELOPER.email}
+        </a>
       </div>
     </ExpandedWrapper>
   )

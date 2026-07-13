@@ -68,59 +68,32 @@ export const PROJECTS = [
 
 
 
-export const SKILLS = {
-  'Programming Languages': [
-    { name: 'Java', level: 90 },
-    { name: 'Python', level: 88 },
-    { name: 'JavaScript', level: 90 },
-    { name: 'TypeScript', level: 88 },
-    { name: 'SQL', level: 85 },
-    { name: 'HTML5', level: 92 },
-    { name: 'CSS3', level: 90 },
-  ],
-  Frontend: [
-    { name: 'React', level: 92 },
-    { name: 'Vite', level: 88 },
-    { name: 'Tailwind CSS', level: 90 },
-  ],
-  Backend: [
-    { name: 'Spring Boot', level: 88 },
-    { name: 'Node.js', level: 85 },
-    { name: 'Express.js', level: 85 },
-    { name: 'REST APIs', level: 90 },
-    { name: 'WebSockets', level: 82 },
-  ],
-  Databases: [
-    { name: 'MySQL', level: 88 },
-    { name: 'MongoDB', level: 82 },
-    { name: 'Microsoft Fabric', level: 85 },
-  ],
+const SKILL_CATEGORIES = {
+  'Programming Languages': ['Java', 'Python', 'JavaScript', 'TypeScript', 'SQL', 'HTML5', 'CSS3'],
+  Frontend: ['React', 'Vite', 'Tailwind CSS'],
+  Backend: ['Spring Boot', 'Node.js', 'Express.js', 'REST APIs', 'WebSockets'],
+  Databases: ['MySQL', 'MongoDB', 'Microsoft Fabric'],
   'AI & Cloud': [
-    { name: 'Microsoft Azure', level: 88 },
-    { name: 'Azure AI', level: 90 },
-    { name: 'Azure AI Foundry', level: 88 },
-    { name: 'AI Agents', level: 85 },
-    { name: 'Prompt Engineering', level: 90 },
-    { name: 'Large Language Models (LLMs)', level: 88 },
+    'Microsoft Azure',
+    'Azure AI',
+    'Azure AI Foundry',
+    'AI Agents',
+    'Prompt Engineering',
+    'Large Language Models (LLMs)',
   ],
-  Tools: [
-    { name: 'Git', level: 92 },
-    { name: 'GitHub', level: 90 },
-    { name: 'VS Code', level: 95 },
-    { name: 'Postman', level: 88 },
-    { name: 'Vercel', level: 85 },
-    { name: 'DigitalOcean', level: 80 },
-  ],
+  Tools: ['Git', 'GitHub', 'VS Code', 'Postman', 'Vercel', 'DigitalOcean'],
   'Core Concepts': [
-    { name: 'Data Structures & Algorithms', level: 88 },
-    { name: 'Object-Oriented Programming', level: 90 },
-    { name: 'DBMS', level: 85 },
-    { name: 'Operating Systems', level: 82 },
-    { name: 'Computer Networks', level: 80 },
-    { name: 'JWT Authentication', level: 88 },
-    { name: 'Full Stack Development', level: 90 },
+    'Data Structures & Algorithms',
+    'Object-Oriented Programming',
+    'DBMS',
+    'Operating Systems',
+    'Computer Networks',
+    'JWT Authentication',
+    'Full Stack Development',
   ],
 }
+
+export const SKILLS = SKILL_CATEGORIES
 
 export const RESUME = {
   pdf: '/resume.pdf',
@@ -159,30 +132,7 @@ export const RESUME = {
     },
   ],
 
-  skills: {
-    'Programming Languages': ['Java', 'Python', 'JavaScript', 'TypeScript', 'SQL', 'HTML5', 'CSS3'],
-    Frontend: ['React', 'Vite', 'Tailwind CSS'],
-    Backend: ['Spring Boot', 'Node.js', 'Express.js', 'REST APIs', 'WebSockets'],
-    Databases: ['MySQL', 'MongoDB', 'Microsoft Fabric'],
-    'AI & Cloud': [
-      'Microsoft Azure',
-      'Azure AI',
-      'Azure AI Foundry',
-      'AI Agents',
-      'Prompt Engineering',
-      'Large Language Models (LLMs)',
-    ],
-    Tools: ['Git', 'GitHub', 'VS Code', 'Postman', 'Vercel', 'DigitalOcean'],
-    'Core Concepts': [
-      'Data Structures & Algorithms',
-      'Object-Oriented Programming',
-      'DBMS',
-      'Operating Systems',
-      'Computer Networks',
-      'JWT Authentication',
-      'Full Stack Development',
-    ],
-  },
+  skills: SKILL_CATEGORIES,
 
   projects: [
     {
@@ -353,12 +303,8 @@ export const CARDS = [
     accent: '#FF6B6B',
     icon: 'cpu',
     preview: {
-      type: 'bars',
-      items: [
-        { label: 'React', value: 92 },
-        { label: 'Java', value: 90 },
-        { label: 'Azure AI', value: 90 },
-      ],
+      type: 'pills',
+      items: ['React', 'Java', 'Azure AI', 'Spring Boot', 'TypeScript', 'MySQL'],
     },
   },
   {

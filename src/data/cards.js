@@ -69,25 +69,56 @@ export const PROJECTS = [
 
 
 export const SKILLS = {
+  'Programming Languages': [
+    { name: 'Java', level: 90 },
+    { name: 'Python', level: 88 },
+    { name: 'JavaScript', level: 90 },
+    { name: 'TypeScript', level: 88 },
+    { name: 'SQL', level: 85 },
+    { name: 'HTML5', level: 92 },
+    { name: 'CSS3', level: 90 },
+  ],
   Frontend: [
     { name: 'React', level: 92 },
-    { name: 'TypeScript', level: 88 },
-    { name: 'Next.js', level: 85 },
-    { name: 'Three.js', level: 78 },
+    { name: 'Vite', level: 88 },
     { name: 'Tailwind CSS', level: 90 },
   ],
   Backend: [
+    { name: 'Spring Boot', level: 88 },
     { name: 'Node.js', level: 85 },
-    { name: 'Python', level: 80 },
-    { name: 'PostgreSQL', level: 82 },
-    { name: 'GraphQL', level: 75 },
-    { name: 'Rust', level: 68 },
+    { name: 'Express.js', level: 85 },
+    { name: 'REST APIs', level: 90 },
+    { name: 'WebSockets', level: 82 },
   ],
-  DevOps: [
-    { name: 'AWS', level: 74 },
-    { name: 'Docker', level: 78 },
-    { name: 'CI/CD', level: 82 },
-    { name: 'Kubernetes', level: 65 },
+  Databases: [
+    { name: 'MySQL', level: 88 },
+    { name: 'MongoDB', level: 82 },
+    { name: 'Microsoft Fabric', level: 85 },
+  ],
+  'AI & Cloud': [
+    { name: 'Microsoft Azure', level: 88 },
+    { name: 'Azure AI', level: 90 },
+    { name: 'Azure AI Foundry', level: 88 },
+    { name: 'AI Agents', level: 85 },
+    { name: 'Prompt Engineering', level: 90 },
+    { name: 'Large Language Models (LLMs)', level: 88 },
+  ],
+  Tools: [
+    { name: 'Git', level: 92 },
+    { name: 'GitHub', level: 90 },
+    { name: 'VS Code', level: 95 },
+    { name: 'Postman', level: 88 },
+    { name: 'Vercel', level: 85 },
+    { name: 'DigitalOcean', level: 80 },
+  ],
+  'Core Concepts': [
+    { name: 'Data Structures & Algorithms', level: 88 },
+    { name: 'Object-Oriented Programming', level: 90 },
+    { name: 'DBMS', level: 85 },
+    { name: 'Operating Systems', level: 82 },
+    { name: 'Computer Networks', level: 80 },
+    { name: 'JWT Authentication', level: 88 },
+    { name: 'Full Stack Development', level: 90 },
   ],
 }
 
@@ -201,6 +232,30 @@ export const RESUME = {
 export const ACHIEVEMENTS = [
   {
     icon: 'trophy',
+    title: 'Oracle Cloud Infrastructure 2025 Certified AI Foundations Associate',
+    org: 'Oracle',
+    date: 'Mar 2026 — Mar 2028',
+    description:
+      'Foundational certification validating knowledge of Oracle Cloud Infrastructure AI services, machine learning concepts, and cloud-based AI solutions.',
+  },
+  {
+    icon: 'trophy',
+    title: 'Microsoft Certified: Fabric Data Engineer Associate',
+    org: 'Microsoft',
+    date: 'Jul 2026 — Jul 2027',
+    description:
+      'Credential ID 38FA8C4113FDA50B. Validates expertise in designing and implementing data engineering solutions using Microsoft Fabric.',
+  },
+  {
+    icon: 'trophy',
+    title: 'Microsoft Certified: Azure AI Apps and Agents Developer Associate',
+    org: 'Microsoft',
+    date: 'Jul 2026 — Jul 2027',
+    description:
+      'Credential ID D25201096078B9FB. Demonstrates proficiency in building AI-powered applications and intelligent agents on Microsoft Azure.',
+  },
+  {
+    icon: 'trophy',
     title: 'Google AI Essentials',
     org: 'Google',
     date: '',
@@ -269,12 +324,12 @@ export const CARDS = [
     id: 'profile',
     navId: 'profile',
     title: 'Profile',
-    subtitle: 'GitHub · LinkedIn · LeetCode',
+    subtitle: 'GitHub · LinkedIn',
     accent: '#A855F7',
     icon: 'brand-github',
     preview: {
       type: 'social',
-      socials: ['github', 'linkedin', 'leetcode'],
+      socials: ['github', 'linkedin'],
     },
   },
   {
@@ -294,15 +349,15 @@ export const CARDS = [
     id: 'skills',
     navId: 'skills',
     title: 'Skills',
-    subtitle: 'Frontend · Backend · DevOps',
+    subtitle: 'Full Stack · AI & Cloud · Databases',
     accent: '#FF6B6B',
     icon: 'cpu',
     preview: {
       type: 'bars',
       items: [
         { label: 'React', value: 92 },
-        { label: 'Node', value: 85 },
-        { label: 'AWS', value: 74 },
+        { label: 'Java', value: 90 },
+        { label: 'Azure AI', value: 90 },
       ],
     },
   },
@@ -327,10 +382,10 @@ export const CARDS = [
     preview: {
       type: 'achievements',
       items: [
-        'Google AI Essentials',
-        'Google Cybersecurity Professional Certificate',
-        'IBM Data Analysis with Python',
-        '+4 More Certifications',
+        'Oracle OCI AI Foundations Associate',
+        'Microsoft Fabric Data Engineer Associate',
+        'Azure AI Apps and Agents Developer Associate',
+        '+7 More Certifications',
       ],
     },
   },

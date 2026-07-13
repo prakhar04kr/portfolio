@@ -1,6 +1,6 @@
 import { memo } from 'react'
 import { motion } from 'framer-motion'
-import { IconBrandGithub, IconBrandLinkedin, IconBrandLeetcode, IconExternalLink } from '@tabler/icons-react'
+import { IconBrandGithub, IconBrandLinkedin, IconExternalLink } from '@tabler/icons-react'
 import ExpandedWrapper from './ExpandedWrapper'
 import { DEVELOPER } from '../../data/cards'
 
@@ -25,16 +25,6 @@ const PLATFORMS = [
     stats: '500+ connections · Open to work',
     color: '#0A66C2',
   },
-  {
-    key: 'leetcode',
-    Icon: IconBrandLeetcode,
-    label: 'LeetCode',
-    handle: 'prakhar04kr',
-
-    url: DEVELOPER.social.leetcode,
-    stats: '1,024 solved · Top 5%',
-    color: '#FFA116',
-  },
 ]
 
 function ProfileExpanded({ onClose }) {
@@ -44,7 +34,7 @@ function ProfileExpanded({ onClose }) {
         Connect with me across platforms. I share code, career insights, and problem-solving journeys.
       </p>
 
-      <div className="grid gap-4 md:grid-cols-3">
+      <div className="grid gap-4 md:grid-cols-2">
         {PLATFORMS.map((platform, i) => (
           <motion.a
             key={platform.key}
@@ -70,21 +60,6 @@ function ProfileExpanded({ onClose }) {
             </span>
           </motion.a>
         ))}
-      </div>
-
-      <div className="mt-10 grid gap-4 md:grid-cols-2">
-        <div data-reveal-line className="glass-card rounded-2xl p-6">
-          <p className="text-sm text-[rgba(242,242,255,0.5)]">Total Contributions</p>
-          <p className="text-4xl font-bold text-[#A855F7]">
-            <span data-count-up="2847">0</span>+
-          </p>
-        </div>
-        <div data-reveal-line className="glass-card rounded-2xl p-6">
-          <p className="text-sm text-[rgba(242,242,255,0.5)]">Problems Solved</p>
-          <p className="text-4xl font-bold text-[#FFA116]">
-            <span data-count-up="1024">0</span>
-          </p>
-        </div>
       </div>
     </ExpandedWrapper>
   )

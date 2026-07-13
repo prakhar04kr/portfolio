@@ -1,20 +1,23 @@
 import { memo, useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { IconSearch, IconX } from '@tabler/icons-react'
+import { SKILLS } from '../../data/cards'
+
+const SKILL_SEARCH = Object.entries(SKILLS).flatMap(([category, skills]) =>
+  skills.map((title) => ({
+    type: 'skills',
+    title,
+    desc: category,
+    tags: [category],
+  })),
+)
 
 const SEARCH_DATA = [
   { type: 'projects', title: 'YojnaConnect', desc: 'Government Scheme Discovery Platform', tags: ['React', 'Node.js', 'MySQL', 'Express'] },
   { type: 'projects', title: 'LayChess', desc: 'AI Chess Engine with Negamax & Alpha-Beta Pruning', tags: ['React', 'TypeScript', 'AI', 'Algorithms'] },
   { type: 'projects', title: 'TypeRacer', desc: 'Real-Time Multiplayer Typing Platform', tags: ['React', 'Socket.IO', 'Node.js', 'MySQL'] },
   { type: 'projects', title: 'Expense Tracker', desc: 'Java JSP Servlet Web Application', tags: ['Java', 'JSP', 'Servlet'] },
-  { type: 'skills', title: 'React', desc: 'Frontend framework', tags: ['Frontend'] },
-  { type: 'skills', title: 'TypeScript', desc: 'Typed JavaScript', tags: ['Frontend'] },
-  { type: 'skills', title: 'Node.js', desc: 'Backend runtime', tags: ['Backend'] },
-  { type: 'skills', title: 'MySQL', desc: 'Relational database', tags: ['Database'] },
-  { type: 'skills', title: 'Java', desc: 'OOP language', tags: ['Backend'] },
-  { type: 'skills', title: 'Socket.IO', desc: 'Real-time WebSockets', tags: ['Real-Time'] },
-  { type: 'skills', title: 'Three.js', desc: '3D rendering library', tags: ['Frontend'] },
-  { type: 'skills', title: 'Tailwind CSS', desc: 'Utility-first CSS', tags: ['Frontend'] },
+  ...SKILL_SEARCH,
   { type: 'certifications', title: 'Oracle Cloud Infrastructure 2025 Certified AI Foundations Associate', desc: 'Oracle', tags: ['AI', 'Oracle', 'Cloud'] },
   { type: 'certifications', title: 'Microsoft Certified: Fabric Data Engineer Associate', desc: 'Microsoft', tags: ['Data', 'Microsoft', 'Fabric'] },
   { type: 'certifications', title: 'Microsoft Certified: Azure AI Apps and Agents Developer Associate', desc: 'Microsoft', tags: ['AI', 'Azure', 'Microsoft'] },

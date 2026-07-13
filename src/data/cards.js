@@ -304,7 +304,7 @@ export const CARDS = [
     icon: 'cpu',
     preview: {
       type: 'pills',
-      items: ['React', 'Java', 'Azure AI', 'Spring Boot', 'TypeScript', 'MySQL'],
+      items: ['Java', 'React', 'Spring Boot', 'Azure AI', 'MySQL', 'Git'],
     },
   },
   {

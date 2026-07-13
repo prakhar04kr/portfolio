@@ -1,14 +1,12 @@
 import { memo } from 'react'
 import { motion } from 'framer-motion'
-import { IconBrandGithub, IconBrandLinkedin, IconBrandLeetcode, IconBrandTwitter } from '@tabler/icons-react'
+import { IconBrandGithub, IconBrandLinkedin } from '@tabler/icons-react'
 import ExpandedWrapper from './ExpandedWrapper'
 import { DEVELOPER } from '../../data/cards'
 
 const SOCIAL = [
   { key: 'github', Icon: IconBrandGithub, label: 'GitHub', url: DEVELOPER.social.github },
   { key: 'linkedin', Icon: IconBrandLinkedin, label: 'LinkedIn', url: DEVELOPER.social.linkedin },
-  { key: 'leetcode', Icon: IconBrandLeetcode, label: 'LeetCode', url: DEVELOPER.social.leetcode },
-  { key: 'twitter', Icon: IconBrandTwitter, label: 'Twitter', url: DEVELOPER.social.twitter },
 ]
 
 function AboutExpanded({ onClose }) {

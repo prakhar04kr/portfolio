@@ -1,17 +1,17 @@
 #!/usr/bin/env python3
-"""Generate a PDF of Java String methods matching the user's table exactly."""
+"""Minimal PDF: Method | Example | Output for Java String methods."""
 
 from reportlab.lib import colors
 from reportlab.lib.enums import TA_CENTER, TA_LEFT
 from reportlab.lib.pagesizes import letter
 from reportlab.lib.styles import ParagraphStyle, getSampleStyleSheet
 from reportlab.lib.units import inch
-from reportlab.platypus import SimpleDocTemplate, Table, TableStyle, Paragraph, Spacer
+from reportlab.platypus import SimpleDocTemplate, Table, TableStyle, Paragraph
 
 OUTPUT = "/opt/cursor/artifacts/Java_String_Functions_Cheat_Sheet.pdf"
 OUTPUT_REPO = "/workspace/public/Java_String_Functions_Cheat_Sheet.pdf"
 
-# Method | Example | Output  (exactly as requested)
+# Method | Example | Output — only these rows (+ matches)
 ROWS = [
     ("length()", '"Java".length()', "4"),
     ("charAt(i)", '"Java".charAt(2)', "v"),
@@ -21,6 +21,7 @@ ROWS = [
     ("equalsIgnoreCase()", '"JAVA".equalsIgnoreCase("java")', "true"),
     ("compareTo()", '"abc".compareTo("abd")', "-1"),
     ("contains()", '"Hello".contains("ell")', "true"),
+    ("matches()", '"123".matches("\\\\d+")', "true"),
     ("startsWith()", '"Java".startsWith("Ja")', "true"),
     ("endsWith()", '"Java".endsWith("va")', "true"),
     ("indexOf()", '"banana".indexOf(\'a\')', "1"),
@@ -41,43 +42,21 @@ ROWS = [
 
 
 def esc(text: str) -> str:
-    return (
-        text.replace("&", "&amp;")
-        .replace("<", "&lt;")
-        .replace(">", "&gt;")
-    )
+    return text.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
 
 
 def build_pdf(path: str) -> None:
     doc = SimpleDocTemplate(
         path,
         pagesize=letter,
-        leftMargin=0.6 * inch,
-        rightMargin=0.6 * inch,
-        topMargin=0.55 * inch,
-        bottomMargin=0.55 * inch,
+        leftMargin=0.55 * inch,
+        rightMargin=0.55 * inch,
+        topMargin=0.5 * inch,
+        bottomMargin=0.5 * inch,
         title="Java String Functions",
-        author="Java String Cheat Sheet",
     )
 
     styles = getSampleStyleSheet()
-    title_style = ParagraphStyle(
-        "TitleCustom",
-        parent=styles["Heading1"],
-        fontSize=20,
-        alignment=TA_CENTER,
-        spaceAfter=4,
-        textColor=colors.HexColor("#1a365d"),
-        fontName="Helvetica-Bold",
-    )
-    subtitle_style = ParagraphStyle(
-        "Subtitle",
-        parent=styles["Normal"],
-        fontSize=10,
-        alignment=TA_CENTER,
-        textColor=colors.HexColor("#4a5568"),
-        spaceAfter=16,
-    )
     header_cell = ParagraphStyle(
         "HeaderCell",
         parent=styles["Normal"],
@@ -92,9 +71,8 @@ def build_pdf(path: str) -> None:
         parent=styles["Normal"],
         fontName="Courier-Bold",
         fontSize=9,
-        leading=12,
+        leading=11,
         alignment=TA_LEFT,
-        textColor=colors.HexColor("#1a365d"),
     )
     cell_example = ParagraphStyle(
         "CellExample",
@@ -109,18 +87,8 @@ def build_pdf(path: str) -> None:
         parent=styles["Normal"],
         fontName="Courier",
         fontSize=9,
-        leading=12,
+        leading=11,
         alignment=TA_CENTER,
-        textColor=colors.HexColor("#276749"),
-    )
-
-    story = []
-    story.append(Paragraph("Java String Functions", title_style))
-    story.append(
-        Paragraph(
-            "Method &nbsp;•&nbsp; Example &nbsp;•&nbsp; Output",
-            subtitle_style,
-        )
     )
 
     header = [
@@ -139,20 +107,17 @@ def build_pdf(path: str) -> None:
             ]
         )
 
-    col_widths = [1.85 * inch, 3.55 * inch, 1.85 * inch]
-    table = Table(data, colWidths=col_widths, repeatRows=1)
+    table = Table(data, colWidths=[1.9 * inch, 3.6 * inch, 1.7 * inch], repeatRows=1)
 
     style_cmds = [
         ("BACKGROUND", (0, 0), (-1, 0), colors.HexColor("#1a365d")),
-        ("TEXTCOLOR", (0, 0), (-1, 0), colors.white),
-        ("ALIGN", (0, 0), (-1, 0), "CENTER"),
         ("VALIGN", (0, 0), (-1, -1), "MIDDLE"),
-        ("TOPPADDING", (0, 0), (-1, -1), 7),
-        ("BOTTOMPADDING", (0, 0), (-1, -1), 7),
+        ("TOPPADDING", (0, 0), (-1, -1), 6),
+        ("BOTTOMPADDING", (0, 0), (-1, -1), 6),
         ("LEFTPADDING", (0, 0), (-1, -1), 8),
         ("RIGHTPADDING", (0, 0), (-1, -1), 8),
         ("GRID", (0, 0), (-1, -1), 0.5, colors.HexColor("#a0aec0")),
-        ("BOX", (0, 0), (-1, -1), 1.5, colors.HexColor("#1a365d")),
+        ("BOX", (0, 0), (-1, -1), 1.25, colors.HexColor("#1a365d")),
         ("ALIGN", (2, 1), (2, -1), "CENTER"),
     ]
     for i in range(1, len(data)):
@@ -160,37 +125,8 @@ def build_pdf(path: str) -> None:
         style_cmds.append(("BACKGROUND", (0, i), (-1, i), bg))
 
     table.setStyle(TableStyle(style_cmds))
-    story.append(table)
-
-    story.append(Spacer(1, 14))
-    note = ParagraphStyle(
-        "Note",
-        parent=styles["Normal"],
-        fontSize=8.5,
-        textColor=colors.HexColor("#4a5568"),
-        alignment=TA_CENTER,
-    )
-    story.append(
-        Paragraph(
-            f"{len(ROWS)} common <b>java.lang.String</b> methods &nbsp;|&nbsp; "
-            "Strings are immutable — these methods return a new value.",
-            note,
-        )
-    )
-
-    def footer(canvas, doc_):
-        canvas.saveState()
-        canvas.setFont("Helvetica", 8)
-        canvas.setFillColor(colors.HexColor("#718096"))
-        canvas.drawCentredString(
-            letter[0] / 2,
-            0.3 * inch,
-            f"Java String Functions  •  Page {canvas.getPageNumber()}",
-        )
-        canvas.restoreState()
-
-    doc.build(story, onFirstPage=footer, onLaterPages=footer)
-    print(f"Wrote: {path}")
+    doc.build([table])
+    print(f"Wrote: {path} ({len(ROWS)} rows)")
 
 
 if __name__ == "__main__":

@@ -11,6 +11,9 @@ import MobileCarousel from './components/layout/MobileCarousel'
 import PortfolioCard from './components/cards/PortfolioCard'
 import OpenToWorkWidget from './components/sections/OpenToWorkWidget'
 import CaseStudiesSection from './components/sections/CaseStudiesSection'
+import GalaxyMode from './components/galaxy/GalaxyMode'
+
+const GALAXY_STORAGE_KEY = 'prakhar-portfolio-galaxy-mode'
 
 function AppContent() {
   const { isMobile, isTablet, isDesktop } = useBreakpoint()
@@ -21,6 +24,14 @@ function AppContent() {
   const [activeId, setActiveId] = useState(null)
   const [activeSection, setActiveSection] = useState('about')
   const [scrolled, setScrolled] = useState(false)
+  const [galaxyMode, setGalaxyMode] = useState(() => {
+    if (typeof window === 'undefined') return false
+    try {
+      return window.localStorage.getItem(GALAXY_STORAGE_KEY) === '1'
+    } catch {
+      return false
+    }
+  })
 
   const [cardsVisible, setCardsVisible] = useState(reducedMotion)
   useEffect(() => {
@@ -32,6 +43,15 @@ function AppContent() {
     const onScroll = () => setScrolled(window.scrollY > 80)
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
+  const setGalaxyModePersisted = useCallback((value) => {
+    setGalaxyMode(value)
+    try {
+      window.localStorage.setItem(GALAXY_STORAGE_KEY, value ? '1' : '0')
+    } catch {
+      /* ignore */
+    }
   }, [])
 
   const handleHover = useCallback((id) => setHoverId(id), [])
@@ -53,6 +73,10 @@ function AppContent() {
     [handleClick],
   )
 
+  if (galaxyMode) {
+    return <GalaxyMode onExitGalaxy={() => setGalaxyModePersisted(false)} />
+  }
+
   return (
     <div className="relative min-h-screen">
       <Navbar
@@ -60,6 +84,7 @@ function AppContent() {
         onNavClick={handleNavClick}
         setCursor={undefined}
         scrolled={scrolled}
+        onEnterGalaxy={() => setGalaxyModePersisted(true)}
       />
 
       <main className="relative z-10">

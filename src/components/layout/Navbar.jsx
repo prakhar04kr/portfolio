@@ -1,6 +1,6 @@
 import { memo, useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { IconSearch, IconX, IconMenu2 } from '@tabler/icons-react'
+import { IconSearch, IconX, IconMenu2, IconSparkles } from '@tabler/icons-react'
 import { DEVELOPER } from '../../data/cards'
 import SearchModal from '../search/SearchModal'
 
@@ -56,7 +56,7 @@ function MobileMenu({ activeSection, onNavClick, onClose }) {
   )
 }
 
-function Navbar({ activeSection, onNavClick, setCursor, scrolled }) {
+function Navbar({ activeSection, onNavClick, setCursor, scrolled, onEnterGalaxy }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [searchOpen, setSearchOpen] = useState(false)
 
@@ -136,6 +136,18 @@ function Navbar({ activeSection, onNavClick, setCursor, scrolled }) {
           </div>
 
           <div className="flex items-center gap-2">
+            {onEnterGalaxy && (
+              <button
+                onClick={onEnterGalaxy}
+                className="flex items-center gap-1.5 rounded-full border border-[#4a6cf7]/35 bg-[#4a6cf7]/15 px-2.5 py-1.5 text-[12px] text-[#9db0ff] transition-colors hover:bg-[#4a6cf7]/25 hover:text-white"
+                aria-label="Enter Galaxy Mode"
+                title="Galaxy Mode"
+              >
+                <IconSparkles size={13} />
+                <span className="hidden sm:inline">Galaxy Mode</span>
+              </button>
+            )}
+
             <button
               onClick={() => setSearchOpen(true)}
               className="flex items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-2.5 py-1.5 text-[12px] text-white/50 transition-colors hover:bg-white/10 hover:text-white"
